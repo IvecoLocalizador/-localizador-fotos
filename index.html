@@ -1090,10 +1090,6 @@ body{
 
 <div class="app">
 
-  <!-- =========================
-       MENU LATERAL
-  ========================== -->
-
   <aside class="sidebar">
 
     <div class="logo-iveco">
@@ -1102,7 +1098,6 @@ body{
 
     <div class="menu">
 
-      <!-- INÍCIO -->
       <div class="menu-item active" id="menuInicio">
 
         <span class="menu-icon">⌂</span>
@@ -1111,8 +1106,6 @@ body{
 
       </div>
 
-
-      <!-- HISTÓRICO -->
       <div class="menu-item" id="menuHistorico">
 
         <span class="menu-icon">◔</span>
@@ -1141,19 +1134,9 @@ body{
   </aside>
 
 
-  <!-- =========================
-       CONTEÚDO PRINCIPAL
-  ========================== -->
-
   <main class="main">
 
-    <!-- =========================
-         TELA INICIAL
-    ========================== -->
-
     <div id="telaInicio">
-
-      <!-- HERO -->
 
       <section class="hero">
 
@@ -1187,10 +1170,6 @@ body{
 
       </section>
 
-
-      <!-- =========================
-           ÁREA DE SELEÇÃO
-      ========================== -->
 
       <div class="workspace">
 
@@ -1348,9 +1327,7 @@ body{
         </div>
 
 
-        <!-- =========================
-             INFORMAÇÕES
-        ========================== -->
+        <!-- INFORMAÇÕES -->
 
         <div class="info-strip">
 
@@ -1408,9 +1385,7 @@ body{
         </div>
 
 
-        <!-- =========================
-             RESULTADOS
-        ========================== -->
+        <!-- RESULTADOS -->
 
         <div class="results-card">
 
@@ -1451,9 +1426,7 @@ body{
     </div>
 
 
-    <!-- ==================================================
-         TELA DE HISTÓRICO
-    ================================================== -->
+    <!-- TELA DE HISTÓRICO -->
 
     <div id="telaHistorico">
 
@@ -1505,9 +1478,7 @@ body{
     </div>
 
 
-    <!-- =========================
-         RODAPÉ
-    ========================== -->
+    <!-- RODAPÉ -->
 
     <footer class="footer">
 
@@ -1705,7 +1676,7 @@ function mostrarInicio(){
 
 
 /* ==========================================================
-   CARREGAR HISTÓRICO NA TELA
+   CARREGAR HISTÓRICO
 ========================================================== */
 
 function carregarHistorico(){
@@ -1865,7 +1836,7 @@ function carregarHistorico(){
 
 
 /* ==========================================================
-   BOTÃO HISTÓRICO
+   BOTÕES
 ========================================================== */
 
 document
@@ -1876,10 +1847,6 @@ document
   );
 
 
-/* ==========================================================
-   BOTÃO INÍCIO
-========================================================== */
-
 document
   .getElementById("menuInicio")
   .addEventListener(
@@ -1888,10 +1855,6 @@ document
   );
 
 
-/* ==========================================================
-   BOTÃO VOLTAR
-========================================================== */
-
 document
   .getElementById("btnVoltarInicio")
   .addEventListener(
@@ -1899,10 +1862,6 @@ document
     mostrarInicio
   );
 
-
-/* ==========================================================
-   LIMPAR HISTÓRICO
-========================================================== */
 
 document
   .getElementById("btnLimparHistorico")
@@ -1962,20 +1921,11 @@ document
       return;
 
 
-    /*
-      Adiciona as novas fotos
-      às fotos que já estavam selecionadas.
-    */
-
     fotos =
       fotos.concat(
         novosArquivos
       );
 
-
-    /*
-      Mantém somente imagens.
-    */
 
     fotos =
       fotos.filter(
@@ -1984,11 +1934,6 @@ document
           arquivo.type.startsWith("image/")
       );
 
-
-    /*
-      Adiciona cada nova foto
-      ao histórico.
-    */
 
     for(
       const arquivo
@@ -2002,17 +1947,8 @@ document
     }
 
 
-    /*
-      Atualiza a galeria de fotos.
-    */
-
     atualizarPreviews();
 
-
-    /*
-      Permite selecionar novamente
-      as mesmas fotos depois.
-    */
 
     this.value = "";
 
@@ -2459,156 +2395,187 @@ async function imagemDoBlob(blob){
 
 
 /* ==========================================================
-   ASSINATURA DA IMAGEM
+   NORMALIZAÇÃO DE VETOR
 ========================================================== */
 
-async function assinatura(blob){
-
-  const img =
-    await imagemDoBlob(blob);
-
-
-  const w = 48;
-  const h = 48;
-
-
-  const canvas =
-    document.createElement(
-      "canvas"
-    );
-
-
-  canvas.width = w;
-  canvas.height = h;
-
-
-  const ctx =
-    canvas.getContext(
-      "2d",
-      {
-        willReadFrequently:true
-      }
-    );
-
-
-  ctx.fillStyle = "#fff";
-
-  ctx.fillRect(
-    0,
-    0,
-    w,
-    h
-  );
-
-
-  const escala =
-    Math.min(
-      w / img.naturalWidth,
-      h / img.naturalHeight
-    );
-
-
-  const dw =
-    img.naturalWidth *
-    escala;
-
-
-  const dh =
-    img.naturalHeight *
-    escala;
-
-
-  ctx.drawImage(
-    img,
-    (w-dw)/2,
-    (h-dh)/2,
-    dw,
-    dh
-  );
-
-
-  const data =
-    ctx.getImageData(
-      0,
-      0,
-      w,
-      h
-    ).data;
-
-
-  const cinza =
-    new Float32Array(
-      w*h
-    );
-
+function normalizarVetor(vetor){
 
   let media = 0;
 
 
   for(
-    let i=0,p=0;
-    i<data.length;
-    i+=4,p++
+    let i=0;
+    i<vetor.length;
+    i++
   ){
 
-    const v =
-      .299*data[i] +
-      .587*data[i+1] +
-      .114*data[i+2];
-
-
-    cinza[p] = v;
-
-    media += v;
+    media +=
+      vetor[i];
 
   }
 
 
   media /=
-    cinza.length;
+    vetor.length;
 
 
-  let vari = 0;
+  let variancia = 0;
 
 
-  for(const v of cinza){
+  for(
+    let i=0;
+    i<vetor.length;
+    i++
+  ){
 
-    vari +=
-      (v-media) *
-      (v-media);
+    const d =
+      vetor[i]-media;
+
+
+    variancia +=
+      d*d;
 
   }
 
 
   const desvio =
     Math.sqrt(
-      vari / cinza.length
+      variancia /
+      vetor.length
     ) || 1;
 
 
   for(
     let i=0;
-    i<cinza.length;
+    i<vetor.length;
     i++
   ){
 
-    cinza[i] =
-      (cinza[i]-media) /
+    vetor[i] =
+      (
+        vetor[i]-media
+      ) /
       desvio;
 
   }
 
 
-  return cinza;
+  return vetor;
 
 }
 
 
 /* ==========================================================
-   DISTÂNCIA
+   HISTOGRAMA DE CORES
 ========================================================== */
 
-function distancia(a,b){
+function histogramaCores(data){
+
+  /*
+    4 níveis para cada canal RGB:
+    4 x 4 x 4 = 64 grupos de cor.
+  */
+
+  const hist =
+    new Float32Array(64);
+
+
+  for(
+    let i=0;
+    i<data.length;
+    i+=4
+  ){
+
+    const r =
+      Math.min(
+        3,
+        Math.floor(
+          data[i] / 64
+        )
+      );
+
+
+    const g =
+      Math.min(
+        3,
+        Math.floor(
+          data[i+1] / 64
+        )
+      );
+
+
+    const b =
+      Math.min(
+        3,
+        Math.floor(
+          data[i+2] / 64
+        )
+      );
+
+
+    const indice =
+      r*16 +
+      g*4 +
+      b;
+
+
+    hist[indice]++;
+
+  }
+
+
+  let total = 0;
+
+
+  for(
+    let i=0;
+    i<hist.length;
+    i++
+  ){
+
+    total +=
+      hist[i];
+
+  }
+
+
+  if(total){
+
+    for(
+      let i=0;
+      i<hist.length;
+      i++
+    ){
+
+      hist[i] /=
+        total;
+
+    }
+
+  }
+
+
+  return hist;
+
+}
+
+
+/* ==========================================================
+   DISTÂNCIA NORMALIZADA
+========================================================== */
+
+function distanciaNormalizada(a,b){
+
+  if(
+    !a ||
+    !b ||
+    a.length !== b.length
+  ){
+
+    return 1;
+
+  }
+
 
   let soma = 0;
 
@@ -2637,18 +2604,398 @@ function distancia(a,b){
 
 
 /* ==========================================================
-   SIMILARIDADE
+   DISTÂNCIA DE HISTOGRAMA
 ========================================================== */
 
-function similaridade(dist){
+function distanciaHistograma(a,b){
+
+  let soma = 0;
+
+
+  for(
+    let i=0;
+    i<a.length;
+    i++
+  ){
+
+    /*
+      Distância Bhattacharyya simplificada.
+    */
+
+    soma +=
+      Math.sqrt(
+        Math.max(0,a[i]) *
+        Math.max(0,b[i])
+      );
+
+  }
+
+
+  return Math.max(
+    0,
+    Math.min(
+      1,
+      1-soma
+    )
+  );
+
+}
+
+
+/* ==========================================================
+   ASSINATURA VISUAL AVANÇADA
+========================================================== */
+
+async function assinatura(blob){
+
+  const img =
+    await imagemDoBlob(blob);
+
+
+  /*
+    Resolução maior que a versão anterior.
+    Isso permite capturar mais detalhes
+    da peça/imagem.
+  */
+
+  const w = 64;
+  const h = 64;
+
+
+  const canvas =
+    document.createElement(
+      "canvas"
+    );
+
+
+  canvas.width = w;
+  canvas.height = h;
+
+
+  const ctx =
+    canvas.getContext(
+      "2d",
+      {
+        willReadFrequently:true
+      }
+    );
+
+
+  /*
+    Fundo neutro.
+    A imagem é encaixada mantendo
+    sua proporção.
+  */
+
+  ctx.fillStyle =
+    "#ffffff";
+
+
+  ctx.fillRect(
+    0,
+    0,
+    w,
+    h
+  );
+
+
+  const escala =
+    Math.min(
+      w / img.naturalWidth,
+      h / img.naturalHeight
+    );
+
+
+  const dw =
+    img.naturalWidth *
+    escala;
+
+
+  const dh =
+    img.naturalHeight *
+    escala;
+
+
+  const dx =
+    (w-dw)/2;
+
+
+  const dy =
+    (h-dh)/2;
+
+
+  ctx.drawImage(
+    img,
+    dx,
+    dy,
+    dw,
+    dh
+  );
+
+
+  const data =
+    ctx.getImageData(
+      0,
+      0,
+      w,
+      h
+    ).data;
+
+
+  /* =========================
+     ESCALA DE CINZA
+  ========================== */
+
+  const cinza =
+    new Float32Array(
+      w*h
+    );
+
+
+  for(
+    let i=0,p=0;
+    i<data.length;
+    i+=4,p++
+  ){
+
+    cinza[p] =
+      .299*data[i] +
+      .587*data[i+1] +
+      .114*data[i+2];
+
+  }
+
+
+  /*
+    Normalização melhora a comparação
+    quando há diferença de iluminação.
+  */
+
+  normalizarVetor(
+    cinza
+  );
+
+
+  /* =========================
+     BORDAS / DETALHES
+  ========================== */
+
+  const bordas =
+    new Float32Array(
+      w*h
+    );
+
+
+  for(
+    let y=1;
+    y<h-1;
+    y++
+  ){
+
+    for(
+      let x=1;
+      x<w-1;
+      x++
+    ){
+
+      const pos =
+        y*w+x;
+
+
+      const gx =
+        -cinza[pos-w-1] +
+        cinza[pos-w+1] -
+
+        2*cinza[pos-1] +
+        2*cinza[pos+1] -
+
+        cinza[pos+w-1] +
+        cinza[pos+w+1];
+
+
+      const gy =
+        -cinza[pos-w-1] -
+        2*cinza[pos-w] -
+        cinza[pos-w+1] +
+
+        cinza[pos+w-1] +
+        2*cinza[pos+w] +
+        cinza[pos+w+1];
+
+
+      bordas[pos] =
+        Math.sqrt(
+          gx*gx +
+          gy*gy
+        );
+
+    }
+
+  }
+
+
+  normalizarVetor(
+    bordas
+  );
+
+
+  /* =========================
+     HISTOGRAMA DE CORES
+  ========================== */
+
+  const cores =
+    histogramaCores(
+      data
+    );
+
+
+  /* =========================
+     PROPORÇÃO DA IMAGEM
+  ========================== */
+
+  const proporcao =
+    img.naturalWidth /
+    img.naturalHeight;
+
+
+  return {
+
+    cinza,
+
+    bordas,
+
+    cores,
+
+    proporcao
+
+  };
+
+}
+
+
+/* ==========================================================
+   SIMILARIDADE VISUAL AVANÇADA
+========================================================== */
+
+function similaridadeAvancada(a,b){
+
+  if(!a || !b)
+    return 0;
+
+
+  /*
+    1. Estrutura geral.
+    Compara a distribuição de tons
+    em 64 x 64 pontos.
+  */
+
+  const distanciaCinza =
+    distanciaNormalizada(
+      a.cinza,
+      b.cinza
+    );
+
+
+  /*
+    2. Detalhes e contornos.
+  */
+
+  const distanciaBordas =
+    distanciaNormalizada(
+      a.bordas,
+      b.bordas
+    );
+
+
+  /*
+    3. Cores predominantes.
+  */
+
+  const distanciaCores =
+    distanciaHistograma(
+      a.cores,
+      b.cores
+    );
+
+
+  /*
+    4. Proporção da imagem.
+  */
+
+  const diferencaProporcao =
+    Math.min(
+      1,
+      Math.abs(
+        Math.log(
+          a.proporcao /
+          b.proporcao
+        )
+      )
+    );
+
+
+  /*
+    Converte cada distância
+    em uma pontuação de 0 a 100.
+  */
+
+  const scoreEstrutura =
+    100 *
+    Math.exp(
+      -distanciaCinza / 0.75
+    );
+
+
+  const scoreDetalhes =
+    100 *
+    Math.exp(
+      -distanciaBordas / 0.90
+    );
+
+
+  const scoreCores =
+    Math.max(
+      0,
+      100 *
+      (1-distanciaCores)
+    );
+
+
+  const scoreProporcao =
+    Math.max(
+      0,
+      100 *
+      Math.exp(
+        -diferencaProporcao * 3
+      )
+    );
+
+
+  /*
+    PESOS DA BUSCA:
+    
+    45% estrutura
+    30% detalhes/bordas
+    20% cores
+    5% proporção
+  */
+
+  const resultado =
+
+    scoreEstrutura * 0.45 +
+
+    scoreDetalhes * 0.30 +
+
+    scoreCores * 0.20 +
+
+    scoreProporcao * 0.05;
+
 
   return Math.max(
     0,
     Math.min(
       100,
-      100*Math.exp(
-        -dist/2.2
-      )
+      resultado
     )
   );
 
@@ -2749,15 +3096,14 @@ async function procurar(){
 
 
   status.innerText =
-    "Preparando fotos para pesquisa...";
+    "Preparando análise visual detalhada...";
 
 
   try{
 
-    /*
-      Cria as assinaturas de todas
-      as fotos selecionadas.
-    */
+    /* ======================================================
+       CRIAR ASSINATURAS DAS FOTOS DE PESQUISA
+    ====================================================== */
 
     const referencias = [];
 
@@ -2769,11 +3115,17 @@ async function procurar(){
     ){
 
       status.innerText =
-        "Preparando foto " +
+        "Analisando foto de pesquisa " +
         (f+1) +
         " de " +
         fotos.length +
         "...";
+
+
+      const assinaturaFoto =
+        await assinatura(
+          fotos[f]
+        );
 
 
       referencias.push({
@@ -2782,9 +3134,7 @@ async function procurar(){
           fotos[f],
 
         assinatura:
-          await assinatura(
-            fotos[f]
-          )
+          assinaturaFoto
 
       });
 
@@ -2793,6 +3143,10 @@ async function procurar(){
 
     const todos = [];
 
+
+    /* ======================================================
+       LER TODOS OS POWERPOINTS
+    ====================================================== */
 
     for(
       let p=0;
@@ -2827,6 +3181,11 @@ async function procurar(){
         Object.keys(zip.files);
 
 
+      /*
+        Localiza todas as imagens
+        armazenadas no PowerPoint.
+      */
+
       const imagens =
         arquivos.filter(
           n =>
@@ -2842,6 +3201,10 @@ async function procurar(){
 
       const desenhos = {};
 
+
+      /* ====================================================
+         LOCALIZAR SLIDES
+      ==================================================== */
 
       const slides =
         arquivos
@@ -2874,6 +3237,10 @@ async function procurar(){
             }
           );
 
+
+      /* ====================================================
+         ANALISAR CADA SLIDE
+      ==================================================== */
 
       for(
         const slide
@@ -2986,6 +3353,10 @@ async function procurar(){
       }
 
 
+      /* ====================================================
+         ANALISAR CADA IMAGEM DO POWERPOINT
+      ==================================================== */
+
       for(
         let i=0;
         i<imagens.length;
@@ -2993,7 +3364,7 @@ async function procurar(){
       ){
 
         status.innerText =
-          "Analisando " +
+          "Análise detalhada: " +
           ppt.name +
           " — imagem " +
           (i+1) +
@@ -3013,6 +3384,11 @@ async function procurar(){
               .async("blob");
 
 
+          /*
+            Calcula uma única assinatura
+            avançada para a imagem do PPT.
+          */
+
           const sig =
             await assinatura(
               blob
@@ -3020,7 +3396,7 @@ async function procurar(){
 
 
           /*
-            Compara a imagem do PowerPoint
+            Compara a imagem do PPT
             com TODAS as fotos selecionadas.
           */
 
@@ -3030,11 +3406,9 @@ async function procurar(){
           ){
 
             const score =
-              similaridade(
-                distancia(
-                  referencia.assinatura,
-                  sig
-                )
+              similaridadeAvancada(
+                referencia.assinatura,
+                sig
               );
 
 
@@ -3091,10 +3465,9 @@ async function procurar(){
     }
 
 
-    /*
-      Ordena todos os resultados
-      pela maior semelhança.
-    */
+    /* ======================================================
+       ORDENAÇÃO DOS RESULTADOS
+    ====================================================== */
 
     todos.sort(
       (a,b) =>
@@ -3112,16 +3485,13 @@ async function procurar(){
 
     }else{
 
+      /*
+        Mantém os 10 melhores resultados.
+      */
+
       const exibidos =
         todos.slice(0,10);
 
-
-      /*
-        Os 10 melhores resultados
-        são exibidos juntos:
-        5 na primeira linha
-        e 5 na segunda linha.
-      */
 
       for(
         let i=0;
@@ -3227,12 +3597,6 @@ async function procurar(){
         );
 
 
-        /*
-          Não existe mais o botão
-          "Abrir imagem" nos resultados.
-        */
-
-
         area.appendChild(
           div
         );
@@ -3243,9 +3607,9 @@ async function procurar(){
 
 
     status.innerText =
-      "Busca concluída em " +
+      "Busca detalhada concluída: " +
       fotos.length +
-      " foto(s) contra " +
+      " foto(s) analisada(s) contra " +
       ppts.length +
       " PowerPoint(s). Foram mostrados os 10 melhores resultados.";
 
