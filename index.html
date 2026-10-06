@@ -310,33 +310,52 @@ body{
 .preview-wrap{
   position:relative;
   margin-top:14px;
-  display:inline-block;
+  width:100%;
 }
 
-#preview{
-  display:none;
+.preview-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  align-items:flex-start;
+}
+
+.preview-item{
+  position:relative;
+  width:116px;
+  height:99px;
+}
+
+.preview-item img{
   width:116px;
   height:99px;
   object-fit:cover;
   border-radius:9px;
   border:1px solid #7893ab;
   box-shadow:0 4px 12px rgba(0,0,0,.35);
+  display:block;
+  background:#031321;
 }
 
 .remove-preview{
   position:absolute;
-  right:-9px;
-  top:-9px;
+  right:-7px;
+  top:-7px;
   width:23px;
   height:23px;
   border-radius:50%;
   background:#203c58;
   border:2px solid #081c30;
-  display:none;
+  display:flex;
   align-items:center;
   justify-content:center;
   cursor:pointer;
   font-size:13px;
+  z-index:5;
+}
+
+.remove-preview:hover{
+  background:#0878ff;
 }
 
 /* =========================
@@ -669,8 +688,6 @@ body{
   border-radius:6px;
   background:#031321;
 }
-
-/* BOTÃO DOS RESULTADOS REMOVIDO */
 
 .resultado button{
   display:none;
@@ -1222,17 +1239,10 @@ body{
 
             <div class="preview-wrap">
 
-              <img
-                id="preview"
-                alt="Imagem selecionada"
-              >
-
               <div
-                class="remove-preview"
-                id="removePreview"
-              >
-                ×
-              </div>
+                class="preview-list"
+                id="previewList"
+              ></div>
 
             </div>
 
@@ -1780,10 +1790,6 @@ function carregarHistorico(){
     `;
 
 
-    const imagem =
-      card.querySelector(".historico-imagem");
-
-
     const botao =
       card.querySelector(".historico-abrir");
 
@@ -1980,35 +1986,6 @@ document
 
 
     /*
-      Mostra a primeira foto
-      no preview principal.
-    */
-
-    if(fotos.length){
-
-      const img =
-        document.getElementById("preview");
-
-
-      img.src =
-        URL.createObjectURL(
-          fotos[0]
-        );
-
-
-      img.style.display =
-        "block";
-
-
-      document
-        .getElementById("removePreview")
-        .style.display =
-        "flex";
-
-    }
-
-
-    /*
       Adiciona cada nova foto
       ao histórico.
     */
@@ -2026,6 +2003,13 @@ document
 
 
     /*
+      Atualiza a galeria de fotos.
+    */
+
+    atualizarPreviews();
+
+
+    /*
       Permite selecionar novamente
       as mesmas fotos depois.
     */
@@ -2036,35 +2020,99 @@ document
 
 
 /* ==========================================================
-   REMOVER PREVIEW
+   MOSTRAR FOTOS SELECIONADAS
 ========================================================== */
 
-document
-  .getElementById("removePreview")
-  .onclick = function(){
+function atualizarPreviews(){
 
-    document
-      .getElementById("foto")
-      .value = "";
-
-
-    fotos = [];
+  const area =
+    document.getElementById(
+      "previewList"
+    );
 
 
-    document
-      .getElementById("preview")
-      .src = "";
+  area.innerHTML = "";
 
 
-    document
-      .getElementById("preview")
-      .style.display = "none";
+  fotos.forEach(
+    function(arquivo,index){
+
+      const item =
+        document.createElement(
+          "div"
+        );
 
 
-    this.style.display =
-      "none";
+      item.className =
+        "preview-item";
 
-  };
+
+      const imagem =
+        document.createElement(
+          "img"
+        );
+
+
+      imagem.alt =
+        arquivo.name;
+
+
+      imagem.src =
+        URL.createObjectURL(
+          arquivo
+        );
+
+
+      const remover =
+        document.createElement(
+          "div"
+        );
+
+
+      remover.className =
+        "remove-preview";
+
+
+      remover.innerText =
+        "×";
+
+
+      remover.title =
+        "Remover esta foto";
+
+
+      remover.onclick =
+        function(){
+
+          fotos.splice(
+            index,
+            1
+          );
+
+
+          atualizarPreviews();
+
+        };
+
+
+      item.appendChild(
+        imagem
+      );
+
+
+      item.appendChild(
+        remover
+      );
+
+
+      area.appendChild(
+        item
+      );
+
+    }
+  );
+
+}
 
 
 /* ==========================================================
