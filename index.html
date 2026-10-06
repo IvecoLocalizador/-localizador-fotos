@@ -2,45 +2,38 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Localizador de Fotos | IVECO</title>
+
 <link rel="icon" type="image/jpeg" href="caminhao.jpeg">
 
 <style>
-
 *{
 box-sizing:border-box;
-}
-
-html,body{
 margin:0;
 padding:0;
-width:100%;
-min-height:100%;
 }
 
 body{
 font-family:Arial,Helvetica,sans-serif;
-background:#020d19;
-color:#fff;
-overflow-x:hidden;
+background:#eef2f6;
+color:#17212b;
+min-height:100vh;
 }
 
 .app{
-min-height:100vh;
 display:flex;
-background:
-radial-gradient(circle at 70% 20%,rgba(0,91,180,.18),transparent 35%),
-linear-gradient(135deg,#02101d,#03192b 55%,#020c17);
+min-height:100vh;
 }
 
+/* =========================
+SIDEBAR
+========================= */
+
 .sidebar{
-width:176px;
-min-width:176px;
-min-height:100vh;
-background:
-linear-gradient(180deg,#06182a 0%,#031323 60%,#020d18 100%);
-border-right:1px solid rgba(55,139,226,.45);
+width:250px;
+background:#071b2f;
+color:#fff;
 position:fixed;
 left:0;
 top:0;
@@ -48,100 +41,163 @@ bottom:0;
 z-index:20;
 display:flex;
 flex-direction:column;
-overflow:hidden;
+box-shadow:4px 0 15px rgba(0,0,0,.18);
 }
 
-.logo-iveco{
-font-size:30px;
-font-weight:900;
+.logo-area{
+height:88px;
+display:flex;
+align-items:center;
+padding:0 22px;
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo-area img{
+width:48px;
+height:48px;
+object-fit:contain;
+margin-right:12px;
+}
+
+.logo-text{
+display:flex;
+flex-direction:column;
+}
+
+.logo-text strong{
+font-size:22px;
 letter-spacing:1px;
-padding:24px 30px 25px;
-color:#fff;
+}
+
+.logo-text span{
+font-size:11px;
+color:#aebdcc;
+margin-top:3px;
 }
 
 .menu{
-padding:0 8px;
+padding:20px 12px;
 }
 
 .menu-item{
-height:47px;
-margin-bottom:7px;
-border-radius:8px;
+width:100%;
+border:0;
+background:transparent;
+color:#b9c7d4;
+padding:14px 16px;
+border-radius:9px;
 display:flex;
 align-items:center;
-gap:15px;
-padding:0 16px;
-color:#fff;
-font-size:14px;
+gap:12px;
 cursor:pointer;
+font-size:15px;
+text-align:left;
 transition:.2s;
+margin-bottom:6px;
 }
 
 .menu-item:hover{
-background:rgba(21,109,220,.22);
+background:rgba(255,255,255,.07);
+color:#fff;
 }
 
 .menu-item.active{
-background:linear-gradient(90deg,#0879ff,#1261d6);
-box-shadow:0 5px 15px rgba(0,100,255,.22);
+background:#16456d;
+color:#fff;
+box-shadow:inset 3px 0 0 #fff;
 }
 
 .menu-icon{
 width:22px;
 text-align:center;
-font-size:22px;
+font-size:18px;
 }
 
-.sidebar-bottom{
-margin-top:auto;
-padding:0 24px 22px;
-position:relative;
-}
-
-.sidebar-truck{
-width:100%;
-opacity:.25;
-position:absolute;
-bottom:0;
-left:0;
-transform:translateY(15%);
-pointer-events:none;
-}
-
-.sidebar-message{
-position:relative;
-z-index:2;
-font-size:17px;
-line-height:1.35;
-color:#fff;
-}
-
-.sidebar-message strong{
-color:#0879ff;
-}
+/* =========================
+MAIN
+========================= */
 
 .main{
-margin-left:176px;
-width:calc(100% - 176px);
+margin-left:250px;
+width:calc(100% - 250px);
 min-height:100vh;
-padding-bottom:0;
 }
+
+.topbar{
+height:72px;
+background:#fff;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 30px;
+border-bottom:1px solid #dfe5ea;
+}
+
+.topbar-title{
+font-size:20px;
+font-weight:700;
+color:#102a43;
+}
+
+.topbar-subtitle{
+font-size:12px;
+color:#7a8996;
+margin-top:3px;
+}
+
+.status{
+display:flex;
+align-items:center;
+gap:8px;
+font-size:12px;
+color:#667788;
+}
+
+.status-dot{
+width:9px;
+height:9px;
+border-radius:50%;
+background:#27ae60;
+box-shadow:0 0 0 4px rgba(39,174,96,.12);
+}
+
+/* =========================
+CONTENT
+========================= */
+
+.content{
+padding:28px 30px 35px;
+}
+
+.page{
+display:none;
+}
+
+.page.active{
+display:block;
+}
+
+/* =========================
+HERO
+========================= */
 
 .hero{
-height:193px;
 position:relative;
+min-height:220px;
+border-radius:16px;
 overflow:hidden;
-border-bottom:1px solid rgba(42,130,230,.55);
-background:#041323;
+background:#123452;
+margin-bottom:25px;
+box-shadow:0 7px 22px rgba(0,0,0,.10);
 }
 
-.hero-image{
+.hero img{
 position:absolute;
 inset:0;
 width:100%;
 height:100%;
 object-fit:cover;
-object-position:left center;
+opacity:.45;
 }
 
 .hero-overlay{
@@ -150,772 +206,581 @@ inset:0;
 background:
 linear-gradient(
 90deg,
-rgba(2,14,27,.10) 0%,
-rgba(2,14,27,.28) 30%,
-rgba(2,14,27,.82) 52%,
-rgba(2,14,27,.95) 100%
-);
-}
-
-.hero-blue{
-position:absolute;
-inset:0;
-background:
-linear-gradient(
-90deg,
-rgba(2,14,27,.08),
-rgba(2,14,27,.25) 30%,
-rgba(2,14,27,.82) 52%,
-rgba(2,14,27,.95)
+rgba(5,26,45,.94) 0%,
+rgba(5,26,45,.78) 42%,
+rgba(5,26,45,.25) 100%
 );
 }
 
 .hero-content{
 position:relative;
-z-index:3;
-height:100%;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:left;
-padding-left:250px;
-padding-right:170px;
+z-index:2;
+padding:35px;
+max-width:720px;
+color:#fff;
 }
 
-.hero-title{
-font-size:42px;
-line-height:1.05;
-font-weight:800;
-margin:0 0 9px;
+.hero-content h1{
+font-size:30px;
+margin-bottom:10px;
 }
 
-.hero-title span{
-color:#0878ff;
+.hero-content p{
+color:#d7e3ed;
+line-height:1.55;
+font-size:14px;
 }
 
-.hero-subtitle{
-font-size:16px;
-margin:0;
-color:#e6eef8;
+/* =========================
+INFO STRIP
+========================= */
+
+.info-strip{
+background:#fff;
+border-left:5px solid #174b76;
+border-radius:9px;
+padding:15px 18px;
+margin-bottom:22px;
+box-shadow:0 3px 12px rgba(0,0,0,.06);
 }
 
-.hero-logo{
-position:absolute;
-right:42px;
-top:73px;
-font-size:38px;
-font-weight:900;
-letter-spacing:2px;
+.info-strip .label{
+font-size:11px;
+color:#8493a0;
+text-transform:uppercase;
+letter-spacing:.7px;
+margin-bottom:5px;
 }
 
-.workspace{
-padding:10px 25px 0;
+.info-strip strong{
+color:#163c5c;
+font-size:15px;
 }
 
-.cards-top{
-display:grid;
-grid-template-columns:1.05fr 1.15fr .67fr;
-gap:10px;
-}
+/* =========================
+CARDS
+========================= */
 
 .card{
-background:
-linear-gradient(145deg,rgba(5,34,58,.94),rgba(3,24,42,.94));
-border:1px solid rgba(40,126,214,.68);
-border-radius:10px;
-box-shadow:
-inset 0 1px 0 rgba(255,255,255,.025),
-0 5px 18px rgba(0,0,0,.18);
-overflow:hidden;
-}
-
-.input-card{
-min-height:274px;
-padding:10px 15px 14px;
+background:#fff;
+border-radius:13px;
+box-shadow:0 4px 18px rgba(0,0,0,.07);
+padding:23px;
+margin-bottom:22px;
 }
 
 .card-title{
 display:flex;
 align-items:center;
-gap:12px;
-font-weight:700;
-font-size:14px;
-margin-bottom:8px;
+justify-content:space-between;
+margin-bottom:17px;
 }
 
-.number{
-width:31px;
-height:31px;
+.card-title h2{
+color:#123957;
+font-size:18px;
+}
+
+.card-title p{
+color:#8795a1;
+font-size:12px;
+}
+
+/* =========================
+UPLOAD
+========================= */
+
+.upload-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:18px;
+}
+
+.upload-box{
+border:2px dashed #b8c7d3;
+border-radius:12px;
+padding:25px;
+text-align:center;
+background:#f9fbfc;
+transition:.2s;
+cursor:pointer;
+}
+
+.upload-box:hover{
+border-color:#2c628d;
+background:#f2f7fb;
+}
+
+.upload-box.dragover{
+border-color:#174b76;
+background:#edf5fa;
+}
+
+.upload-icon{
+width:55px;
+height:55px;
+margin:0 auto 13px;
 border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
-background:#0878ff;
-font-size:17px;
-font-weight:700;
-box-shadow:0 0 15px rgba(0,116,255,.25);
+background:#e6eef5;
+color:#16496e;
+font-size:25px;
 }
 
-.drop-zone{
-height:95px;
-border:1px dashed #3488d8;
-border-radius:9px;
-display:flex;
-align-items:center;
-justify-content:center;
-flex-direction:column;
-text-align:center;
-cursor:pointer;
-background:rgba(8,53,88,.25);
-transition:.2s;
-position:relative;
-}
-
-.drop-zone:hover{
-background:rgba(10,91,157,.25);
-border-color:#1685ff;
-}
-
-.drop-icon{
-font-size:27px;
+.upload-box h3{
+color:#1b405e;
+font-size:15px;
 margin-bottom:6px;
 }
 
-.drop-text{
+.upload-box p{
 font-size:12px;
-line-height:1.4;
-color:#dbe9f8;
+color:#82909b;
+line-height:1.45;
 }
 
-.drop-input{
-position:absolute;
-inset:0;
-width:100%;
-height:100%;
-opacity:0;
-cursor:pointer;
-}
-
-.preview-wrap{
-position:relative;
-margin-top:14px;
-width:100%;
-}
-
-.preview-list{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-align-items:flex-start;
-}
-
-.preview-item{
-position:relative;
-width:116px;
-height:99px;
-}
-
-.preview-item img{
-width:116px;
-height:99px;
-object-fit:cover;
-border-radius:9px;
-border:1px solid #7893ab;
-box-shadow:0 4px 12px rgba(0,0,0,.35);
-display:block;
-background:#031321;
-}
-
-.remove-preview{
-position:absolute;
-right:-7px;
-top:-7px;
-width:23px;
-height:23px;
-border-radius:50%;
-background:#203c58;
-border:2px solid #081c30;
-display:flex;
-align-items:center;
-justify-content:center;
-cursor:pointer;
-font-size:13px;
-z-index:5;
-}
-
-.remove-preview:hover{
-background:#0878ff;
-}
-
-.ppt-drop{
-margin-bottom:7px;
-}
-
-.ppt-help{
-font-size:11px;
-color:#dce8f4;
-margin:0 0 7px;
+.file-input{
+display:none;
 }
 
 .file-list{
-max-height:94px;
-overflow-y:auto;
+margin-top:14px;
+text-align:left;
 }
 
 .file-item{
-height:27px;
+background:#eef4f8;
+border-radius:7px;
+padding:8px 10px;
+margin-top:6px;
 display:flex;
 align-items:center;
-gap:8px;
-background:rgba(7,55,91,.42);
-border:1px solid rgba(45,113,169,.28);
-border-radius:6px;
-margin-bottom:4px;
-padding:0 8px;
-font-size:11px;
+justify-content:space-between;
+font-size:12px;
+color:#345064;
 }
 
-.ppt-icon{
-width:18px;
-height:20px;
-border-radius:3px;
-background:#ef4c2f;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:10px;
+.file-item .remove{
+cursor:pointer;
+color:#a04444;
 font-weight:bold;
 }
 
-.file-name{
-flex:1;
-overflow:hidden;
-white-space:nowrap;
-text-overflow:ellipsis;
+/* =========================
+SEARCH BUTTON
+========================= */
+
+.actions{
+display:flex;
+justify-content:flex-end;
+gap:10px;
+margin-top:20px;
 }
 
-.file-size{
-color:#e6edf4;
-white-space:nowrap;
-}
-
-.file-remove{
-cursor:pointer;
-font-size:15px;
-opacity:.8;
-}
-
-.search-card{
-min-height:274px;
-padding:18px 15px 14px;
-position:relative;
-text-align:center;
-background:
-linear-gradient(145deg,rgba(6,38,65,.94),rgba(3,21,37,.96));
-}
-
-.search-bg{
-position:absolute;
-right:-45px;
-top:0;
-width:190px;
-height:100%;
-background:
-linear-gradient(90deg,transparent,rgba(0,54,103,.25)),
-url("IMG_6447.jpeg") center/cover no-repeat;
-opacity:.16;
-pointer-events:none;
-}
-
-.search-content{
-position:relative;
-z-index:2;
-}
-
-.search-icon{
-font-size:39px;
-margin-bottom:7px;
-}
-
-.search-title{
-font-size:17px;
-font-weight:800;
-line-height:1.2;
-margin-bottom:12px;
-}
-
-.search-description{
-font-size:13px;
-line-height:1.35;
-color:#e5edf6;
-margin:0 auto 14px;
-max-width:205px;
-}
-
-#btn{
-width:100%;
-height:44px;
-background:linear-gradient(90deg,#0878ff,#0563eb);
-color:#fff;
+.btn{
 border:0;
 border-radius:8px;
+padding:12px 19px;
 font-size:13px;
-font-weight:bold;
+font-weight:700;
 cursor:pointer;
 transition:.2s;
-margin:0;
 }
 
-#btn:hover{
-background:linear-gradient(90deg,#1684ff,#0870ff);
-box-shadow:0 5px 16px rgba(0,107,255,.25);
+.btn-primary{
+background:#123f63;
+color:#fff;
 }
 
-#btn:disabled{
-opacity:.6;
-cursor:wait;
+.btn-primary:hover{
+background:#0d314e;
+transform:translateY(-1px);
 }
 
-#status{
-font-size:12px;
-min-height:18px;
-margin:5px 0 0;
-color:#bcd4eb;
+.btn-secondary{
+background:#e7edf2;
+color:#365166;
 }
 
-.info-strip{
-margin-top:10px;
-padding:11px 15px;
-background:
-linear-gradient(90deg,#062a4a,#05233d);
-border:1px solid rgba(30,119,211,.72);
-border-radius:10px;
-display:grid;
-grid-template-columns:1.15fr 1fr 1fr 1fr;
-align-items:center;
+.btn-secondary:hover{
+background:#dbe4ea;
 }
 
-.info-header{
+.btn:disabled{
+opacity:.5;
+cursor:not-allowed;
+transform:none;
+}
+
+/* =========================
+PROGRESS
+========================= */
+
+.progress-area{
+display:none;
+margin-top:20px;
+}
+
+.progress-area.active{
+display:block;
+}
+
+.progress-header{
 display:flex;
-align-items:center;
-gap:12px;
+justify-content:space-between;
+margin-bottom:7px;
 font-size:12px;
+color:#637684;
 }
 
-.info-circle{
-width:23px;
-height:23px;
-background:#0878ff;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-weight:bold;
-font-size:13px;
+.progress-bar{
+width:100%;
+height:8px;
+background:#e4eaee;
+border-radius:20px;
+overflow:hidden;
 }
 
-.info-item{
-border-left:1px solid #0878ff;
-padding-left:25px;
-min-height:32px;
-display:flex;
-flex-direction:column;
-justify-content:center;
+.progress-fill{
+height:100%;
+width:0%;
+background:#164d76;
+border-radius:20px;
+transition:width .15s;
 }
 
-.info-label{
-font-size:12px;
-font-weight:bold;
-margin-bottom:4px;
-}
-
-.info-example{
+.progress-status{
+margin-top:8px;
+color:#82909b;
 font-size:11px;
-color:#d4e3f1;
 }
 
-.results-card{
-margin-top:10px;
-padding:12px 15px 14px;
-border:1px solid rgba(40,126,214,.68);
-border-radius:10px;
-background:
-linear-gradient(145deg,rgba(3,28,48,.97),rgba(2,20,35,.97));
-}
+/* =========================
+RESULTS
+========================= */
 
 .results-header{
 display:flex;
-align-items:center;
 justify-content:space-between;
-margin-bottom:8px;
-}
-
-.results-title{
-display:flex;
 align-items:center;
-gap:11px;
-font-size:22px;
-font-weight:800;
+margin-bottom:16px;
 }
 
-.results-title-icon{
-font-size:23px;
+.results-count{
+font-size:13px;
+color:#778894;
 }
 
-.top-results{
-background:#10375a;
-border:1px solid rgba(65,133,191,.35);
-border-radius:18px;
-padding:7px 13px;
-font-size:10px;
-color:#e8f2fc;
-}
-
-#resultados{
+.results-grid{
 display:grid;
-grid-template-columns:repeat(5,1fr);
-gap:12px;
-align-items:start;
+grid-template-columns:repeat(2,1fr);
+gap:18px;
 }
 
-.resultado{
-position:relative;
-min-width:0;
-min-height:245px;
-background:
-linear-gradient(150deg,#06233b,#041a2e);
-border:1px solid rgba(33,105,163,.68);
-border-radius:9px;
-padding:10px;
-margin:0;
-box-shadow:0 4px 12px rgba(0,0,0,.15);
+.result-card{
+background:#fff;
+border-radius:12px;
 overflow:hidden;
+border:1px solid #e0e6eb;
+box-shadow:0 3px 12px rgba(0,0,0,.06);
 }
 
-.resultado .separador{
-display:none;
-}
-
-.tag{
-position:absolute;
-left:10px;
-top:10px;
-z-index:3;
-display:inline-block;
-background:#54edc1;
-color:#052b2a;
-padding:5px 9px;
-border-radius:15px;
-font-size:11px;
-font-weight:bold;
-margin:0;
-}
-
-.desenho{
-background:transparent;
-border:0;
-border-left:0;
-padding:0;
-margin:132px 0 4px;
-border-radius:0;
-font-size:10px;
-line-height:1.35;
-}
-
-.dados{
-line-height:1.42;
-margin:0 0 6px;
-font-size:10px;
-color:#eef6ff;
-min-height:67px;
-}
-
-.imagem-encontrada{
+.result-image{
 width:100%;
-height:125px;
-max-width:none;
-max-height:none;
-object-fit:contain;
-display:block;
-margin:0 auto;
-border-radius:6px;
-background:#031321;
-}
-
-.resultado .imagem-encontrada{
-position:absolute;
-top:17px;
-left:8px;
-right:8px;
-width:calc(100% - 16px);
-height:108px;
-object-fit:contain;
-border-radius:6px;
-background:#031321;
-}
-
-.resultado button{
-display:none;
-}
-
-.nota{
-display:none;
-}
-
-.erro{
-color:#ffb5b5;
-background:#4b1616;
-padding:10px;
-border-radius:6px;
-}
-
-.separador{
-display:none;
-}
-
-#telaHistorico{
-display:none;
-min-height:calc(100vh - 48px);
-padding:20px 25px 25px;
-}
-
-.historico-container{
-background:
-linear-gradient(145deg,rgba(5,34,58,.96),rgba(3,24,42,.96));
-border:1px solid rgba(40,126,214,.68);
-border-radius:10px;
-padding:20px;
-box-shadow:
-inset 0 1px 0 rgba(255,255,255,.025),
-0 5px 18px rgba(0,0,0,.18);
-}
-
-.historico-topo{
-display:flex;
-align-items:center;
-justify-content:space-between;
-margin-bottom:20px;
-gap:15px;
-}
-
-.historico-titulo{
-display:flex;
-align-items:center;
-gap:12px;
-font-size:25px;
-font-weight:800;
-}
-
-.historico-titulo-icon{
-width:42px;
-height:42px;
-border-radius:50%;
-background:#0878ff;
+height:235px;
+background:#edf1f4;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:22px;
+overflow:hidden;
 }
 
-.btn-voltar{
-width:auto !important;
-min-width:190px;
-height:40px !important;
-margin:0 !important;
-padding:0 18px !important;
-background:#0878ff !important;
-border-radius:8px !important;
-color:#fff;
-font-size:12px !important;
-font-weight:bold;
-}
-
-.btn-limpar-historico{
-width:auto !important;
-height:40px !important;
-margin:0 !important;
-padding:0 18px !important;
-background:#263f57 !important;
-border:1px solid #42617e !important;
-border-radius:8px !important;
-color:#fff;
-font-size:12px !important;
-font-weight:bold;
-}
-
-.historico-acoes{
-display:flex;
-gap:8px;
-align-items:center;
-}
-
-.historico-grid{
-display:grid;
-grid-template-columns:repeat(5,1fr);
-gap:12px;
-}
-
-.historico-item{
-position:relative;
-min-width:0;
-background:
-linear-gradient(150deg,#06233b,#041a2e);
-border:1px solid rgba(33,105,163,.68);
-border-radius:9px;
-padding:10px;
-box-shadow:0 4px 12px rgba(0,0,0,.15);
-}
-
-.historico-numero{
-position:absolute;
-top:8px;
-left:8px;
-z-index:3;
-background:#0878ff;
-color:#fff;
-border-radius:15px;
-padding:4px 8px;
-font-size:10px;
-font-weight:bold;
-}
-
-.historico-imagem{
+.result-image img{
 width:100%;
-height:145px;
+height:100%;
 object-fit:contain;
-display:block;
-background:#031321;
-border-radius:7px;
+}
+
+.result-info{
+padding:16px;
+}
+
+.result-drawing{
+color:#173e5d;
+font-weight:700;
+font-size:14px;
 margin-bottom:10px;
+line-height:1.4;
 }
 
-.historico-nome{
-font-size:11px;
-font-weight:bold;
-line-height:1.35;
-word-break:break-word;
-color:#fff;
-min-height:31px;
-}
-
-.historico-data{
-color:#9fb7ce;
-font-size:9px;
-margin-top:7px;
-}
-
-.historico-abrir{
-width:100% !important;
-height:30px !important;
-margin-top:9px !important;
-background:#0878ff !important;
-font-size:10px !important;
-}
-
-.historico-vazio{
-padding:60px 20px;
-text-align:center;
-color:#9fb7ce;
-border:1px dashed #315a7e;
-border-radius:10px;
-}
-
-.historico-vazio-icon{
-font-size:45px;
+.result-meta{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:8px;
 margin-bottom:12px;
 }
 
-.historico-vazio-titulo{
-font-size:18px;
-font-weight:bold;
-color:#fff;
-margin-bottom:7px;
+.meta-item{
+background:#f5f7f9;
+border-radius:7px;
+padding:8px;
 }
 
-.footer{
-height:48px;
+.meta-label{
+display:block;
+font-size:9px;
+color:#84919c;
+text-transform:uppercase;
+margin-bottom:3px;
+}
+
+.meta-value{
+font-size:11px;
+color:#3d5261;
+font-weight:600;
+word-break:break-word;
+}
+
+.similarity{
 margin-top:10px;
-border-top:1px solid rgba(44,119,183,.55);
-background:#031321;
+}
+
+.similarity-top{
+display:flex;
+justify-content:space-between;
+margin-bottom:5px;
+font-size:11px;
+color:#667987;
+}
+
+.similarity-value{
+color:#123f63;
+font-weight:700;
+}
+
+.similarity-bar{
+height:6px;
+border-radius:10px;
+background:#e6ebef;
+overflow:hidden;
+}
+
+.similarity-fill{
+height:100%;
+border-radius:10px;
+background:#174f78;
+}
+
+.result-actions{
+display:flex;
+gap:8px;
+margin-top:12px;
+}
+
+.result-actions .btn{
+flex:1;
+padding:9px 10px;
+font-size:11px;
+}
+
+/* =========================
+EMPTY
+========================= */
+
+.empty{
+padding:45px 20px;
+text-align:center;
+color:#8795a0;
+background:#fff;
+border-radius:12px;
+border:1px dashed #cad4dc;
+}
+
+.empty-icon{
+font-size:38px;
+margin-bottom:12px;
+opacity:.6;
+}
+
+.empty h3{
+color:#526675;
+margin-bottom:5px;
+font-size:15px;
+}
+
+.empty p{
+font-size:12px;
+}
+
+/* =========================
+HISTORY
+========================= */
+
+.history-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:16px;
+}
+
+.history-card{
+background:#fff;
+border-radius:12px;
+overflow:hidden;
+border:1px solid #e1e7eb;
+box-shadow:0 3px 12px rgba(0,0,0,.05);
+}
+
+.history-thumb{
+height:170px;
+background:#edf1f4;
 display:flex;
 align-items:center;
-justify-content:space-between;
-padding:0 25px;
-color:#d7e5f2;
+justify-content:center;
+overflow:hidden;
+}
+
+.history-thumb img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.history-info{
+padding:13px;
+}
+
+.history-name{
+font-size:12px;
+font-weight:700;
+color:#29485e;
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
+}
+
+.history-date{
+color:#8a969f;
+font-size:10px;
+margin-top:5px;
+}
+
+.history-actions{
+margin-top:10px;
+display:flex;
+gap:7px;
+}
+
+.history-actions .btn{
+flex:1;
+padding:8px;
 font-size:10px;
 }
 
-.footer-left{
-display:flex;
+/* =========================
+MODAL
+========================= */
+
+.modal{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.68);
+z-index:100;
+display:none;
 align-items:center;
-gap:28px;
+justify-content:center;
+padding:25px;
 }
 
-.footer-logo{
-font-size:19px;
-font-weight:900;
+.modal.active{
+display:flex;
+}
+
+.modal-content{
+max-width:95vw;
+max-height:92vh;
+background:#fff;
+border-radius:12px;
+overflow:hidden;
+position:relative;
+}
+
+.modal-content img{
+max-width:95vw;
+max-height:88vh;
+display:block;
+object-fit:contain;
+}
+
+.modal-close{
+position:absolute;
+right:10px;
+top:10px;
+width:34px;
+height:34px;
+border:0;
+border-radius:50%;
+background:rgba(0,0,0,.65);
 color:#fff;
+cursor:pointer;
+font-size:18px;
+z-index:2;
 }
 
-.footer-right{
-display:flex;
-align-items:center;
-gap:8px;
+/* =========================
+FOOTER
+========================= */
+
+.footer{
+text-align:center;
+color:#9aa6af;
+font-size:10px;
+padding:10px 0 0;
 }
 
-@media(max-width:1100px){
+/* =========================
+RESPONSIVE
+========================= */
 
-.cards-top{
-grid-template-columns:1fr 1fr;
+@media(max-width:1000px){
+.upload-grid{
+grid-template-columns:1fr;
 }
 
-.search-card{
-grid-column:1/-1;
+.results-grid{
+grid-template-columns:1fr;
 }
 
-#resultados{
-grid-template-columns:repeat(3,1fr);
+.history-grid{
+grid-template-columns:repeat(2,1fr);
+}
 }
 
-.historico-grid{
-grid-template-columns:repeat(3,1fr);
-}
-
-.info-strip{
-grid-template-columns:1fr 1fr;
-gap:10px;
-}
-
-.info-item:nth-child(3),
-.info-item:nth-child(4){
-border-left:0;
-}
-
-}
-
-@media(max-width:800px){
-
+@media(max-width:700px){
 .sidebar{
 width:70px;
-min-width:70px;
 }
 
-.logo-iveco{
-font-size:16px;
-padding:20px 8px;
-text-align:center;
+.logo-area{
+padding:0;
+justify-content:center;
+}
+
+.logo-area img{
+margin:0;
+}
+
+.logo-text{
+display:none;
 }
 
 .menu-item{
 justify-content:center;
-padding:0;
+padding:14px 5px;
 }
 
-.menu-item span:last-child{
-display:none;
-}
-
-.sidebar-message{
+.menu-item span:not(.menu-icon){
 display:none;
 }
 
@@ -924,118 +789,26 @@ margin-left:70px;
 width:calc(100% - 70px);
 }
 
-.hero-content{
-padding:0 100px 0 190px;
+.content{
+padding:18px 14px 25px;
 }
 
-.hero-title{
-font-size:30px;
-}
-
-.hero-subtitle{
-font-size:12px;
-}
-
-.hero-logo{
-right:20px;
-font-size:25px;
-}
-
-.cards-top{
-grid-template-columns:1fr;
-}
-
-.search-card{
-grid-column:auto;
-}
-
-#resultados{
-grid-template-columns:repeat(2,1fr);
-}
-
-.historico-grid{
-grid-template-columns:repeat(2,1fr);
-}
-
-.historico-topo{
-align-items:flex-start;
-flex-direction:column;
-}
-
-}
-
-@media(max-width:560px){
-
-.workspace{
-padding:8px;
-}
-
-.hero{
-height:155px;
+.topbar{
+padding:0 15px;
 }
 
 .hero-content{
-padding:0 15px 0 130px;
+padding:25px;
 }
 
-.hero-title{
+.hero-content h1{
 font-size:23px;
 }
 
-.hero-subtitle{
-font-size:10px;
-}
-
-.hero-logo{
-display:none;
-}
-
-.info-strip{
+.history-grid{
 grid-template-columns:1fr;
 }
-
-.info-item{
-border-left:0;
-border-top:1px solid rgba(8,120,255,.5);
-padding:8px 0 0;
 }
-
-#resultados{
-grid-template-columns:1fr;
-}
-
-.historico-grid{
-grid-template-columns:1fr;
-}
-
-#telaHistorico{
-padding:8px;
-}
-
-.historico-container{
-padding:12px;
-}
-
-.historico-acoes{
-width:100%;
-flex-direction:column;
-}
-
-.btn-voltar,
-.btn-limpar-historico{
-width:100% !important;
-}
-
-.footer{
-padding:0 10px;
-}
-
-.footer-left{
-gap:10px;
-}
-
-}
-
 </style>
 </head>
 
@@ -1043,231 +816,77 @@ gap:10px;
 
 <div class="app">
 
+<!-- SIDEBAR -->
 <aside class="sidebar">
 
-<div class="logo-iveco">
-IVECO
+<div class="logo-area">
+<img src="caminhao.jpeg" alt="IVECO">
+<div class="logo-text">
+<strong>IVECO</strong>
+<span>LOCALIZADOR DE FOTOS</span>
+</div>
 </div>
 
-<div class="menu">
+<nav class="menu">
 
-<div class="menu-item active" id="menuInicio">
-
+<button class="menu-item active" id="menuInicio" onclick="mostrarPagina('inicio')">
 <span class="menu-icon">⌂</span>
-
 <span>Início</span>
+</button>
 
-</div>
-
-<div class="menu-item" id="menuHistorico">
-
-<span class="menu-icon">◔</span>
-
+<button class="menu-item" id="menuHistorico" onclick="mostrarPagina('historico')">
+<span class="menu-icon">◷</span>
 <span>Histórico</span>
+</button>
 
-</div>
-
-</div>
-
-<div class="sidebar-bottom">
-
-<div class="sidebar-message">
-Mais tecnologia<br>
-para o <strong>seu<br>dia a dia.</strong>
-</div>
-
-<img
-class="sidebar-truck"
-src="IMG_6447.jpeg"
-alt=""
->
-
-</div>
+</nav>
 
 </aside>
 
 
+<!-- MAIN -->
 <main class="main">
 
-<div id="telaInicio">
+<header class="topbar">
 
-<section class="hero">
+<div>
+<div class="topbar-title">Localizador de Fotos</div>
+<div class="topbar-subtitle">
+Pesquisa inteligente em arquivos PowerPoint
+</div>
+</div>
 
-<img
-class="hero-image"
-src="IMG_6447.jpeg"
-alt="Caminhão IVECO"
->
+<div class="status">
+<span class="status-dot"></span>
+Sistema local
+</div>
 
-<div class="hero-blue"></div>
+</header>
+
+
+<div class="content">
+
+<!-- =========================
+PÁGINA INÍCIO
+========================== -->
+
+<section class="page active" id="paginaInicio">
+
+<div class="hero">
+
+<img src="IMG_6447.jpeg" alt="IVECO">
+
+<div class="hero-overlay"></div>
 
 <div class="hero-content">
 
-<div>
+<h1>Encontre a foto da peça</h1>
 
-<h1 class="hero-title">
-Localizador de <span>Fotos</span>
-</h1>
-
-<p class="hero-subtitle">
-Encontre rapidamente imagens nos seus PowerPoints.
+<p>
+Selecione uma ou mais fotos de referência e arquivos PowerPoint.
+O sistema analisa as imagens internamente e procura correspondências
+visuais entre as peças cadastradas.
 </p>
-
-</div>
-
-</div>
-
-<div class="hero-logo">
-IVECO
-</div>
-
-</section>
-
-
-<div class="workspace">
-
-<div class="cards-top">
-
-<div class="card input-card">
-
-<div class="card-title">
-
-<div class="number">
-1
-</div>
-
-<span>
-Foto para procurar
-</span>
-
-</div>
-
-
-<div class="drop-zone">
-
-<div class="drop-icon">
-▧
-</div>
-
-<div class="drop-text">
-
-Clique para selecionar uma ou várias imagens<br>
-ou arraste aqui
-
-</div>
-
-<input
-class="drop-input"
-type="file"
-id="foto"
-accept="image/*"
-multiple
->
-
-</div>
-
-
-<div class="preview-wrap">
-
-<div
-class="preview-list"
-id="previewList"
-></div>
-
-</div>
-
-</div>
-
-
-<div class="card input-card">
-
-<div class="card-title">
-
-<div class="number">
-2
-</div>
-
-<span>
-PowerPoints
-</span>
-
-</div>
-
-
-<div class="drop-zone ppt-drop">
-
-<div class="drop-icon">
-▤
-</div>
-
-<div class="drop-text">
-
-Clique para selecionar vários<br>
-PowerPoints (.pptx)
-
-</div>
-
-<input
-class="drop-input"
-type="file"
-id="ppt"
-accept=".pptx"
-multiple
->
-
-</div>
-
-
-<p class="ppt-help">
-Você pode selecionar vários arquivos de uma vez.
-</p>
-
-
-<div
-class="file-list"
-id="fileList"
-></div>
-
-</div>
-
-
-<div class="card search-card">
-
-<div class="search-bg"></div>
-
-<div class="search-content">
-
-<div class="search-icon">
-◉
-</div>
-
-<div class="search-title">
-
-Busca com<br>
-precisão e agilidade
-
-</div>
-
-
-<p class="search-description">
-
-Nossa ferramenta encontra
-as imagens que você precisa
-nos seus PowerPoints.
-
-</p>
-
-
-<button id="btn">
-
-⌕ &nbsp; PROCURAR FOTO
-
-</button>
-
-
-<p id="status"></p>
-
-</div>
 
 </div>
 
@@ -1276,182 +895,337 @@ nos seus PowerPoints.
 
 <div class="info-strip">
 
-<div class="info-header">
-
-<div class="info-circle">
-i
+<div class="label">
+Exemplo de identificação
 </div>
+
+<strong>
+L&amp;V 001.: 504136408 - SUPORTE
+</strong>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-title">
 
 <div>
-<b>O resultado mostrará:</b>
+<h2>Localizar Fotos</h2>
+<p>
+Selecione as imagens e os arquivos que serão analisados.
+</p>
 </div>
 
 </div>
 
 
-<div class="info-item">
+<div class="upload-grid">
 
-<div class="info-label">
-Desenho:
-</div>
+<!-- FOTO -->
+<div
+class="upload-box"
+id="fotoDrop"
+onclick="document.getElementById('inputFotos').click()"
+>
 
-<div class="info-example">
-L&V 001.: 504136408 - SUPORTE
-</div>
-
-</div>
-
-
-<div class="info-item">
-
-<div class="info-label">
-PowerPoint:
-</div>
-
-<div class="info-example">
-Título do PowerPoint
-</div>
-
-</div>
-
-
-<div class="info-item">
-
-<div class="info-label">
-Slide:
-</div>
-
-<div class="info-example">
-Número do slide
-</div>
-
-</div>
-
-</div>
-
-
-<div class="results-card">
-
-<div class="results-header">
-
-<div class="results-title">
-
-<span class="results-title-icon">
+<div class="upload-icon">
 ▣
-</span>
+</div>
 
-<span>
-Resultados
-</span>
+<h3>
+Foto para procurar
+</h3>
+
+<p>
+Clique ou arraste uma ou mais imagens da peça.
+</p>
+
+<input
+class="file-input"
+type="file"
+id="inputFotos"
+accept="image/*"
+multiple
+>
+
+<div class="file-list" id="listaFotos"></div>
 
 </div>
 
 
-<div class="top-results">
+<!-- POWERPOINT -->
+<div
+class="upload-box"
+id="pptDrop"
+onclick="document.getElementById('inputPpt').click()"
+>
 
-★ &nbsp; 10 melhores resultados
+<div class="upload-icon">
+▤
+</div>
+
+<h3>
+Arquivos PowerPoint
+</h3>
+
+<p>
+Selecione um ou mais arquivos .pptx para pesquisar.
+</p>
+
+<input
+class="file-input"
+type="file"
+id="inputPpt"
+accept=".pptx,application/vnd.openxmlformats-officedocument.presentationml.presentation"
+multiple
+>
+
+<div class="file-list" id="listaPpt"></div>
 
 </div>
 
 </div>
 
 
-<div id="resultados">
-
-Os resultados aparecerão aqui.
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div id="telaHistorico">
-
-<div class="historico-container">
-
-<div class="historico-topo">
-
-<div class="historico-titulo">
-
-<div class="historico-titulo-icon">
-◔
-</div>
-
-<div>
-Histórico
-</div>
-
-</div>
-
-
-<div class="historico-acoes">
+<div class="actions">
 
 <button
-class="btn-limpar-historico"
-id="btnLimparHistorico"
+class="btn btn-secondary"
+onclick="limparSelecao()"
 >
-🗑️ Limpar histórico
+Limpar
 </button>
 
 <button
-class="btn-voltar"
-id="btnVoltarInicio"
+class="btn btn-primary"
+id="btnProcurar"
+onclick="procurar()"
+disabled
 >
-← Voltar para o início
+Procurar Fotos
 </button>
 
 </div>
 
+
+<div class="progress-area" id="progressArea">
+
+<div class="progress-header">
+
+<span id="progressText">
+Preparando análise...
+</span>
+
+<span id="progressPercent">
+0%
+</span>
+
 </div>
 
+<div class="progress-bar">
 
 <div
-class="historico-grid"
-id="historicoGrid"
+class="progress-fill"
+id="progressFill"
 ></div>
 
 </div>
 
+<div
+class="progress-status"
+id="progressStatus"
+>
+Aguarde...
+</div>
+
+</div>
+
 </div>
 
 
-<footer class="footer">
+<!-- RESULTADOS -->
 
-<div class="footer-left">
+<div class="card">
 
-<div class="footer-logo">
-IVECO
-</div>
+<div class="results-header">
+
+<div class="card-title" style="margin:0">
 
 <div>
-Tecnologia que move o seu mundo.
+<h2>Resultados</h2>
+<p>
+Melhores correspondências encontradas
+</p>
+</div>
+
+</div>
+
+<div
+class="results-count"
+id="resultsCount"
+>
+Nenhuma pesquisa realizada
 </div>
 
 </div>
 
 
-<div class="footer-right">
+<div id="resultsContainer">
 
-♢
+<div class="empty">
 
-<span>
-Tudo processado no seu computador
-</span>
+<div class="empty-icon">
+◌
+</div>
+
+<h3>
+Nenhum resultado
+</h3>
+
+<p>
+Selecione uma foto e um arquivo PowerPoint para iniciar.
+</p>
 
 </div>
 
-</footer>
+</div>
+
+</div>
+
+
+<div class="footer">
+Localizador de Fotos | IVECO
+</div>
+
+</section>
+
+
+<!-- =========================
+PÁGINA HISTÓRICO
+========================== -->
+
+<section class="page" id="paginaHistorico">
+
+<div class="hero">
+
+<img src="IMG_6447.jpeg" alt="IVECO">
+
+<div class="hero-overlay"></div>
+
+<div class="hero-content">
+
+<h1>Histórico de Fotos</h1>
+
+<p>
+Todas as imagens selecionadas em
+<strong>Foto para procurar</strong>
+ficam registradas neste histórico.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="results-header">
+
+<div class="card-title" style="margin:0">
+
+<div>
+<h2>Fotos pesquisadas</h2>
+<p>
+Histórico das imagens utilizadas nas pesquisas.
+</p>
+</div>
+
+</div>
+
+<button
+class="btn btn-secondary"
+onclick="limparHistorico()"
+>
+Limpar histórico
+</button>
+
+</div>
+
+
+<div id="historicoContainer">
+
+<div class="empty">
+
+<div class="empty-icon">
+◷
+</div>
+
+<h3>
+Histórico vazio
+</h3>
+
+<p>
+As fotos selecionadas aparecerão aqui automaticamente.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="footer">
+Localizador de Fotos | IVECO
+</div>
+
+</section>
+
+</div>
 
 </main>
 
 </div>
 
 
+<!-- MODAL DE IMAGEM -->
+
+<div
+class="modal"
+id="imageModal"
+onclick="fecharModal(event)"
+>
+
+<div class="modal-content">
+
+<button
+class="modal-close"
+onclick="fecharModal()"
+>
+×
+</button>
+
+<img
+id="modalImage"
+src=""
+alt="Imagem"
+>
+
+</div>
+
+</div>
+
+
+<!-- JSZip -->
 <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+
+<!-- OpenCV.js -->
+<script
+async
+src="https://cdn.jsdelivr.net/npm/@techstark/opencv-js@4.11.0-release.1/dist/opencv.js">
+</script>
+
 
 <script>
 
@@ -1459,605 +1233,461 @@ Tudo processado no seu computador
 VARIÁVEIS
 ========================================================== */
 
-let fotos = [];
+let fotosSelecionadas = [];
+let pptsSelecionados = [];
+
+let historico = [];
+
+let openCVPronto = false;
+let openCVPromise = null;
 
 
 /* ==========================================================
-HISTÓRICO
+INICIALIZAÇÃO DO OPENCV
 ========================================================== */
 
-function obterHistorico(){
+function aguardarOpenCV(){
 
-try{
-
-return JSON.parse(
-localStorage.getItem("historicoFotosIveco") || "[]"
-);
-
-}catch(e){
-
-return [];
-
+if(window.cv && cv.Mat){
+openCVPronto = true;
+return Promise.resolve();
 }
 
+if(openCVPromise){
+return openCVPromise;
 }
 
+openCVPromise = new Promise((resolve,reject)=>{
 
-function salvarHistorico(historico){
+const inicio = Date.now();
 
-try{
+const verificar = ()=>{
 
-localStorage.setItem(
-"historicoFotosIveco",
-JSON.stringify(historico)
-);
+if(window.cv && cv.Mat){
 
-}catch(e){
-
-console.warn(
-"Não foi possível salvar o histórico.",
-e
-);
-
-}
-
-}
-
-
-function adicionarFotoAoHistorico(arquivo){
-
-if(!arquivo)
+openCVPronto = true;
+resolve();
 return;
 
-const leitor =
-new FileReader();
-
-leitor.onload = function(e){
-
-const historico =
-obterHistorico();
-
-const novoItem = {
-
-nome: arquivo.name,
-
-imagem: e.target.result,
-
-data: new Date().toLocaleString("pt-BR")
-
-};
-
-historico.unshift(
-novoItem
-);
-
-const limitado =
-historico.slice(0,50);
-
-salvarHistorico(
-limitado
-);
-
-};
-
-leitor.readAsDataURL(
-arquivo
-);
-
 }
 
+if(Date.now() - inicio > 30000){
 
-/* ==========================================================
-MOSTRAR HISTÓRICO
-========================================================== */
-
-function mostrarHistorico(){
-
-const telaInicio =
-document.getElementById(
-"telaInicio"
+reject(
+new Error(
+"OpenCV.js não foi carregado. Verifique sua conexão com a internet."
+)
 );
-
-const telaHistorico =
-document.getElementById(
-"telaHistorico"
-);
-
-const menuInicio =
-document.getElementById(
-"menuInicio"
-);
-
-const menuHistorico =
-document.getElementById(
-"menuHistorico"
-);
-
-telaInicio.style.display =
-"none";
-
-telaHistorico.style.display =
-"block";
-
-menuInicio.classList.remove(
-"active"
-);
-
-menuHistorico.classList.add(
-"active"
-);
-
-carregarHistorico();
-
-}
-
-
-/* ==========================================================
-MOSTRAR INÍCIO
-========================================================== */
-
-function mostrarInicio(){
-
-const telaInicio =
-document.getElementById(
-"telaInicio"
-);
-
-const telaHistorico =
-document.getElementById(
-"telaHistorico"
-);
-
-const menuInicio =
-document.getElementById(
-"menuInicio"
-);
-
-const menuHistorico =
-document.getElementById(
-"menuHistorico"
-);
-
-telaHistorico.style.display =
-"none";
-
-telaInicio.style.display =
-"block";
-
-menuHistorico.classList.remove(
-"active"
-);
-
-menuInicio.classList.add(
-"active"
-);
-
-}
-
-
-/* ==========================================================
-CARREGAR HISTÓRICO
-========================================================== */
-
-function carregarHistorico(){
-
-const area =
-document.getElementById(
-"historicoGrid"
-);
-
-const historico =
-obterHistorico();
-
-area.innerHTML =
-"";
-
-if(!historico.length){
-
-area.innerHTML = `
-
-<div
-class="historico-vazio"
-style="grid-column:1/-1;"
->
-
-<div class="historico-vazio-icon">
-◫
-</div>
-
-<div class="historico-vazio-titulo">
-Nenhuma imagem no histórico
-</div>
-
-<div>
-As imagens que você selecionar
-aparecerão aqui automaticamente.
-</div>
-
-</div>
-
-`;
 
 return;
 
 }
 
-historico.forEach(
-function(item,index){
-
-const card =
-document.createElement(
-"div"
-);
-
-card.className =
-"historico-item";
-
-card.innerHTML = `
-
-<div class="historico-numero">
-${index + 1}
-</div>
-
-<img
-class="historico-imagem"
-src="${item.imagem}"
-alt="Imagem do histórico"
->
-
-<div class="historico-nome">
-${escapeHtml(item.nome)}
-</div>
-
-<div class="historico-data">
-Selecionada em:
-${escapeHtml(item.data)}
-</div>
-
-<button
-class="historico-abrir"
-type="button"
->
-▧ Abrir imagem
-</button>
-
-`;
-
-const botao =
-card.querySelector(
-".historico-abrir"
-);
-
-botao.onclick =
-function(){
-
-const janela =
-window.open(
-"",
-"_blank"
-);
-
-if(!janela)
-return;
-
-janela.document.write(`
-
-<!DOCTYPE html>
-
-<html lang="pt-BR">
-
-<head>
-
-<meta charset="UTF-8">
-
-<title>
-${escapeHtml(item.nome)}
-</title>
-
-<style>
-
-body{
-margin:0;
-background:#020d19;
-display:flex;
-align-items:center;
-justify-content:center;
-min-height:100vh;
-}
-
-img{
-max-width:95vw;
-max-height:95vh;
-object-fit:contain;
-}
-
-</style>
-
-</head>
-
-<body>
-
-<img
-src="${item.imagem}"
-alt="Imagem"
->
-
-</body>
-
-</html>
-
-`);
-
-janela.document.close();
+setTimeout(verificar,100);
 
 };
 
-area.appendChild(
-card
-);
+verificar();
 
-}
-);
+});
+
+return openCVPromise;
 
 }
 
 
 /* ==========================================================
-BOTÕES
+NAVEGAÇÃO
 ========================================================== */
+
+function mostrarPagina(pagina){
+
+document.querySelectorAll(".page").forEach(el=>{
+el.classList.remove("active");
+});
+
+document.querySelectorAll(".menu-item").forEach(el=>{
+el.classList.remove("active");
+});
+
+
+if(pagina === "historico"){
+
+document
+.getElementById("paginaHistorico")
+.classList.add("active");
 
 document
 .getElementById("menuHistorico")
-.addEventListener(
-"click",
-mostrarHistorico
-);
+.classList.add("active");
 
+renderizarHistorico();
+
+}else{
+
+document
+.getElementById("paginaInicio")
+.classList.add("active");
 
 document
 .getElementById("menuInicio")
-.addEventListener(
-"click",
-mostrarInicio
-);
-
-
-document
-.getElementById("btnVoltarInicio")
-.addEventListener(
-"click",
-mostrarInicio
-);
-
-
-document
-.getElementById("btnLimparHistorico")
-.addEventListener(
-"click",
-function(){
-
-const historico =
-obterHistorico();
-
-if(!historico.length){
-
-alert(
-"O histórico já está vazio."
-);
-
-return;
+.classList.add("active");
 
 }
 
-const confirmar =
-confirm(
-"Deseja realmente apagar todo o histórico de imagens?"
-);
-
-if(!confirmar)
-return;
-
-localStorage.removeItem(
-"historicoFotosIveco"
-);
-
-carregarHistorico();
-
 }
-);
 
 
 /* ==========================================================
-SELEÇÃO DE VÁRIAS FOTOS
+INPUTS
 ========================================================== */
 
 document
-.getElementById("foto")
-.onchange = function(){
+.getElementById("inputFotos")
+.addEventListener("change", function(){
 
-const novosArquivos =
-Array.from(
-this.files
+adicionarFotos(
+Array.from(this.files || [])
 );
-
-if(!novosArquivos.length)
-return;
-
-fotos =
-fotos.concat(
-novosArquivos
-);
-
-fotos =
-fotos.filter(
-arquivo =>
-arquivo &&
-arquivo.type.startsWith(
-"image/"
-)
-);
-
-for(
-const arquivo
-of novosArquivos
-){
-
-adicionarFotoAoHistorico(
-arquivo
-);
-
-}
-
-atualizarPreviews();
 
 this.value = "";
 
-};
+});
 
-
-/* ==========================================================
-MOSTRAR FOTOS SELECIONADAS
-========================================================== */
-
-function atualizarPreviews(){
-
-const area =
-document.getElementById(
-"previewList"
-);
-
-area.innerHTML =
-"";
-
-fotos.forEach(
-function(arquivo,index){
-
-const item =
-document.createElement(
-"div"
-);
-
-item.className =
-"preview-item";
-
-const imagem =
-document.createElement(
-"img"
-);
-
-imagem.alt =
-arquivo.name;
-
-imagem.src =
-URL.createObjectURL(
-arquivo
-);
-
-const remover =
-document.createElement(
-"div"
-);
-
-remover.className =
-"remove-preview";
-
-remover.innerText =
-"×";
-
-remover.title =
-"Remover esta foto";
-
-remover.onclick =
-function(){
-
-fotos.splice(
-index,
-1
-);
-
-atualizarPreviews();
-
-};
-
-item.appendChild(
-imagem
-);
-
-item.appendChild(
-remover
-);
-
-area.appendChild(
-item
-);
-
-}
-);
-
-}
-
-
-/* ==========================================================
-LISTA DE POWERPOINTS
-========================================================== */
 
 document
-.getElementById("ppt")
-.onchange = function(){
+.getElementById("inputPpt")
+.addEventListener("change", function(){
 
-const lista =
-document.getElementById(
-"fileList"
+adicionarPpts(
+Array.from(this.files || [])
 );
 
-lista.innerHTML =
-"";
+this.value = "";
+
+});
+
+
+/* ==========================================================
+DRAG AND DROP
+========================================================== */
+
+function configurarDrop(elemento, callback){
+
+["dragenter","dragover"].forEach(evento=>{
+
+elemento.addEventListener(evento,e=>{
+
+e.preventDefault();
+e.stopPropagation();
+
+elemento.classList.add("dragover");
+
+});
+
+});
+
+
+["dragleave","drop"].forEach(evento=>{
+
+elemento.addEventListener(evento,e=>{
+
+e.preventDefault();
+e.stopPropagation();
+
+elemento.classList.remove("dragover");
+
+});
+
+});
+
+
+elemento.addEventListener("drop",e=>{
 
 const arquivos =
-Array.from(
-this.files
+Array.from(e.dataTransfer.files || []);
+
+callback(arquivos);
+
+});
+
+}
+
+
+configurarDrop(
+document.getElementById("fotoDrop"),
+arquivos=>{
+adicionarFotos(
+arquivos.filter(a=>a.type.startsWith("image/"))
+);
+}
 );
 
-for(
-const arquivo
-of arquivos
-){
 
-const item =
-document.createElement(
-"div"
+configurarDrop(
+document.getElementById("pptDrop"),
+arquivos=>{
+adicionarPpts(
+arquivos.filter(a=>
+/\.pptx$/i.test(a.name)
+)
+);
+}
 );
 
-item.className =
-"file-item";
 
-const tamanhoMB =
-(
-arquivo.size /
-1024 /
-1024
-).toFixed(1);
+/* ==========================================================
+ADICIONAR FOTOS
+========================================================== */
 
-item.innerHTML =
+async function adicionarFotos(arquivos){
 
-'<div class="ppt-icon">P</div>' +
+for(const arquivo of arquivos){
 
-'<div class="file-name">' +
+if(!arquivo.type.startsWith("image/")){
+continue;
+}
 
-escapeHtml(
-arquivo.name
-) +
+const jaExiste =
+fotosSelecionadas.some(
+f =>
+f.name === arquivo.name &&
+f.size === arquivo.size &&
+f.lastModified === arquivo.lastModified
+);
 
-'</div>' +
+if(jaExiste){
+continue;
+}
 
-'<div class="file-size">' +
+fotosSelecionadas.push(arquivo);
 
-tamanhoMB +
+await salvarHistorico(arquivo);
 
-' MB</div>';
+}
 
-lista.appendChild(
-item
+renderizarFotos();
+atualizarBotao();
+
+}
+
+
+/* ==========================================================
+ADICIONAR PPTS
+========================================================== */
+
+function adicionarPpts(arquivos){
+
+for(const arquivo of arquivos){
+
+if(!/\.pptx$/i.test(arquivo.name)){
+continue;
+}
+
+const jaExiste =
+pptsSelecionados.some(
+f =>
+f.name === arquivo.name &&
+f.size === arquivo.size &&
+f.lastModified === arquivo.lastModified
+);
+
+if(!jaExiste){
+
+pptsSelecionados.push(arquivo);
+
+}
+
+}
+
+renderizarPpts();
+atualizarBotao();
+
+}
+
+
+/* ==========================================================
+RENDERIZAR FOTOS
+========================================================== */
+
+function renderizarFotos(){
+
+const container =
+document.getElementById("listaFotos");
+
+container.innerHTML = "";
+
+fotosSelecionadas.forEach((arquivo,index)=>{
+
+const div =
+document.createElement("div");
+
+div.className = "file-item";
+
+div.innerHTML = `
+
+<span title="${escapeHtml(arquivo.name)}">
+${escapeHtml(arquivo.name)}
+</span>
+
+<span
+class="remove"
+onclick="event.stopPropagation(); removerFoto(${index})"
+>
+×
+</span>
+
+`;
+
+container.appendChild(div);
+
+});
+
+}
+
+
+/* ==========================================================
+RENDERIZAR PPTS
+========================================================== */
+
+function renderizarPpts(){
+
+const container =
+document.getElementById("listaPpt");
+
+container.innerHTML = "";
+
+pptsSelecionados.forEach((arquivo,index)=>{
+
+const div =
+document.createElement("div");
+
+div.className = "file-item";
+
+div.innerHTML = `
+
+<span title="${escapeHtml(arquivo.name)}">
+${escapeHtml(arquivo.name)}
+</span>
+
+<span
+class="remove"
+onclick="event.stopPropagation(); removerPpt(${index})"
+>
+×
+</span>
+
+`;
+
+container.appendChild(div);
+
+});
+
+}
+
+
+/* ==========================================================
+REMOVER FOTO
+========================================================== */
+
+function removerFoto(index){
+
+fotosSelecionadas.splice(index,1);
+
+renderizarFotos();
+atualizarBotao();
+
+}
+
+
+/* ==========================================================
+REMOVER PPT
+========================================================== */
+
+function removerPpt(index){
+
+pptsSelecionados.splice(index,1);
+
+renderizarPpts();
+atualizarBotao();
+
+}
+
+
+/* ==========================================================
+ATUALIZAR BOTÃO
+========================================================== */
+
+function atualizarBotao(){
+
+const btn =
+document.getElementById("btnProcurar");
+
+btn.disabled =
+fotosSelecionadas.length === 0 ||
+pptsSelecionados.length === 0;
+
+}
+
+
+/* ==========================================================
+LIMPAR SELEÇÃO
+========================================================== */
+
+function limparSelecao(){
+
+fotosSelecionadas = [];
+pptsSelecionados = [];
+
+renderizarFotos();
+renderizarPpts();
+
+atualizarBotao();
+
+}
+
+
+/* ==========================================================
+HISTÓRICO — INDEXEDDB
+========================================================== */
+
+const DB_NAME = "iveco_localizador_db";
+const DB_VERSION = 1;
+const STORE_NAME = "historico_fotos";
+
+let dbPromise = null;
+
+
+function abrirDB(){
+
+if(dbPromise){
+return dbPromise;
+}
+
+dbPromise = new Promise((resolve,reject)=>{
+
+const request =
+indexedDB.open(DB_NAME,DB_VERSION);
+
+request.onupgradeneeded = function(){
+
+const db = request.result;
+
+if(!db.objectStoreNames.contains(STORE_NAME)){
+
+const store =
+db.createObjectStore(
+STORE_NAME,
+{
+keyPath:"id",
+autoIncrement:true
+}
+);
+
+store.createIndex(
+"data",
+"data",
+{unique:false}
 );
 
 }
@@ -2065,168 +1695,1752 @@ item
 };
 
 
-/* ==========================================================
-NORMALIZAR CAMINHO
-========================================================== */
+request.onsuccess = function(){
 
-function normalizarCaminho(
-base,
-target
-){
+resolve(request.result);
 
-const partes =
-(base + "/" + target)
-.split("/");
+};
 
-const saida = [];
 
-for(
-const p
-of partes
-){
+request.onerror = function(){
 
-if(!p || p === ".")
-continue;
+reject(request.error);
 
-if(p === "..")
-saida.pop();
+};
 
-else
-saida.push(p);
+});
 
-}
-
-return saida.join("/");
+return dbPromise;
 
 }
 
 
 /* ==========================================================
-TEXTO
+SALVAR HISTÓRICO
 ========================================================== */
 
-async function texto(
-zip,
-nome
-){
+async function salvarHistorico(arquivo){
 
-if(!zip.files[nome])
-return "";
+try{
 
-return await zip.files[nome]
-.async("text");
+const db =
+await abrirDB();
 
-}
+const buffer =
+await arquivo.arrayBuffer();
+
+const registro = {
+
+nome:arquivo.name,
+
+tipo:arquivo.type,
+
+tamanho:arquivo.size,
+
+data:new Date().toISOString(),
+
+blob:new Blob(
+[buffer],
+{type:arquivo.type}
+)
+
+};
 
 
-/* ==========================================================
-RELACIONAMENTOS
-========================================================== */
+await new Promise((resolve,reject)=>{
 
-function extrairRelacionamentos(
-xml
-){
-
-const mapa = {};
-
-const doc =
-new DOMParser()
-.parseFromString(
-xml,
-"application/xml"
+const tx =
+db.transaction(
+STORE_NAME,
+"readwrite"
 );
 
-const relacoes =
-Array.from(
-doc.getElementsByTagName(
-"Relationship"
+tx.objectStore(
+STORE_NAME
+).add(registro);
+
+tx.oncomplete = resolve;
+tx.onerror = ()=>reject(tx.error);
+
+});
+
+
+/* Mantém no máximo 50 registros */
+
+const todos =
+await obterHistoricoRegistros();
+
+if(todos.length > 50){
+
+const excedentes =
+todos
+.sort(
+(a,b)=>
+new Date(a.data) -
+new Date(b.data)
+)
+.slice(
+0,
+todos.length - 50
+);
+
+for(const item of excedentes){
+
+await removerHistoricoPorId(item.id);
+
+}
+
+}
+
+
+}catch(erro){
+
+console.error(
+"Erro ao salvar histórico:",
+erro
+);
+
+}
+
+}
+
+
+/* ==========================================================
+OBTER HISTÓRICO
+========================================================== */
+
+async function obterHistoricoRegistros(){
+
+const db =
+await abrirDB();
+
+return new Promise((resolve,reject)=>{
+
+const tx =
+db.transaction(
+STORE_NAME,
+"readonly"
+);
+
+const request =
+tx.objectStore(STORE_NAME)
+.getAll();
+
+request.onsuccess =
+()=>resolve(request.result || []);
+
+request.onerror =
+()=>reject(request.error);
+
+});
+
+}
+
+
+/* ==========================================================
+REMOVER HISTÓRICO
+========================================================== */
+
+async function removerHistoricoPorId(id){
+
+const db =
+await abrirDB();
+
+return new Promise((resolve,reject)=>{
+
+const tx =
+db.transaction(
+STORE_NAME,
+"readwrite"
+);
+
+tx.objectStore(
+STORE_NAME
+).delete(id);
+
+tx.oncomplete = resolve;
+tx.onerror = ()=>reject(tx.error);
+
+});
+
+}
+
+
+/* ==========================================================
+LIMPAR HISTÓRICO
+========================================================== */
+
+async function limparHistorico(){
+
+if(!confirm(
+"Deseja realmente apagar todo o histórico?"
+)){
+return;
+}
+
+try{
+
+const db =
+await abrirDB();
+
+await new Promise((resolve,reject)=>{
+
+const tx =
+db.transaction(
+STORE_NAME,
+"readwrite"
+);
+
+tx.objectStore(
+STORE_NAME
+).clear();
+
+tx.oncomplete = resolve;
+tx.onerror = ()=>reject(tx.error);
+
+});
+
+renderizarHistorico();
+
+}catch(erro){
+
+console.error(erro);
+
+}
+
+}
+
+
+/* ==========================================================
+RENDERIZAR HISTÓRICO
+========================================================== */
+
+async function renderizarHistorico(){
+
+const container =
+document.getElementById(
+"historicoContainer"
+);
+
+container.innerHTML = `
+
+<div class="empty">
+
+<div class="empty-icon">
+◌
+</div>
+
+<h3>
+Carregando histórico...
+</h3>
+
+</div>
+
+`;
+
+
+try{
+
+const registros =
+await obterHistoricoRegistros();
+
+registros.sort(
+(a,b)=>
+new Date(b.data) -
+new Date(a.data)
+);
+
+
+if(!registros.length){
+
+container.innerHTML = `
+
+<div class="empty">
+
+<div class="empty-icon">
+◷
+</div>
+
+<h3>
+Histórico vazio
+</h3>
+
+<p>
+As fotos selecionadas aparecerão aqui automaticamente.
+</p>
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+const grid =
+document.createElement("div");
+
+grid.className = "history-grid";
+
+
+for(const registro of registros){
+
+const card =
+document.createElement("div");
+
+card.className =
+"history-card";
+
+
+const url =
+URL.createObjectURL(
+registro.blob
+);
+
+
+const data =
+new Date(registro.data);
+
+
+const dataFormatada =
+data.toLocaleString(
+"pt-BR"
+);
+
+
+card.innerHTML = `
+
+<div class="history-thumb">
+
+<img
+src="${url}"
+alt="${escapeHtml(registro.nome)}"
+>
+
+</div>
+
+<div class="history-info">
+
+<div
+class="history-name"
+title="${escapeHtml(registro.nome)}"
+>
+${escapeHtml(registro.nome)}
+</div>
+
+<div class="history-date">
+${dataFormatada}
+</div>
+
+<div class="history-actions">
+
+<button
+class="btn btn-primary"
+onclick="abrirImagemUrl('${url}')"
+>
+Abrir imagem
+</button>
+
+<button
+class="btn btn-secondary"
+onclick="excluirHistorico(${registro.id})"
+>
+Excluir
+</button>
+
+</div>
+
+</div>
+
+`;
+
+
+grid.appendChild(card);
+
+}
+
+
+container.innerHTML = "";
+
+container.appendChild(grid);
+
+
+}catch(erro){
+
+console.error(
+"Erro ao carregar histórico:",
+erro
+);
+
+container.innerHTML = `
+
+<div class="empty">
+
+<h3>
+Não foi possível carregar o histórico.
+</h3>
+
+</div>
+
+`;
+
+}
+
+}
+
+
+/* ==========================================================
+EXCLUIR ITEM DO HISTÓRICO
+========================================================== */
+
+async function excluirHistorico(id){
+
+await removerHistoricoPorId(id);
+
+renderizarHistorico();
+
+}
+
+
+/* ==========================================================
+ABRIR IMAGEM
+========================================================== */
+
+function abrirImagemUrl(url){
+
+document
+.getElementById("modalImage")
+.src = url;
+
+document
+.getElementById("imageModal")
+.classList.add("active");
+
+}
+
+
+/* ==========================================================
+FECHAR MODAL
+========================================================== */
+
+function fecharModal(event){
+
+if(
+event &&
+event.target &&
+event.target.id !== "imageModal"
+){
+return;
+}
+
+document
+.getElementById("imageModal")
+.classList.remove("active");
+
+document
+.getElementById("modalImage")
+.src = "";
+
+}
+
+
+/* ==========================================================
+ESCAPE HTML
+========================================================== */
+
+function escapeHtml(text){
+
+return String(text)
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+/* ==========================================================
+LER IMAGEM
+========================================================== */
+
+function blobParaImage(blob){
+
+return new Promise((resolve,reject)=>{
+
+const url =
+URL.createObjectURL(blob);
+
+const img =
+new Image();
+
+img.onload = ()=>{
+
+URL.revokeObjectURL(url);
+
+resolve(img);
+
+};
+
+img.onerror = ()=>{
+
+URL.revokeObjectURL(url);
+
+reject(
+new Error(
+"Não foi possível carregar a imagem."
 )
 );
 
-for(
-const rel
-of relacoes
-){
+};
 
-const id =
-rel.getAttribute(
-"Id"
-);
+img.src = url;
 
-const target =
-rel.getAttribute(
-"Target"
-);
-
-if(id && target)
-mapa[id] =
-target;
-
-}
-
-return mapa;
+});
 
 }
 
 
 /* ==========================================================
-TEXTOS DO SLIDE
+CANVAS DA IMAGEM
 ========================================================== */
 
-function extrairTextosDoSlide(
-xml
+function canvasDeImagem(img,maxDim=1400){
+
+let largura =
+img.naturalWidth ||
+img.width;
+
+let altura =
+img.naturalHeight ||
+img.height;
+
+
+const maior =
+Math.max(
+largura,
+altura
+);
+
+
+if(maior > maxDim){
+
+const escala =
+maxDim / maior;
+
+largura =
+Math.round(
+largura * escala
+);
+
+altura =
+Math.round(
+altura * escala
+);
+
+}
+
+
+const canvas =
+document.createElement("canvas");
+
+canvas.width =
+largura;
+
+canvas.height =
+altura;
+
+
+const ctx =
+canvas.getContext("2d",{
+willReadFrequently:true
+});
+
+ctx.drawImage(
+img,
+0,
+0,
+largura,
+altura
+);
+
+
+return canvas;
+
+}
+
+
+/* ==========================================================
+CANVAS DE REGIÃO
+========================================================== */
+
+function canvasRegiao(
+canvas,
+x,
+y,
+w,
+h
 ){
 
-const doc =
-new DOMParser()
-.parseFromString(
-xml,
-"application/xml"
+const saida =
+document.createElement("canvas");
+
+saida.width =
+Math.max(
+1,
+Math.round(w)
 );
+
+saida.height =
+Math.max(
+1,
+Math.round(h)
+);
+
+
+const ctx =
+saida.getContext("2d");
+
+ctx.drawImage(
+canvas,
+x,
+y,
+w,
+h,
+0,
+0,
+saida.width,
+saida.height
+);
+
+
+return saida;
+
+}
+
+
+/* ==========================================================
+GERAR VISÕES
+========================================================== */
+
+function gerarVisoes(canvas){
+
+const visoes = [];
+
+visoes.push(canvas);
+
+
+const w =
+canvas.width;
+
+const h =
+canvas.height;
+
+
+const margemX =
+Math.round(w * .08);
+
+const margemY =
+Math.round(h * .08);
+
+
+if(
+w > 250 &&
+h > 250
+){
+
+visoes.push(
+canvasRegiao(
+canvas,
+margemX,
+margemY,
+w - margemX * 2,
+h - margemY * 2
+)
+);
+
+}
+
+
+/* recortes centrais */
+
+const cropW =
+Math.round(w * .75);
+
+const cropH =
+Math.round(h * .75);
+
+const cropX =
+Math.round((w-cropW)/2);
+
+const cropY =
+Math.round((h-cropH)/2);
+
+
+if(
+cropW > 200 &&
+cropH > 200
+){
+
+visoes.push(
+canvasRegiao(
+canvas,
+cropX,
+cropY,
+cropW,
+cropH
+)
+);
+
+}
+
+
+return visoes;
+
+}
+
+
+/* ==========================================================
+CRIAR ORB
+========================================================== */
+
+function criarORB(nfeatures=2600){
+
+const orb =
+new cv.ORB(
+nfeatures,
+1.2,
+8,
+31,
+0,
+2,
+cv.ORB_HARRIS_SCORE,
+31,
+20
+);
+
+return orb;
+
+}
+
+
+/* ==========================================================
+CRIAR AKAZE
+========================================================== */
+
+function criarAKAZE(){
+
+return new cv.AKAZE();
+
+}
+
+
+/* ==========================================================
+MATRIZ CINZA
+========================================================== */
+
+function matCinza(canvas){
+
+const src =
+cv.imread(canvas);
+
+const gray =
+new cv.Mat();
+
+if(src.channels() === 4){
+
+cv.cvtColor(
+src,
+gray,
+cv.COLOR_RGBA2GRAY
+);
+
+}else if(src.channels() === 3){
+
+cv.cvtColor(
+src,
+gray,
+cv.COLOR_RGB2GRAY
+);
+
+}else{
+
+src.copyTo(gray);
+
+}
+
+src.delete();
+
+return gray;
+
+}
+
+
+/* ==========================================================
+EXTRAIR DESCRITORES
+========================================================== */
+
+function extrairDescritoresDeCanvas(
+canvas,
+tipo="ORB",
+nfeatures=2600
+){
+
+const gray =
+matCinza(canvas);
+
+const kp =
+new cv.KeyPointVector();
+
+const desc =
+new cv.Mat();
+
+const mask =
+new cv.Mat();
+
+
+let detector;
+
+
+if(tipo === "AKAZE"){
+
+detector =
+criarAKAZE();
+
+}else{
+
+detector =
+criarORB(
+nfeatures
+);
+
+}
+
+
+detector.detectAndCompute(
+gray,
+mask,
+kp,
+desc
+);
+
+
+gray.delete();
+mask.delete();
+detector.delete();
+
+
+return {
+
+kp,
+desc,
+canvas
+
+};
+
+}
+
+
+/* ==========================================================
+ASSINATURA LOCAL
+========================================================== */
+
+function extrairAssinaturaLocal(
+canvas,
+tipo="ORB",
+nfeatures=2600
+){
+
+const visoes =
+gerarVisoes(canvas);
+
+const conjuntos = [];
+
+
+for(
+const visao of visoes
+){
+
+try{
+
+const feat =
+extrairDescritoresDeCanvas(
+visao,
+tipo,
+nfeatures
+);
+
+if(
+feat.desc &&
+!feat.desc.empty() &&
+feat.kp.size() >= 8
+){
+
+conjuntos.push(feat);
+
+}else{
+
+liberarFeatureSet(feat);
+
+}
+
+}catch(erro){
+
+console.warn(
+"Falha ao extrair características:",
+erro
+);
+
+}
+
+}
+
+
+return conjuntos;
+
+}
+
+
+/* ==========================================================
+LIBERAR FEATURES
+========================================================== */
+
+function liberarFeatureSet(feat){
+
+if(!feat){
+return;
+}
+
+try{
+
+if(feat.kp){
+feat.kp.delete();
+}
+
+}catch(e){}
+
+try{
+
+if(feat.desc){
+feat.desc.delete();
+}
+
+}catch(e){}
+
+}
+
+
+/* ==========================================================
+PONTO DE KEYPOINT
+========================================================== */
+
+function pontoDaKeyPoint(kp){
+
+return {
+x:kp.pt.x,
+y:kp.pt.y
+};
+
+}
+
+
+/* ==========================================================
+COBERTURA DOS PONTOS
+========================================================== */
+
+function coberturaPontos(
+pontos,
+largura,
+altura
+){
+
+if(
+!pontos ||
+pontos.length < 3
+){
+
+return 0;
+
+}
+
+
+let minX = Infinity;
+let minY = Infinity;
+let maxX = -Infinity;
+let maxY = -Infinity;
+
+
+for(
+const p of pontos
+){
+
+minX =
+Math.min(
+minX,
+p.x
+);
+
+minY =
+Math.min(
+minY,
+p.y
+);
+
+maxX =
+Math.max(
+maxX,
+p.x
+);
+
+maxY =
+Math.max(
+maxY,
+p.y
+);
+
+}
+
+
+const area =
+Math.max(
+0,
+(maxX-minX) *
+(maxY-minY)
+);
+
+
+const total =
+Math.max(
+1,
+largura *
+altura
+);
+
+
+return Math.min(
+1,
+area / total
+);
+
+}
+
+
+/* ==========================================================
+AVALIAR MATCH
+========================================================== */
+
+function avaliarMatch(
+refFeat,
+candFeat
+){
+
+const resultado = {
+
+good:0,
+inliers:0,
+ratio:0,
+medianDistance:999,
+coverage:0,
+score:0
+
+};
+
+
+if(
+!refFeat ||
+!candFeat ||
+refFeat.desc.empty() ||
+candFeat.desc.empty()
+){
+
+return resultado;
+
+}
+
+
+const matcher =
+new cv.BFMatcher(
+cv.NORM_HAMMING,
+false
+);
+
+
+let knn = null;
+let goodMatches = [];
+
+
+try{
+
+knn =
+new cv.DMatchVectorVector();
+
+
+matcher.knnMatch(
+refFeat.desc,
+candFeat.desc,
+knn,
+2
+);
+
+
+const distancias = [];
+
+
+for(
+let i=0;
+i<knn.size();
+i++
+){
+
+const grupo =
+knn.get(i);
+
+
+if(
+!grupo ||
+grupo.size() < 2
+){
+
+grupo.delete?.();
+
+continue;
+
+}
+
+
+const m =
+grupo.get(0);
+
+const n =
+grupo.get(1);
+
+
+if(
+m.distance <
+0.74 * n.distance &&
+m.distance < 90
+){
+
+goodMatches.push({
+queryIdx:m.queryIdx,
+trainIdx:m.trainIdx,
+distance:m.distance
+});
+
+distancias.push(
+m.distance
+);
+
+}
+
+grupo.delete?.();
+
+}
+
+
+resultado.good =
+goodMatches.length;
+
+
+if(!goodMatches.length){
+
+return resultado;
+
+}
+
+
+distancias.sort(
+(a,b)=>a-b
+);
+
+
+resultado.medianDistance =
+distancias[
+Math.floor(
+distancias.length/2
+)
+];
+
+
+resultado.ratio =
+Math.min(
+1,
+resultado.good /
+Math.max(
+1,
+Math.min(
+refFeat.kp.size(),
+candFeat.kp.size()
+)
+)
+);
+
+
+if(
+goodMatches.length >= 4
+){
+
+const srcPts =
+new cv.Mat(
+goodMatches.length,
+1,
+cv.CV_32FC2
+);
+
+const dstPts =
+new cv.Mat(
+goodMatches.length,
+1,
+cv.CV_32FC2
+);
+
+
+for(
+let i=0;
+i<goodMatches.length;
+i++
+){
+
+const match =
+goodMatches[i];
+
+
+const p1 =
+refFeat.kp.get(
+match.queryIdx
+);
+
+
+const p2 =
+candFeat.kp.get(
+match.trainIdx
+);
+
+
+srcPts.data32F[i*2] =
+p1.pt.x;
+
+srcPts.data32F[i*2+1] =
+p1.pt.y;
+
+
+dstPts.data32F[i*2] =
+p2.pt.x;
+
+dstPts.data32F[i*2+1] =
+p2.pt.y;
+
+}
+
+
+const mask =
+new cv.Mat();
+
+
+const H =
+cv.findHomography(
+srcPts,
+dstPts,
+cv.RANSAC,
+5,
+mask
+);
+
+
+if(
+H &&
+!H.empty() &&
+mask &&
+!mask.empty()
+){
+
+let inliers = 0;
+const pontos = [];
+
+
+for(
+let i=0;
+i<mask.rows;
+i++
+){
+
+if(
+mask.data[i] !== 0
+){
+
+inliers++;
+
+const match =
+goodMatches[i];
+
+
+const p =
+refFeat.kp.get(
+match.queryIdx
+);
+
+
+pontos.push(
+pontoDaKeyPoint(p)
+);
+
+}
+
+}
+
+
+resultado.inliers =
+inliers;
+
+
+resultado.coverage =
+coberturaPontos(
+pontos,
+refFeat.canvas.width,
+refFeat.canvas.height
+);
+
+}
+
+
+if(H){
+H.delete();
+}
+
+mask.delete();
+srcPts.delete();
+dstPts.delete();
+
+}
+
+
+}catch(erro){
+
+console.warn(
+"Erro no matching:",
+erro
+);
+
+}finally{
+
+if(knn){
+
+try{
+knn.delete();
+}catch(e){}
+
+}
+
+try{
+matcher.delete();
+}catch(e){}
+
+}
+
+
+const inlierScore =
+Math.min(
+1,
+resultado.inliers / 55
+);
+
+
+const goodScore =
+Math.min(
+1,
+resultado.good / 80
+);
+
+
+const distanceScore =
+resultado.medianDistance < 999
+? Math.max(
+0,
+1 -
+resultado.medianDistance / 100
+)
+: 0;
+
+
+const coverageScore =
+Math.min(
+1,
+resultado.coverage * 2.5
+);
+
+
+resultado.score =
+(
+inlierScore * 0.48 +
+goodScore * 0.22 +
+distanceScore * 0.18 +
+coverageScore * 0.12
+);
+
+
+if(
+resultado.inliers < 8
+){
+
+resultado.score *= .45;
+
+}else if(
+resultado.inliers < 14
+){
+
+resultado.score *= .72;
+
+}
+
+
+resultado.score =
+Math.max(
+0,
+Math.min(
+1,
+resultado.score
+)
+);
+
+
+return resultado;
+
+}
+
+
+/* ==========================================================
+COMPARAR FEATURE SETS
+========================================================== */
+
+function compararFeatureSets(
+refs,
+cands
+){
+
+let melhor = {
+
+score:0,
+good:0,
+inliers:0,
+ratio:0,
+medianDistance:999,
+coverage:0
+
+};
+
+
+for(
+const ref of refs
+){
+
+for(
+const cand of cands
+){
+
+const atual =
+avaliarMatch(
+ref,
+cand
+);
+
+
+if(
+atual.score >
+melhor.score
+){
+
+melhor =
+atual;
+
+}
+
+}
+
+}
+
+
+return melhor;
+
+}
+
+
+/* ==========================================================
+SHA-256
+========================================================== */
+
+async function hashSHA256(blob){
+
+const buffer =
+await blob.arrayBuffer();
+
+const digest =
+await crypto.subtle.digest(
+"SHA-256",
+buffer
+);
+
+
+return Array.from(
+new Uint8Array(digest)
+)
+.map(
+b =>
+b
+.toString(16)
+.padStart(2,"0")
+)
+.join("");
+
+}
+
+
+/* ==========================================================
+RESULTADO VISUAL
+========================================================== */
+
+function resultadoVisual(
+score,
+inliers,
+good
+){
+
+let percentual =
+score * 100;
+
+
+/*
+* Pequeno ajuste para que a
+* pontuação represente melhor
+* a confiança visual.
+*/
+
+if(inliers >= 60){
+
+percentual =
+Math.max(
+percentual,
+96
+);
+
+}else if(inliers >= 40){
+
+percentual =
+Math.max(
+percentual,
+90
+);
+
+}else if(inliers >= 28){
+
+percentual =
+Math.max(
+percentual,
+82
+);
+
+}else if(inliers >= 18){
+
+percentual =
+Math.max(
+percentual,
+70
+);
+
+}
+
+
+percentual =
+Math.min(
+99.9,
+percentual
+);
+
+
+return percentual;
+
+}
+
+
+/* ==========================================================
+COMPARAÇÃO DETALHADA
+========================================================== */
+
+async function compararDetalhado(
+referencia,
+candidato
+){
+
+await aguardarOpenCV();
+
+
+const imgRef =
+await blobParaImage(
+referencia.blob ||
+referencia
+);
+
+
+const imgCand =
+await blobParaImage(
+candidato.blob ||
+candidato
+);
+
+
+const canvasRef =
+canvasDeImagem(
+imgRef,
+1500
+);
+
+
+const canvasCand =
+canvasDeImagem(
+imgCand,
+1500
+);
+
+
+let refs =
+extrairAssinaturaLocal(
+canvasRef,
+"ORB",
+6500
+);
+
+
+let cands =
+extrairAssinaturaLocal(
+canvasCand,
+"ORB",
+6500
+);
+
+
+let melhor =
+compararFeatureSets(
+refs,
+cands
+);
+
+
+/*
+* AKAZE é usado para candidatos
+* em que o ORB não conseguiu uma
+* confirmação suficientemente forte.
+*/
+
+if(
+melhor.inliers < 28
+){
+
+refs.forEach(
+liberarFeatureSet
+);
+
+cands.forEach(
+liberarFeatureSet
+);
+
+
+refs =
+extrairAssinaturaLocal(
+canvasRef,
+"AKAZE",
+0
+);
+
+
+cands =
+extrairAssinaturaLocal(
+canvasCand,
+"AKAZE",
+0
+);
+
+
+const akaze =
+compararFeatureSets(
+refs,
+cands
+);
+
+
+if(
+akaze.score >
+melhor.score
+){
+
+melhor =
+akaze;
+
+}
+
+}
+
+
+refs.forEach(
+liberarFeatureSet
+);
+
+cands.forEach(
+liberarFeatureSet
+);
+
+
+const percentual =
+resultadoVisual(
+melhor.score,
+melhor.inliers,
+melhor.good
+);
+
+
+return {
+
+...melhor,
+
+percentual
+
+};
+
+}
+/* ==========================================================
+EXTRAIR TEXTOS DO SLIDE
+========================================================== */
+
+function extrairTextosDoSlide(xml){
 
 const textos = [];
 
-const paragrafos =
-Array.from(
-doc.getElementsByTagName(
-"a:p"
-)
-);
+const regex =
+/<a:t[^>]*>([\s\S]*?)<\/a:t>/gi;
 
-for(
-const p
-of paragrafos
+let match;
+
+while(
+(match = regex.exec(xml)) !== null
 ){
-
-const partes =
-Array.from(
-p.getElementsByTagName(
-"a:t"
-)
-);
 
 let texto =
-"";
-
-for(
-const t
-of partes
-){
-
-texto +=
-t.textContent || "";
-
-}
+match[1];
 
 texto =
 texto
-.replace(/\s+/g," ")
-.trim();
+.replace(/&amp;/g,"&")
+.replace(/&lt;/g,"<")
+.replace(/&gt;/g,">")
+.replace(/&quot;/g,'"')
+.replace(/&apos;/g,"'");
 
-if(texto)
+if(texto.trim()){
+
 textos.push(
-texto
+texto.trim()
 );
+
+}
 
 }
 
@@ -2236,29 +3450,25 @@ return textos;
 
 
 /* ==========================================================
-ENCONTRAR DESENHO
+IDENTIFICAR DESENHO
 ========================================================== */
 
-function encontrarDesenho(
-xml
-){
+function encontrarDesenho(xml){
 
 const textos =
-extrairTextosDoSlide(
-xml
-);
+extrairTextosDoSlide(xml);
+
 
 for(
-const textoOriginal
-of textos
+const textoOriginal of textos
 ){
 
 const texto =
 textoOriginal.trim();
 
+
 if(
-/^Desenho\s*\/?/i
-.test(texto)
+/^Desenho\s*\/?/i.test(texto)
 ){
 
 let conteudo =
@@ -2269,6 +3479,12 @@ texto
 )
 .trim();
 
+
+/*
+* Corrige casos em que o PowerPoint
+* separa "L&V" de maneira incorreta.
+*/
+
 if(
 conteudo.startsWith("&")
 ){
@@ -2278,9 +3494,18 @@ conteudo =
 
 }
 
+
+/*
+* Mantém apenas:
+*
+* Desenho XXX.: CÓDIGO - DESCRIÇÃO
+*/
+
 const partes =
-conteudo
-.split(/\s+-\s+/);
+conteudo.split(
+/\s+-\s+/
+);
+
 
 if(
 partes.length >= 3
@@ -2294,11 +3519,13 @@ partes
 
 }
 
+
 return conteudo;
 
 }
 
 }
+
 
 return "Desenho não identificado";
 
@@ -2306,2740 +3533,1454 @@ return "Desenho não identificado";
 
 
 /* ==========================================================
-IMAGEM DO BLOB
+RELACIONAMENTOS DO PPTX
 ========================================================== */
 
-async function imagemDoBlob(
-blob
+async function obterRelacoesSlide(
+zip,
+slideNumero
 ){
 
-return await new Promise(
-(resolve,reject)=>{
+const caminho =
+`ppt/slides/_rels/slide${slideNumero}.xml.rels`;
 
-const url =
-URL.createObjectURL(
-blob
-);
+const arquivo =
+zip.file(caminho);
 
-const img =
-new Image();
 
-img.onload =
-()=>{
+if(!arquivo){
 
-URL.revokeObjectURL(
-url
-);
+return [];
 
-resolve(
-img
-);
-
-};
-
-img.onerror =
-()=>{
-
-URL.revokeObjectURL(
-url
-);
-
-reject(
-new Error(
-"Imagem inválida"
-)
-);
-
-};
-
-img.src =
-url;
-
-}
-);
-
-}
-
-
-/* ==========================================================
-YIELD
-Permite que a interface atualize
-durante a análise de milhares
-de imagens.
-========================================================== */
-
-function esperarInterface(){
-
-return new Promise(
-resolve =>
-setTimeout(
-resolve,
-0
-)
-);
-
-}
-
-
-/* ==========================================================
-HASH EXATO
-========================================================== */
-
-async function hashBlob(
-blob
-){
-
-try{
-
-if(
-window.crypto &&
-crypto.subtle
-){
-
-const buffer =
-await blob.arrayBuffer();
-
-const hash =
-await crypto.subtle.digest(
-"SHA-256",
-buffer
-);
-
-const bytes =
-new Uint8Array(
-hash
-);
-
-let saida =
-"";
-
-for(
-const byte
-of bytes
-){
-
-saida +=
-byte
-.toString(16)
-.padStart(
-2,
-"0"
-);
-
-}
-
-return saida;
-
-}
-
-}catch(e){
-
-console.warn(
-"Hash exato indisponível.",
-e
-);
-
-}
-
-return "";
-
-}
-
-
-/* ==========================================================
-NORMALIZAÇÃO DE VETOR
-========================================================== */
-
-function normalizarVetor(
-vetor
-){
-
-let media =
-0;
-
-for(
-let i=0;
-i<vetor.length;
-i++
-){
-
-media +=
-vetor[i];
-
-}
-
-media /=
-vetor.length;
-
-let variancia =
-0;
-
-for(
-let i=0;
-i<vetor.length;
-i++
-){
-
-const d =
-vetor[i] -
-media;
-
-variancia +=
-d*d;
-
-}
-
-const desvio =
-Math.sqrt(
-variancia /
-vetor.length
-) || 1;
-
-for(
-let i=0;
-i<vetor.length;
-i++
-){
-
-vetor[i] =
-(
-vetor[i] -
-media
-) /
-desvio;
-
-}
-
-return vetor;
-
-}
-
-
-/* ==========================================================
-CANVAS PADRONIZADO
-========================================================== */
-
-function criarCanvasImagem(
-img,
-tamanho,
-modo,
-zoom,
-rotacao
-){
-
-const canvas =
-document.createElement(
-"canvas"
-);
-
-canvas.width =
-tamanho;
-
-canvas.height =
-tamanho;
-
-const ctx =
-canvas.getContext(
-"2d",
-{
-willReadFrequently:true
-}
-);
-
-ctx.fillStyle =
-"#ffffff";
-
-ctx.fillRect(
-0,
-0,
-tamanho,
-tamanho
-);
-
-ctx.save();
-
-ctx.translate(
-tamanho/2,
-tamanho/2
-);
-
-ctx.rotate(
-rotacao *
-Math.PI /
-180
-);
-
-const w =
-img.naturalWidth ||
-img.width;
-
-const h =
-img.naturalHeight ||
-img.height;
-
-let escala;
-
-if(
-modo === "cover"
-){
-
-escala =
-Math.max(
-tamanho / w,
-tamanho / h
-);
-
-}else{
-
-escala =
-Math.min(
-tamanho / w,
-tamanho / h
-);
-
-}
-
-escala *=
-zoom;
-
-const dw =
-w * escala;
-
-const dh =
-h * escala;
-
-ctx.drawImage(
-img,
--dw/2,
--dh/2,
-dw,
-dh
-);
-
-ctx.restore();
-
-return canvas;
-
-}
-
-
-/* ==========================================================
-CONVERTER PARA CINZA
-========================================================== */
-
-function imagemCinza(
-data
-){
-
-const cinza =
-new Float32Array(
-data.length / 4
-);
-
-for(
-let i=0,p=0;
-i<data.length;
-i+=4,p++
-){
-
-cinza[p] =
-0.299 * data[i] +
-0.587 * data[i+1] +
-0.114 * data[i+2];
-
-}
-
-return cinza;
-
-}
-
-
-/* ==========================================================
-BORDAS SOBEL
-========================================================== */
-
-function gerarBordas(
-cinza,
-w,
-h
-){
-
-const bordas =
-new Float32Array(
-w*h
-);
-
-for(
-let y=1;
-y<h-1;
-y++
-){
-
-for(
-let x=1;
-x<w-1;
-x++
-){
-
-const p =
-y*w+x;
-
-const gx =
-
--cinza[p-w-1] +
-cinza[p-w+1] +
-
--2*cinza[p-1] +
-2*cinza[p+1] +
-
--cinza[p+w-1] +
-cinza[p+w+1];
-
-const gy =
-
--cinza[p-w-1] -
-2*cinza[p-w] -
-cinza[p-w+1] +
-
-cinza[p+w-1] +
-2*cinza[p+w] +
-cinza[p+w+1];
-
-bordas[p] =
-Math.sqrt(
-gx*gx +
-gy*gy
-);
-
-}
-
-}
-
-return normalizarVetor(
-bordas
-);
-
-}
-
-
-/* ==========================================================
-HISTOGRAMA DE CORES
-========================================================== */
-
-function histogramaCores(
-data
-){
-
-const hist =
-new Float32Array(
-64
-);
-
-for(
-let i=0;
-i<data.length;
-i+=4
-){
-
-const r =
-Math.min(
-3,
-Math.floor(
-data[i] / 64
-)
-);
-
-const g =
-Math.min(
-3,
-Math.floor(
-data[i+1] / 64
-)
-);
-
-const b =
-Math.min(
-3,
-Math.floor(
-data[i+2] / 64
-)
-);
-
-const indice =
-r*16 +
-g*4 +
-b;
-
-hist[indice]++;
-
-}
-
-let total =
-0;
-
-for(
-const v
-of hist
-){
-
-total +=
-v;
-
-}
-
-if(total){
-
-for(
-let i=0;
-i<hist.length;
-i++
-){
-
-hist[i] /=
-total;
-
-}
-
-}
-
-return hist;
-
-}
-
-
-/* ==========================================================
-pHASH
-========================================================== */
-
-function calcularPHash(
-cinza,
-largura,
-altura
-){
-
-const tamanho =
-32;
-
-const reduzido =
-new Float32Array(
-tamanho*tamanho
-);
-
-for(
-let y=0;
-y<tamanho;
-y++
-){
-
-const sy =
-Math.floor(
-y*altura/tamanho
-);
-
-for(
-let x=0;
-x<tamanho;
-x++
-){
-
-const sx =
-Math.floor(
-x*largura/tamanho
-);
-
-reduzido[
-y*tamanho+x
-] =
-cinza[
-sy*largura+sx
-];
-
-}
-
-}
-
-const n =
-8;
-
-const dct =
-new Float32Array(
-n*n
-);
-
-for(
-let v=0;
-v<n;
-v++
-){
-
-for(
-let u=0;
-u<n;
-u++
-){
-
-let soma =
-0;
-
-for(
-let y=0;
-y<tamanho;
-y++
-){
-
-for(
-let x=0;
-x<tamanho;
-x++
-){
-
-const valor =
-reduzido[
-y*tamanho+x
-];
-
-soma +=
-valor *
-Math.cos(
-((2*x+1)*u*Math.PI) /
-(2*tamanho)
-) *
-Math.cos(
-((2*y+1)*v*Math.PI) /
-(2*tamanho)
-);
-
-}
-
-}
-
-const au =
-u === 0
-? 1/Math.sqrt(2)
-: 1;
-
-const av =
-v === 0
-? 1/Math.sqrt(2)
-: 1;
-
-dct[
-v*n+u
-] =
-0.25 *
-au *
-av *
-soma;
-
-}
-
-}
-
-const valores =
-[];
-
-for(
-let i=1;
-i<64;
-i++
-){
-
-valores.push(
-dct[i]
-);
-
-}
-
-const ordenados =
-valores
-.slice()
-.sort(
-(a,b)=>a-b
-);
-
-const mediana =
-ordenados[
-Math.floor(
-ordenados.length/2
-)
-];
-
-const bits =
-new Uint8Array(
-63
-);
-
-for(
-let i=0;
-i<63;
-i++
-){
-
-bits[i] =
-valores[i] >
-mediana
-? 1
-: 0;
-
-}
-
-return bits;
-
-}
-
-
-/* ==========================================================
-dHASH
-========================================================== */
-
-function calcularDHash(
-cinza,
-largura,
-altura
-){
-
-const w =
-32;
-
-const h =
-32;
-
-const bits =
-new Uint8Array(
-w*(h-1)
-);
-
-let pos =
-0;
-
-for(
-let y=0;
-y<h;
-y++
-){
-
-const sy =
-Math.floor(
-y*altura/h
-);
-
-for(
-let x=0;
-x<w-1;
-x++
-){
-
-const sx =
-Math.floor(
-x*largura/w
-);
-
-const a =
-cinza[
-sy*largura+sx
-];
-
-const b =
-cinza[
-sy*largura+
-Math.min(
-largura-1,
-sx+1
-)
-];
-
-bits[pos++] =
-a > b
-? 1
-: 0;
-
-}
-
-}
-
-return bits;
-
-}
-
-
-/* ==========================================================
-SIMILARIDADE DE HASH
-========================================================== */
-
-function similaridadeHash(
-a,
-b
-){
-
-if(
-!a ||
-!b ||
-a.length !== b.length
-)
-return 0;
-
-let iguais =
-0;
-
-for(
-let i=0;
-i<a.length;
-i++
-){
-
-if(
-a[i] ===
-b[i]
-){
-
-iguais++;
-
-}
-
-}
-
-return (
-iguais /
-a.length
-) * 100;
-
-}
-
-
-/* ==========================================================
-DISTÂNCIA NORMALIZADA
-========================================================== */
-
-function distanciaNormalizada(
-a,
-b
-){
-
-if(
-!a ||
-!b ||
-a.length !== b.length
-){
-
-return Infinity;
-
-}
-
-let soma =
-0;
-
-for(
-let i=0;
-i<a.length;
-i++
-){
-
-const d =
-a[i]-b[i];
-
-soma +=
-d*d;
-
-}
-
-return Math.sqrt(
-soma/a.length
-);
-
-}
-
-
-/* ==========================================================
-CORRELAÇÃO DE ESTRUTURA
-========================================================== */
-
-function correlacao(
-a,
-b
-){
-
-if(
-!a ||
-!b ||
-a.length !== b.length
-)
-return 0;
-
-let somaA =
-0;
-
-let somaB =
-0;
-
-let somaAA =
-0;
-
-let somaBB =
-0;
-
-let somaAB =
-0;
-
-for(
-let i=0;
-i<a.length;
-i++
-){
-
-somaA +=
-a[i];
-
-somaB +=
-b[i];
-
-}
-
-const mediaA =
-somaA/a.length;
-
-const mediaB =
-somaB/b.length;
-
-for(
-let i=0;
-i<a.length;
-i++
-){
-
-const da =
-a[i]-mediaA;
-
-const db =
-b[i]-mediaB;
-
-somaAA +=
-da*da;
-
-somaBB +=
-db*db;
-
-somaAB +=
-da*db;
-
-}
-
-const denominador =
-Math.sqrt(
-somaAA*somaBB
-);
-
-if(
-!denominador
-)
-return 0;
-
-return Math.max(
--1,
-Math.min(
-1,
-somaAB/denominador
-)
-);
-
-}
-
-
-/* ==========================================================
-DISTÂNCIA DE HISTOGRAMA
-========================================================== */
-
-function distanciaHistograma(
-a,
-b
-){
-
-let soma =
-0;
-
-for(
-let i=0;
-i<a.length;
-i++
-){
-
-soma +=
-Math.sqrt(
-Math.max(0,a[i]) *
-Math.max(0,b[i])
-);
-
-}
-
-return Math.max(
-0,
-Math.min(
-1,
-1-soma
-)
-);
-
-}
-
-
-/* ==========================================================
-ASSINATURA RÁPIDA
-========================================================== */
-
-async function assinaturaRapida(
-blob
-){
-
-const img =
-await imagemDoBlob(
-blob
-);
-
-const tamanho =
-64;
-
-const canvas =
-criarCanvasImagem(
-img,
-tamanho,
-"contain",
-1,
-0
-);
-
-const ctx =
-canvas.getContext(
-"2d",
-{
-willReadFrequently:true
-}
-);
-
-const data =
-ctx.getImageData(
-0,
-0,
-tamanho,
-tamanho
-).data;
-
-const cinza =
-imagemCinza(
-data
-);
-
-const cinzaNormalizado =
-normalizarVetor(
-cinza.slice()
-);
-
-const bordas =
-gerarBordas(
-cinzaNormalizado.slice(),
-tamanho,
-tamanho
-);
-
-const pHash =
-calcularPHash(
-cinza,
-tamanho,
-tamanho
-);
-
-const dHash =
-calcularDHash(
-cinza,
-tamanho,
-tamanho
-);
-
-const cores =
-histogramaCores(
-data
-);
-
-return {
-
-pHash,
-
-dHash,
-
-cinza:
-cinzaNormalizado,
-
-bordas,
-
-cores,
-
-proporcao:
-(
-img.naturalWidth /
-img.naturalHeight
-) || 1,
-
-largura:
-img.naturalWidth,
-
-altura:
-img.naturalHeight
-
-};
-
-}
-
-
-/* ==========================================================
-SCORE COARSE
-========================================================== */
-
-function scoreRapido(
-a,
-b
-){
-
-const phash =
-similaridadeHash(
-a.pHash,
-b.pHash
-);
-
-const dhash =
-similaridadeHash(
-a.dHash,
-b.dHash
-);
-
-const corrCinza =
-Math.max(
-0,
-correlacao(
-a.cinza,
-b.cinza
-)
-) * 100;
-
-const corrBordas =
-Math.max(
-0,
-correlacao(
-a.bordas,
-b.bordas
-)
-) * 100;
-
-const cor =
-Math.max(
-0,
-100 *
-(
-1 -
-distanciaHistograma(
-a.cores,
-b.cores
-)
-)
-);
-
-const diferencaProporcao =
-Math.min(
-1,
-Math.abs(
-Math.log(
-a.proporcao /
-b.proporcao
-)
-)
-);
-
-const proporcao =
-100 *
-Math.exp(
--diferencaProporcao*2
-);
-
-/*
-Na primeira etapa damos muito
-mais importância à estrutura,
-bordas e hashes.
-*/
-
-return (
-
-phash * 0.25 +
-
-dhash * 0.15 +
-
-corrCinza * 0.25 +
-
-corrBordas * 0.25 +
-
-cor * 0.05 +
-
-proporcao * 0.05
-
-);
-
-}
-
-
-/* ==========================================================
-REPRESENTAÇÃO DETALHADA
-========================================================== */
-
-function gerarRepresentacaoDetalhada(
-img,
-tamanho,
-zoom,
-rotacao
-){
-
-const canvas =
-criarCanvasImagem(
-img,
-tamanho,
-"cover",
-zoom,
-rotacao
-);
-
-const ctx =
-canvas.getContext(
-"2d",
-{
-willReadFrequently:true
-}
-);
-
-const data =
-ctx.getImageData(
-0,
-0,
-tamanho,
-tamanho
-).data;
-
-const cinza =
-imagemCinza(
-data
-);
-
-const cinzaN =
-normalizarVetor(
-cinza.slice()
-);
-
-const bordas =
-gerarBordas(
-cinzaN.slice(),
-tamanho,
-tamanho
-);
-
-return {
-
-cinza:
-cinzaN,
-
-bordas,
-
-data,
-
-tamanho
-
-};
-
-}
-
-
-/* ==========================================================
-SCORE LOCAL POR BLOCOS
-========================================================== */
-
-function scoreBlocosLocais(
-a,
-b
-){
-
-const tamanho =
-a.tamanho;
-
-const blocos =
-4;
-
-const bloco =
-Math.floor(
-tamanho/blocos
-);
-
-let total =
-0;
-
-let quantidade =
-0;
-
-/*
-Cada bloco da referência procura
-o bloco mais parecido em toda a
-imagem candidata.
-
-Isso permite que a peça esteja
-em posição diferente.
-*/
-
-for(
-let by=0;
-by<blocos;
-by++
-){
-
-for(
-let bx=0;
-bx<blocos;
-bx++
-){
-
-const inicioX =
-bx*bloco;
-
-const inicioY =
-by*bloco;
-
-const patch =
-new Float32Array(
-12*12
-);
-
-let pp =
-0;
-
-for(
-let py=0;
-py<12;
-py++
-){
-
-const sy =
-inicioY +
-Math.floor(
-py*bloco/12
-);
-
-for(
-let px=0;
-px<12;
-px++
-){
-
-const sx =
-inicioX +
-Math.floor(
-px*bloco/12
-);
-
-patch[pp++] =
-a.bordas[
-sy*tamanho+sx
-];
-
-}
-
-}
-
-let melhor =
--1;
-
-/*
-Procura esse bloco em uma
-malha inteira da candidata.
-*/
-
-for(
-let cy=0;
-cy<blocos;
-cy++
-){
-
-for(
-let cx=0;
-cx<blocos;
-cx++
-){
-
-const cand =
-new Float32Array(
-12*12
-);
-
-let cp =
-0;
-
-const cX =
-cx*bloco;
-
-const cY =
-cy*bloco;
-
-for(
-let py=0;
-py<12;
-py++
-){
-
-const sy =
-cY +
-Math.floor(
-py*bloco/12
-);
-
-for(
-let px=0;
-px<12;
-px++
-){
-
-const sx =
-cX +
-Math.floor(
-px*bloco/12
-);
-
-cand[cp++] =
-b.bordas[
-sy*tamanho+sx
-];
-
-}
-
-}
-
-const c =
-Math.max(
-0,
-correlacao(
-patch,
-cand
-)
-);
-
-if(c > melhor)
-melhor =
-c;
-
-}
-
-}
-
-if(melhor >= 0){
-
-total +=
-melhor;
-
-quantidade++;
-
-}
-
-}
-
-}
-
-if(!quantidade)
-return 0;
-
-return (
-total /
-quantidade
-) * 100;
-
-}
-
-
-/* ==========================================================
-SCORE DETALHADO DE UMA REPRESENTAÇÃO
-========================================================== */
-
-function scoreRepresentacao(
-a,
-b
-){
-
-const estrutura =
-Math.max(
-0,
-correlacao(
-a.cinza,
-b.cinza
-)
-) * 100;
-
-const bordas =
-Math.max(
-0,
-correlacao(
-a.bordas,
-b.bordas
-)
-) * 100;
-
-const local =
-scoreBlocosLocais(
-a,
-b
-);
-
-/*
-Para a comparação detalhada,
-a geometria da peça vale mais
-que a cor do fundo.
-*/
-
-return (
-
-estrutura * 0.30 +
-
-bordas * 0.35 +
-
-local * 0.35
-
-);
-
-}
-
-
-/* ==========================================================
-CACHE DE IMAGEM DETALHADA
-========================================================== */
-
-async function carregarImagemParaDetalhe(
-blob
-){
-
-return await imagemDoBlob(
-blob
-);
-
-}
-
-
-/* ==========================================================
-BUSCA DETALHADA
-========================================================== */
-
-async function similaridadeDetalhada(
-blobReferencia,
-blobCandidato
-){
-
-const imgA =
-await carregarImagemParaDetalhe(
-blobReferencia
-);
-
-const imgB =
-await carregarImagemParaDetalhe(
-blobCandidato
-);
-
-const tamanho =
-96;
-
-/*
-Referência:
-fazemos quatro orientações.
-*/
-
-const referencias =
-[];
-
-for(
-const rotacao
-of [0,90,180,270]
-){
-
-referencias.push(
-gerarRepresentacaoDetalhada(
-imgA,
-tamanho,
-1.0,
-rotacao
-)
-);
-
-}
-
-/*
-Candidato:
-múltiplos níveis de zoom
-e quatro orientações.
-*/
-
-const candidatos =
-[];
-
-for(
-const zoom
-of [0.90,1.00,1.15,1.30]
-){
-
-for(
-const rotacao
-of [0,90,180,270]
-){
-
-candidatos.push(
-gerarRepresentacaoDetalhada(
-imgB,
-tamanho,
-zoom,
-rotacao
-)
-);
-
-}
-
-}
-
-let melhor =
-0;
-
-/*
-Primeiro compara diretamente.
-*/
-
-for(
-const ref
-of referencias
-){
-
-for(
-const cand
-of candidatos
-){
-
-const score =
-scoreRepresentacao(
-ref,
-cand
-);
-
-if(
-score >
-melhor
-){
-
-melhor =
-score;
-
-}
-
-}
-
-}
-
-/*
-A segunda etapa tenta diferentes
-enquadramentos da própria referência.
-*/
-
-const referenciasZoom =
-[];
-
-for(
-const zoom
-of [0.85,1.00,1.20]
-){
-
-for(
-const rotacao
-of [0,90,180,270]
-){
-
-referenciasZoom.push(
-gerarRepresentacaoDetalhada(
-imgA,
-tamanho,
-zoom,
-rotacao
-)
-);
-
-}
-
-}
-
-for(
-const ref
-of referenciasZoom
-){
-
-for(
-const cand
-of candidatos
-){
-
-const score =
-scoreRepresentacao(
-ref,
-cand
-);
-
-if(
-score >
-melhor
-){
-
-melhor =
-score;
-
-}
-
-}
-
-}
-
-return Math.max(
-0,
-Math.min(
-100,
-melhor
-)
-);
-
-}
-
-
-/* ==========================================================
-SCORE FINAL MULTICRITÉRIO
-========================================================== */
-
-function combinarScores(
-rapido,
-detalhado,
-exato
-){
-
-/*
-Se os bytes forem exatamente iguais,
-não existe motivo para deixar essa
-imagem abaixo de outra.
-*/
-
-if(exato)
-return 100;
-
-/*
-O detalhado domina o resultado final.
-*/
-
-return Math.max(
-0,
-Math.min(
-100,
-
-detalhado * 0.72 +
-
-rapido * 0.28
-
-)
-);
-
-}
-
-
-/* ==========================================================
-ESCAPE HTML
-========================================================== */
-
-function escapeHtml(
-text
-){
-
-return String(text)
-
-.replace(
-/&/g,
-"&amp;"
-)
-
-.replace(
-/</g,
-"&lt;"
-)
-
-.replace(
-/>/g,
-"&gt;"
-)
-
-.replace(
-/"/g,
-"&quot;"
-)
-
-.replace(
-/'/g,
-"&#039;"
-);
-
-}
-
-
-/* ==========================================================
-PROCURAR
-========================================================== */
-
-async function procurar(){
-
-const ppts =
-Array.from(
-document
-.getElementById(
-"ppt"
-)
-.files
-);
-
-const status =
-document.getElementById(
-"status"
-);
-
-const area =
-document.getElementById(
-"resultados"
-);
-
-const btn =
-document.getElementById(
-"btn"
-);
-
-if(!fotos.length){
-
-alert(
-"Escolha pelo menos uma foto."
-);
-
-return;
-
 }
-
-if(!ppts.length){
 
-alert(
-"Escolha pelo menos um PowerPoint."
-);
 
-return;
+const xml =
+await arquivo.async("text");
 
-}
 
-btn.disabled =
-true;
+const relacoes = [];
 
-area.innerHTML =
-"";
 
-status.innerText =
-"Preparando busca visual multicritério...";
+const regex =
+/<Relationship\b[^>]*Id="([^"]+)"[^>]*Target="([^"]+)"[^>]*\/?>/gi;
 
-try{
 
-/* ======================================================
-REFERÊNCIAS
-====================================================== */
+let match;
 
-const referencias =
-[];
 
-for(
-let f=0;
-f<fotos.length;
-f++
+while(
+(match = regex.exec(xml)) !== null
 ){
-
-status.innerText =
-"Preparando foto " +
-(f+1) +
-" de " +
-fotos.length +
-"...";
-
-const assinatura =
-await assinaturaRapida(
-fotos[f]
-);
-
-const hash =
-await hashBlob(
-fotos[f]
-);
-
-referencias.push({
 
-arquivo:
-fotos[f],
+relacoes.push({
 
-assinatura,
+id:match[1],
 
-hash
+target:match[2]
 
 });
 
-await esperarInterface();
+}
+
+
+return relacoes;
 
 }
 
 
-/*
-Guarda os melhores candidatos
-de cada foto.
-*/
+/* ==========================================================
+ENCONTRAR IMAGENS DO SLIDE
+========================================================== */
 
-const candidatosGlobais =
-new Map();
-
-
-/* ======================================================
-PROCESSAR POWERPOINTS
-====================================================== */
-
-for(
-let p=0;
-p<ppts.length;
-p++
+async function obterImagensDoSlide(
+zip,
+slideNumero
 ){
 
-const ppt =
-ppts[p];
+const slidePath =
+`ppt/slides/slide${slideNumero}.xml`;
 
-status.innerText =
-"Lendo PowerPoint " +
-(p+1) +
-" de " +
-ppts.length +
-": " +
-ppt.name;
+const relPath =
+`ppt/slides/_rels/slide${slideNumero}.xml.rels`;
 
-await esperarInterface();
 
-const buffer =
-await ppt.arrayBuffer();
+const slideFile =
+zip.file(slidePath);
 
-const zip =
-await JSZip.loadAsync(
-buffer
+
+if(!slideFile){
+
+return [];
+
+}
+
+
+const xml =
+await slideFile.async("text");
+
+
+const relFile =
+zip.file(relPath);
+
+
+if(!relFile){
+
+return [];
+
+}
+
+
+const relXml =
+await relFile.async("text");
+
+
+const relMap = {};
+
+
+const relRegex =
+/<Relationship\b[^>]*Id="([^"]+)"[^>]*Target="([^"]+)"[^>]*\/?>/gi;
+
+
+let match;
+
+
+while(
+(match = relRegex.exec(relXml)) !== null
+){
+
+relMap[
+match[1]
+] =
+match[2];
+
+}
+
+
+const imagens = [];
+
+
+/*
+* Cada imagem possui normalmente
+* um blipFill com r:embed.
+*/
+
+const imageRegex =
+/<a:blip\b[^>]*r:embed="([^"]+)"[^>]*\/?>/gi;
+
+
+while(
+(match = imageRegex.exec(xml)) !== null
+){
+
+const relId =
+match[1];
+
+
+let target =
+relMap[relId];
+
+
+if(!target){
+continue;
+}
+
+
+/*
+* Normaliza caminho relativo.
+*/
+
+target =
+target.replace(
+/^\/+/,
+""
 );
 
-const arquivos =
+
+if(
+target.startsWith("../")
+){
+
+target =
+"ppt/" +
+target.replace(
+/^\.\.\//,
+""
+);
+
+}else if(
+!target.startsWith("ppt/")
+){
+
+target =
+"ppt/slides/" +
+target;
+
+}
+
+
+target =
+target.replace(
+/\\/g,
+"/"
+);
+
+
+if(
+!/\.(png|jpe?g|gif|bmp|webp|tiff?)$/i.test(
+target
+)
+){
+
+continue;
+
+}
+
+
+if(
+!imagens.some(
+item =>
+item.path === target
+)
+){
+
+imagens.push({
+
+path:target,
+
+relId
+
+});
+
+}
+
+}
+
+
+return imagens;
+
+}
+
+
+/* ==========================================================
+LER ARQUIVO DE IMAGEM DO PPTX
+========================================================== */
+
+async function obterBlobImagem(
+zip,
+caminho
+){
+
+const arquivo =
+zip.file(caminho);
+
+
+if(!arquivo){
+
+return null;
+
+}
+
+
+const blob =
+await arquivo.async(
+"blob"
+);
+
+
+return blob;
+
+}
+
+
+/* ==========================================================
+CONTAR SLIDES
+========================================================== */
+
+function obterNumeroDeSlides(zip){
+
+const nomes =
 Object.keys(
 zip.files
 );
 
 
-/* ====================================================
-IMAGENS
-==================================================== */
-
-const imagens =
-arquivos.filter(
-n =>
-
-n.startsWith(
-"ppt/media/"
-) &&
-
-/\.(jpg|jpeg|png|webp|bmp|gif|tif|tiff|svg)$/i
-.test(n)
-
-);
-
-
-/* ====================================================
-MAPA DE USOS
-==================================================== */
-
-const usos =
-{};
-
-const desenhos =
-{};
-
-
-/* ====================================================
-SLIDES
-==================================================== */
-
-const slides =
-arquivos
-
+return nomes
 .filter(
-n =>
-/^ppt\/slides\/slide\d+\.xml$/i
-.test(n)
+nome =>
+/^ppt\/slides\/slide\d+\.xml$/i.test(
+nome
 )
+)
+.map(
+nome => {
 
+const match =
+nome.match(
+/slide(\d+)\.xml$/i
+);
+
+return match
+? Number(match[1])
+: 0;
+
+}
+)
+.filter(
+numero => numero > 0
+)
 .sort(
-(a,b)=>{
-
-const na =
-+(
-a.match(
-/slide(\d+)\.xml/i
-) ||
-[,0]
-)[1];
-
-const nb =
-+(
-b.match(
-/slide(\d+)\.xml/i
-) ||
-[,0]
-)[1];
-
-return na-nb;
+(a,b)=>a-b
+);
 
 }
-);
 
 
-/* ====================================================
-MAPEAR CADA SLIDE
-==================================================== */
+/* ==========================================================
+PROGRESSO
+========================================================== */
 
-for(
-let s=0;
-s<slides.length;
-s++
+function atualizarProgresso(
+atual,
+total,
+status
 ){
 
-const slide =
-slides[s];
-
-const num =
-+(
-slide.match(
-/slide(\d+)\.xml/i
-) ||
-[,0]
-)[1];
-
-const slideXml =
-await texto(
-zip,
-slide
-);
-
-desenhos[num] =
-encontrarDesenho(
-slideXml
-);
-
-const relXml =
-await texto(
-zip,
-"ppt/slides/_rels/slide" +
-num +
-".xml.rels"
-);
-
-const rels =
-extrairRelacionamentos(
-relXml
-);
-
-const doc =
-new DOMParser()
-.parseFromString(
-slideXml,
-"application/xml"
-);
-
-const blips =
-Array.from(
-doc.getElementsByTagName(
-"a:blip"
+const porcentagem =
+total > 0
+? Math.round(
+(atual / total) * 100
 )
-);
+: 0;
 
-for(
-const blip
-of blips
-){
 
-const rid =
-blip.getAttribute(
-"r:embed"
-) ||
-blip.getAttribute(
-"embed"
-);
+document
+.getElementById("progressFill")
+.style.width =
+porcentagem + "%";
 
-if(
-!rid ||
-!rels[rid]
-)
-continue;
 
-const target =
-normalizarCaminho(
-"ppt/slides",
-rels[rid]
-);
+document
+.getElementById("progressPercent")
+.textContent =
+porcentagem + "%";
 
-if(
-!target.startsWith(
-"ppt/media/"
-)
-)
-continue;
 
-if(!usos[target])
-usos[target] =
-[];
+document
+.getElementById("progressText")
+.textContent =
+`Analisando ${atual} de ${total}`;
 
-if(
-!usos[target]
-.includes(num)
-){
 
-usos[target].push(
-num
-);
-
-}
-
-}
-
-/*
-Atualiza a interface a cada
-bloco de slides.
-*/
-
-if(
-s % 100 === 0
-){
-
-status.innerText =
-"Mapeando slides do PowerPoint " +
-ppt.name +
-": " +
-(s+1) +
-" de " +
-slides.length +
-"...";
-
-await esperarInterface();
-
-}
+document
+.getElementById("progressStatus")
+.textContent =
+status || "Analisando...";
 
 }
 
 
-/* ====================================================
-ANÁLISE COARSE DE TODAS AS IMAGENS
-==================================================== */
+/* ==========================================================
+CRIAR RESULTADO
+========================================================== */
 
-const candidatos =
-[];
+function criarResultadoCard(resultado){
 
-for(
-let i=0;
-i<imagens.length;
-i++
-){
+const card =
+document.createElement("div");
 
-const nome =
-imagens[i];
+card.className =
+"result-card";
 
-try{
 
-status.innerText =
-"Análise visual inicial: " +
-ppt.name +
-" — " +
-(i+1) +
-" de " +
-imagens.length;
-
-await esperarInterface();
-
-const blob =
-await zip.files[nome]
-.async(
-"blob"
+const percentual =
+Number(
+resultado.percentual || 0
 );
 
-const assinatura =
-await assinaturaRapida(
-blob
+
+const confianca =
+percentual >= 85
+? "Alta"
+: percentual >= 65
+? "Média"
+: "Baixa";
+
+
+const confiancaTexto =
+`${confianca} — ${resultado.inliers || 0} pontos confirmados`;
+
+
+const blobUrl =
+URL.createObjectURL(
+resultado.blob
 );
 
-const hash =
-await hashBlob(
-blob
-);
 
-let melhorRapido =
-0;
+card.innerHTML = `
 
-let melhorReferencia =
-null;
+<div class="result-image">
 
-let exato =
-false;
+<img
+src="${blobUrl}"
+alt="Imagem encontrada"
+>
 
-for(
-const referencia
-of referencias
-){
+</div>
 
-const igualdade =
-!!(
-hash &&
-referencia.hash &&
-hash ===
-referencia.hash
-);
 
-const rapido =
-igualdade
-? 100
-: scoreRapido(
-referencia.assinatura,
-assinatura
-);
+<div class="result-info">
 
-if(
-rapido >
-melhorRapido
-){
+<div class="result-drawing">
 
-melhorRapido =
-rapido;
-
-melhorReferencia =
-referencia;
-
-}
-
-if(
-igualdade
-){
-
-exato =
-true;
-
-melhorRapido =
-100;
-
-melhorReferencia =
-referencia;
-
-}
-
-}
-
-const slidesDaImagem =
-usos[nome] ||
-[];
-
-const desenhosEncontrados =
-slidesDaImagem.map(
-slide =>
-desenhos[slide] ||
+${escapeHtml(
+resultado.desenho ||
 "Desenho não identificado"
+)}
+
+</div>
+
+
+<div class="result-meta">
+
+<div class="meta-item">
+
+<span class="meta-label">
+PowerPoint
+</span>
+
+<span class="meta-value">
+${escapeHtml(
+resultado.pptNome
+)}
+</span>
+
+</div>
+
+
+<div class="meta-item">
+
+<span class="meta-label">
+Slide
+</span>
+
+<span class="meta-value">
+${resultado.slide}
+</span>
+
+</div>
+
+
+<div class="meta-item">
+
+<span class="meta-label">
+Confirmação
+</span>
+
+<span class="meta-value">
+${confiancaTexto}
+</span>
+
+</div>
+
+
+<div class="meta-item">
+
+<span class="meta-label">
+Correspondências
+</span>
+
+<span class="meta-value">
+${resultado.good || 0}
+</span>
+
+</div>
+
+</div>
+
+
+<div class="similarity">
+
+<div class="similarity-top">
+
+<span>
+Similaridade visual
+</span>
+
+<span class="similarity-value">
+${percentual.toFixed(1)}%
+</span>
+
+</div>
+
+
+<div class="similarity-bar">
+
+<div
+class="similarity-fill"
+style="width:${percentual}%"
+></div>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+
+return card;
+
+}
+
+
+/* ==========================================================
+MOSTRAR RESULTADOS
+========================================================== */
+
+function mostrarResultados(
+resultados
+){
+
+const container =
+document.getElementById(
+"resultsContainer"
 );
 
-candidatos.push({
 
-arquivo:
-ppt.name,
+container.innerHTML = "";
 
-nome:
-nome.split("/")
-.pop(),
 
-caminho:
-nome,
+if(
+!resultados ||
+!resultados.length
+){
 
-blob,
+container.innerHTML = `
 
-hash,
+<div class="empty">
 
-assinatura,
+<div class="empty-icon">
+◌
+</div>
 
-rapido:
-melhorRapido,
+<h3>
+Nenhuma correspondência encontrada
+</h3>
 
-exato,
+<p>
+Não foi encontrada uma correspondência
+visual suficientemente confiável.
+</p>
 
-referencia:
-melhorReferencia,
+</div>
 
-slides:
-slidesDaImagem,
+`;
 
-desenhos:
-desenhosEncontrados
+
+document
+.getElementById("resultsCount")
+.textContent =
+"Nenhum resultado";
+
+
+return;
+
+}
+
+
+const grid =
+document.createElement("div");
+
+grid.className =
+"results-grid";
+
+
+resultados
+.slice(0,10)
+.forEach(resultado=>{
+
+grid.appendChild(
+criarResultadoCard(
+resultado
+)
+);
 
 });
 
-}catch(e){
 
-console.warn(
-"Imagem ignorada:",
-nome,
-e
+container.appendChild(
+grid
 );
+
+
+document
+.getElementById("resultsCount")
+.textContent =
+`${Math.min(10,resultados.length)} resultado(s) encontrado(s)`;
 
 }
 
-}
 
+/* ==========================================================
+BUSCA PRINCIPAL
+========================================================== */
 
-/* ====================================================
-SEGUNDA ETAPA
-SOMENTE OS MELHORES CANDIDATOS
-==================================================== */
+async function procurar(){
 
-candidatos.sort(
-(a,b) =>
-b.rapido -
-a.rapido
-);
-
-
-/*
-180 candidatos passam para a
-comparação visual profunda.
-
-Se houver menos que isso,
-todos são analisados.
-*/
-
-const limiteDetalhado =
-Math.min(
-180,
-candidatos.length
-);
-
-
-for(
-let i=0;
-i<limiteDetalhado;
-i++
+if(
+!fotosSelecionadas.length ||
+!pptsSelecionados.length
 ){
 
-const candidato =
-candidatos[i];
+return;
+
+}
+
+
+const btn =
+document.getElementById(
+"btnProcurar"
+);
+
+
+btn.disabled = true;
+
+
+const progress =
+document.getElementById(
+"progressArea"
+);
+
+
+progress.classList.add(
+"active"
+);
+
+
+document
+.getElementById(
+"resultsContainer"
+)
+.innerHTML = `
+
+<div class="empty">
+
+<div class="empty-icon">
+◌
+</div>
+
+<h3>
+Preparando análise...
+</h3>
+
+<p>
+O sistema está carregando o mecanismo
+de reconhecimento visual.
+</p>
+
+</div>
+
+`;
+
 
 try{
 
-status.innerText =
-"Comparação visual profunda: " +
-ppt.name +
-" — candidato " +
-(i+1) +
-" de " +
-limiteDetalhado +
-"...";
+/*
+* Garante que o OpenCV esteja
+* carregado antes da análise.
+*/
 
-await esperarInterface();
+atualizarProgresso(
+0,
+1,
+"Carregando mecanismo de análise visual..."
+);
 
-let melhorDetalhado =
-0;
+
+await aguardarOpenCV();
+
 
 /*
-Se houver várias fotos de
-pesquisa, compara com todas.
+* Para cada foto selecionada,
+* executamos uma pesquisa completa.
+*/
+
+const resultadosFinais = [];
+
+
+for(
+let indiceFoto = 0;
+indiceFoto < fotosSelecionadas.length;
+indiceFoto++
+){
+
+const referencia =
+fotosSelecionadas[
+indiceFoto
+];
+
+
+const imagemReferencia =
+await blobParaImage(
+referencia
+);
+
+
+const canvasReferencia =
+canvasDeImagem(
+imagemReferencia,
+1500
+);
+
+
+atualizarProgresso(
+indiceFoto,
+fotosSelecionadas.length,
+`Preparando referência: ${referencia.name}`
+);
+
+
+/*
+* Primeiro extraímos as características
+* da foto de referência.
+*/
+
+let referenciaORB =
+extrairAssinaturaLocal(
+canvasReferencia,
+"ORB",
+6500
+);
+
+
+/*
+* Hash exato da imagem.
+* É útil quando a imagem encontrada
+* é literalmente a mesma imagem.
+*/
+
+let hashReferencia = null;
+
+
+try{
+
+hashReferencia =
+await hashSHA256(
+referencia
+);
+
+}catch(erro){
+
+console.warn(
+"Não foi possível calcular hash:",
+erro
+);
+
+}
+
+
+/*
+* =====================================================
+* FASE 1 — LEITURA DOS POWERPOINTS
+* =====================================================
 */
 
 for(
-const referencia
-of referencias
+let indicePpt = 0;
+indicePpt < pptsSelecionados.length;
+indicePpt++
 ){
 
+const ppt =
+pptsSelecionados[
+indicePpt
+];
+
+
+atualizarProgresso(
+indicePpt,
+pptsSelecionados.length,
+`Abrindo ${ppt.name}...`
+);
+
+
+let zip;
+
+
+try{
+
+zip =
+await JSZip.loadAsync(
+ppt
+);
+
+}catch(erro){
+
+console.error(
+"Erro abrindo PPTX:",
+ppt.name,
+erro
+);
+
+continue;
+
+}
+
+
+const slides =
+obterNumeroDeSlides(
+zip
+);
+
+
 /*
-Se for byte a byte igual,
-não precisamos gastar CPU
-com a etapa pesada.
+* ===================================================
+* FASE 2 — SCAN DOS SLIDES
+* ===================================================
+*/
+
+const totalSlides =
+slides.length;
+
+
+for(
+let indiceSlide = 0;
+indiceSlide < slides.length;
+indiceSlide++
+){
+
+const numeroSlide =
+slides[indiceSlide];
+
+
+atualizarProgresso(
+indiceSlide + 1,
+totalSlides,
+`${ppt.name} — slide ${numeroSlide} de ${totalSlides}`
+);
+
+
+const caminhoSlide =
+`ppt/slides/slide${numeroSlide}.xml`;
+
+
+const arquivoSlide =
+zip.file(
+caminhoSlide
+);
+
+
+if(!arquivoSlide){
+
+continue;
+
+}
+
+
+let xmlSlide = "";
+
+
+try{
+
+xmlSlide =
+await arquivoSlide.async(
+"text"
+);
+
+}catch(erro){
+
+continue;
+
+}
+
+
+/*
+* Identifica o desenho do slide.
+*/
+
+const desenho =
+encontrarDesenho(
+xmlSlide
+);
+
+
+/*
+* Busca todas as imagens
+* presentes no slide.
+*/
+
+const imagens =
+await obterImagensDoSlide(
+zip,
+numeroSlide
+);
+
+
+if(!imagens.length){
+
+continue;
+
+}
+
+
+/*
+* =================================================
+* CADA IMAGEM DO SLIDE
+* =================================================
+*/
+
+for(
+const imagemInfo of imagens
+){
+
+const blob =
+await obterBlobImagem(
+zip,
+imagemInfo.path
+);
+
+
+if(!blob){
+
+continue;
+
+}
+
+
+/*
+* Não processa formatos que o navegador
+* não consiga abrir.
 */
 
 if(
-candidato.hash &&
-referencia.hash &&
-candidato.hash ===
-referencia.hash
+!blob.type.startsWith("image/")
 ){
 
-melhorDetalhado =
-100;
+continue;
 
-candidato.exato =
-true;
+}
 
-candidato.referencia =
-referencia;
+
+/*
+* Hash exato.
+*/
+
+let hashImagem = null;
+
+
+if(hashReferencia){
+
+try{
+
+hashImagem =
+await hashSHA256(
+blob
+);
+
+}catch(erro){
+
+hashImagem = null;
+
+}
+
+}
+
+
+/*
+* =================================================
+* CORRESPONDÊNCIA EXATA
+* =================================================
+*/
+
+if(
+hashReferencia &&
+hashImagem &&
+hashReferencia === hashImagem
+){
+
+resultadosFinais.push({
+
+desenho,
+
+pptNome:ppt.name,
+
+slide:numeroSlide,
+
+blob,
+
+score:1,
+
+percentual:100,
+
+good:999,
+
+inliers:999,
+
+ratio:1,
+
+coverage:1,
+
+exact:true
+
+});
+
+
+continue;
+
+}
+
+
+/*
+* =================================================
+* ANÁLISE ORB
+* =================================================
+*/
+
+let imagemCandidata;
+
+
+try{
+
+imagemCandidata =
+await blobParaImage(
+blob
+);
+
+}catch(erro){
+
+continue;
+
+}
+
+
+const canvasCandidata =
+canvasDeImagem(
+imagemCandidata,
+1500
+);
+
+
+let candidatoORB;
+
+
+try{
+
+candidatoORB =
+extrairAssinaturaLocal(
+canvasCandidata,
+"ORB",
+2600
+);
+
+}catch(erro){
+
+candidatoORB = [];
+
+}
+
+
+if(
+!candidatoORB.length
+){
+
+continue;
+
+}
+
+
+/*
+* =================================================
+* COMPARAÇÃO COARSE
+* =================================================
+*/
+
+const avaliacao =
+compararFeatureSets(
+referenciaORB,
+candidatoORB
+);
+
+
+/*
+* Libera características do candidato.
+*/
+
+candidatoORB.forEach(
+liberarFeatureSet
+);
+
+
+/*
+* Só entram na fase detalhada
+* candidatos com algum sinal visual.
+*/
+
+if(
+avaliacao.score < 0.08 &&
+avaliacao.inliers < 8 &&
+avaliacao.good < 12
+){
+
+continue;
+
+}
+
+
+resultadosFinais.push({
+
+desenho,
+
+pptNome:ppt.name,
+
+slide:numeroSlide,
+
+blob,
+
+score:avaliacao.score,
+
+percentual:resultadoVisual(
+avaliacao.score,
+avaliacao.inliers,
+avaliacao.good
+),
+
+good:avaliacao.good,
+
+inliers:avaliacao.inliers,
+
+ratio:avaliacao.ratio,
+
+medianDistance:
+avaliacao.medianDistance,
+
+coverage:
+avaliacao.coverage,
+
+exact:false
+
+});
+
+}
+
+}
+
+}
+
+
+/*
+* Libera características da referência
+* antes de passar para a próxima foto.
+*/
+
+referenciaORB.forEach(
+liberarFeatureSet
+);
+
+}
+
+
+/*
+* =======================================================
+* RANKING FINAL
+* =======================================================
+*/
+
+resultadosFinais.sort(
+(a,b)=>{
+
+if(
+a.exact &&
+!b.exact
+){
+
+return -1;
+
+}
+
+if(
+!a.exact &&
+b.exact
+){
+
+return 1;
+
+}
+
+
+/*
+* Primeiro inliers,
+* depois score.
+*/
+
+if(
+(b.inliers || 0) !==
+(a.inliers || 0)
+){
+
+return (
+(b.inliers || 0) -
+(a.inliers || 0)
+);
+
+}
+
+
+return (
+(b.score || 0) -
+(a.score || 0)
+);
+
+}
+);
+
+
+/*
+* Remove duplicações do mesmo
+* arquivo de imagem no mesmo slide.
+*/
+
+const unicos = [];
+const chaves = new Set();
+
+
+for(
+const resultado of resultadosFinais
+){
+
+const chave =
+[
+resultado.pptNome,
+resultado.slide,
+resultado.desenho
+].join("|");
+
+
+/*
+* Permite até duas imagens do mesmo
+* slide quando forem diferentes.
+*/
+
+const quantidade =
+unicos.filter(
+item =>
+item.pptNome ===
+resultado.pptNome &&
+item.slide ===
+resultado.slide &&
+item.desenho ===
+resultado.desenho
+).length;
+
+
+if(
+quantidade >= 2
+){
+
+continue;
+
+}
+
+
+/*
+* Evita duplicação literal
+* de referência.
+*/
+
+if(
+resultado.blob
+){
+
+const chaveBase =
+`${chave}|${resultado.blob.size}`;
+
+
+if(
+chaves.has(chaveBase)
+){
+
+continue;
+
+}
+
+
+chaves.add(
+chaveBase
+);
+
+}
+
+
+unicos.push(
+resultado
+);
+
+if(
+unicos.length >= 10
+){
 
 break;
 
 }
 
-const detalhado =
-await similaridadeDetalhada(
-referencia.arquivo,
-candidato.blob
-);
-
-if(
-detalhado >
-melhorDetalhado
-){
-
-melhorDetalhado =
-detalhado;
-
-candidato.referencia =
-referencia;
-
-}
-
-}
-
-candidato.detalhado =
-melhorDetalhado;
-
-candidato.score =
-combinarScores(
-candidato.rapido,
-candidato.detalhado,
-candidato.exato
-);
-
-}catch(e){
-
-console.warn(
-"Detalhamento falhou:",
-candidato.nome,
-e
-);
-
-candidato.detalhado =
-candidato.rapido;
-
-candidato.score =
-candidato.rapido;
-
-}
-
 }
 
 
 /*
-Candidatos que não entraram na
-segunda etapa continuam com o
-score inicial.
+* =======================================================
+* MOSTRAR RESULTADOS
+* =======================================================
 */
 
-for(
-const candidato
-of candidatos
-){
-
-if(
-typeof candidato.score !==
-"number"
-){
-
-candidato.detalhado =
-candidato.rapido;
-
-candidato.score =
-candidato.rapido;
-
-}
-
-}
-
-
-/*
-Adiciona ao conjunto global.
-*/
-
-for(
-const candidato
-of candidatos
-){
-
-/*
-A chave evita duplicar a mesma
-imagem física do PPT.
-*/
-
-const chave =
-ppt.name +
-"::" +
-candidato.caminho;
-
-const anterior =
-candidatosGlobais.get(
-chave
-);
-
-if(
-!anterior ||
-candidato.score >
-anterior.score
-){
-
-candidatosGlobais.set(
-chave,
-candidato
-);
-
-}
-
-}
-
-}
-
-
-/* ======================================================
-ORDENAR RESULTADOS
-====================================================== */
-
-const todos =
-Array.from(
-candidatosGlobais.values()
+mostrarResultados(
+unicos
 );
 
 
-todos.sort(
-(a,b) =>
-b.score -
-a.score
+atualizarProgresso(
+1,
+1,
+`Análise concluída. ${unicos.length} resultado(s) encontrado(s).`
 );
-
-
-area.innerHTML =
-"";
-
-
-if(!todos.length){
-
-area.innerHTML =
-"<p>Nenhuma imagem foi encontrada nos PowerPoints selecionados.</p>";
-
-}else{
-
-const exibidos =
-todos.slice(
-0,
-10
-);
-
-
-for(
-let i=0;
-i<exibidos.length;
-i++
-){
-
-const r =
-exibidos[i];
-
-const div =
-document.createElement(
-"div"
-);
-
-div.className =
-"resultado";
-
-
-let desenho =
-"Desenho não identificado";
-
-
-if(
-r.desenhos &&
-r.desenhos.length
-){
-
-desenho =
-r.desenhos.find(
-x =>
-x &&
-x !==
-"Desenho não identificado"
-) ||
-r.desenhos[0];
-
-}
-
-
-let tipoBusca =
-"Busca visual";
-
-if(
-r.exato
-){
-
-tipoBusca =
-"Correspondência exata";
-
-}else if(
-r.detalhado >= 80
-){
-
-tipoBusca =
-"Correspondência visual forte";
-
-}else if(
-r.detalhado >= 65
-){
-
-tipoBusca =
-"Correspondência visual";
-
-}
-
-
-div.innerHTML =
-
-'<div class="tag">' +
-r.score.toFixed(1) +
-'%' +
-'</div>' +
-
-'<div class="desenho">' +
-
-'<b>Desenho:</b><br>' +
-
-escapeHtml(
-desenho
-) +
-
-'</div>' +
-
-'<div class="dados">' +
-
-'<b>PowerPoint:</b> ' +
-
-escapeHtml(
-r.arquivo
-) +
-
-'<br><b>Slide:</b> ' +
-
-(
-r.slides.length
-? r.slides.join(", ")
-: "não identificado"
-) +
-
-'<br><b>Semelhança visual:</b> ' +
-
-r.score.toFixed(1) +
-
-'%' +
-
-'<br><b>Análise:</b> ' +
-
-escapeHtml(
-tipoBusca
-) +
-
-'</div>';
-
-
-const img =
-document.createElement(
-"img"
-);
-
-img.className =
-"imagem-encontrada";
-
-img.src =
-URL.createObjectURL(
-r.blob
-);
-
-img.alt =
-"Imagem encontrada no PowerPoint";
-
-div.appendChild(
-img
-);
-
-area.appendChild(
-div
-);
-
-}
-
-}
-
-
-status.innerText =
-"Busca multicritério concluída. " +
-fotos.length +
-" foto(s) comparada(s) com " +
-ppts.length +
-" PowerPoint(s). " +
-"Foram analisadas estrutura, contornos, enquadramentos, rotação e regiões locais.";
 
 
 }catch(erro){
 
 console.error(
+"Erro na pesquisa:",
 erro
 );
 
-status.innerHTML =
 
-'<span class="erro">' +
+document
+.getElementById(
+"resultsContainer"
+)
+.innerHTML = `
 
-'Erro ao ler o PowerPoint: ' +
+<div class="empty">
 
-escapeHtml(
+<div class="empty-icon">
+!
+</div>
+
+<h3>
+Erro durante a pesquisa
+</h3>
+
+<p>
+${escapeHtml(
 erro.message ||
-erro
-) +
+"Não foi possível concluir a análise."
+)}
+</p>
 
-'</span>';
+</div>
+
+`;
+
+
+document
+.getElementById(
+"progressStatus"
+)
+.textContent =
+erro.message ||
+"Erro durante a análise.";
+
 
 }finally{
 
 btn.disabled =
 false;
 
+atualizarBotao();
+
 }
 
 }
 
 
 /* ==========================================================
-BOTÃO PROCURAR
+TECLA ESC PARA FECHAR MODAL
 ========================================================== */
 
+document.addEventListener(
+"keydown",
+function(event){
+
+if(
+event.key === "Escape"
+){
+
 document
-.getElementById("btn")
-.addEventListener(
-"click",
-procurar
+.getElementById(
+"imageModal"
+)
+.classList.remove(
+"active"
+);
+
+}
+
+}
 );
 
 
 /* ==========================================================
-AO ABRIR O SISTEMA
+INICIALIZAÇÃO
 ========================================================== */
 
-carregarHistorico();
+(async function(){
+
+try{
+
+await abrirDB();
+
+}catch(erro){
+
+console.warn(
+"IndexedDB indisponível:",
+erro
+);
+
+}
+
+
+/*
+* Pré-carrega OpenCV em segundo plano.
+* A aplicação continua funcionando enquanto
+* o mecanismo termina de carregar.
+*/
+
+aguardarOpenCV()
+.then(()=>{
+
+console.log(
+"OpenCV.js carregado com sucesso."
+);
+
+})
+.catch(erro=>{
+
+console.warn(
+"OpenCV ainda não está disponível:",
+erro
+);
+
+});
+
+
+renderizarFotos();
+renderizarPpts();
+
+atualizarBotao();
+
+})();
 
 </script>
 
 </body>
 </html>
+
