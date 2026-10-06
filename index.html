@@ -9,1077 +9,1030 @@
 <style>
 
 *{
-  box-sizing:border-box;
+box-sizing:border-box;
 }
 
 html,body{
-  margin:0;
-  padding:0;
-  width:100%;
-  min-height:100%;
+margin:0;
+padding:0;
+width:100%;
+min-height:100%;
 }
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#020d19;
-  color:#fff;
-  overflow-x:hidden;
+font-family:Arial,Helvetica,sans-serif;
+background:#020d19;
+color:#fff;
+overflow-x:hidden;
 }
-
-/* =========================
-   ESTRUTURA PRINCIPAL
-========================= */
 
 .app{
-  min-height:100vh;
-  display:flex;
-  background:
-    radial-gradient(circle at 70% 20%,rgba(0,91,180,.18),transparent 35%),
-    linear-gradient(135deg,#02101d,#03192b 55%,#020c17);
+min-height:100vh;
+display:flex;
+background:
+radial-gradient(circle at 70% 20%,rgba(0,91,180,.18),transparent 35%),
+linear-gradient(135deg,#02101d,#03192b 55%,#020c17);
 }
 
-/* =========================
-   MENU LATERAL
-========================= */
-
 .sidebar{
-  width:176px;
-  min-width:176px;
-  min-height:100vh;
-  background:
-    linear-gradient(180deg,#06182a 0%,#031323 60%,#020d18 100%);
-  border-right:1px solid rgba(55,139,226,.45);
-  position:fixed;
-  left:0;
-  top:0;
-  bottom:0;
-  z-index:20;
-  display:flex;
-  flex-direction:column;
-  overflow:hidden;
+width:176px;
+min-width:176px;
+min-height:100vh;
+background:
+linear-gradient(180deg,#06182a 0%,#031323 60%,#020d18 100%);
+border-right:1px solid rgba(55,139,226,.45);
+position:fixed;
+left:0;
+top:0;
+bottom:0;
+z-index:20;
+display:flex;
+flex-direction:column;
+overflow:hidden;
 }
 
 .logo-iveco{
-  font-size:30px;
-  font-weight:900;
-  letter-spacing:1px;
-  padding:24px 30px 25px;
-  color:#fff;
+font-size:30px;
+font-weight:900;
+letter-spacing:1px;
+padding:24px 30px 25px;
+color:#fff;
 }
 
 .menu{
-  padding:0 8px;
+padding:0 8px;
 }
 
 .menu-item{
-  height:47px;
-  margin-bottom:7px;
-  border-radius:8px;
-  display:flex;
-  align-items:center;
-  gap:15px;
-  padding:0 16px;
-  color:#fff;
-  font-size:14px;
-  cursor:pointer;
-  transition:.2s;
+height:47px;
+margin-bottom:7px;
+border-radius:8px;
+display:flex;
+align-items:center;
+gap:15px;
+padding:0 16px;
+color:#fff;
+font-size:14px;
+cursor:pointer;
+transition:.2s;
 }
 
 .menu-item:hover{
-  background:rgba(21,109,220,.22);
+background:rgba(21,109,220,.22);
 }
 
 .menu-item.active{
-  background:linear-gradient(90deg,#0879ff,#1261d6);
-  box-shadow:0 5px 15px rgba(0,100,255,.22);
+background:linear-gradient(90deg,#0879ff,#1261d6);
+box-shadow:0 5px 15px rgba(0,100,255,.22);
 }
 
 .menu-icon{
-  width:22px;
-  text-align:center;
-  font-size:22px;
+width:22px;
+text-align:center;
+font-size:22px;
 }
 
 .sidebar-bottom{
-  margin-top:auto;
-  padding:0 24px 22px;
-  position:relative;
+margin-top:auto;
+padding:0 24px 22px;
+position:relative;
 }
 
 .sidebar-truck{
-  width:100%;
-  opacity:.25;
-  position:absolute;
-  bottom:0;
-  left:0;
-  transform:translateY(15%);
-  pointer-events:none;
+width:100%;
+opacity:.25;
+position:absolute;
+bottom:0;
+left:0;
+transform:translateY(15%);
+pointer-events:none;
 }
 
 .sidebar-message{
-  position:relative;
-  z-index:2;
-  font-size:17px;
-  line-height:1.35;
-  color:#fff;
+position:relative;
+z-index:2;
+font-size:17px;
+line-height:1.35;
+color:#fff;
 }
 
 .sidebar-message strong{
-  color:#0879ff;
+color:#0879ff;
 }
-
-/* =========================
-   CONTEÚDO
-========================= */
 
 .main{
-  margin-left:176px;
-  width:calc(100% - 176px);
-  min-height:100vh;
-  padding-bottom:0;
+margin-left:176px;
+width:calc(100% - 176px);
+min-height:100vh;
+padding-bottom:0;
 }
 
-/* =========================
-   HERO
-========================= */
-
 .hero{
-  height:193px;
-  position:relative;
-  overflow:hidden;
-  border-bottom:1px solid rgba(42,130,230,.55);
-  background:#041323;
+height:193px;
+position:relative;
+overflow:hidden;
+border-bottom:1px solid rgba(42,130,230,.55);
+background:#041323;
 }
 
 .hero-image{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:left center;
+position:absolute;
+inset:0;
+width:100%;
+height:100%;
+object-fit:cover;
+object-position:left center;
 }
 
 .hero-overlay{
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(2,14,27,.10) 0%,
-      rgba(2,14,27,.28) 30%,
-      rgba(2,14,27,.82) 52%,
-      rgba(2,14,27,.95) 100%
-    );
+position:absolute;
+inset:0;
+background:
+linear-gradient(
+90deg,
+rgba(2,14,27,.10) 0%,
+rgba(2,14,27,.28) 30%,
+rgba(2,14,27,.82) 52%,
+rgba(2,14,27,.95) 100%
+);
+}
+
+.hero-blue{
+position:absolute;
+inset:0;
+background:
+linear-gradient(
+90deg,
+rgba(2,14,27,.08),
+rgba(2,14,27,.25) 30%,
+rgba(2,14,27,.82) 52%,
+rgba(2,14,27,.95)
+);
 }
 
 .hero-content{
-  position:relative;
-  z-index:3;
-  height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:left;
-  padding-left:250px;
-  padding-right:170px;
+position:relative;
+z-index:3;
+height:100%;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:left;
+padding-left:250px;
+padding-right:170px;
 }
 
 .hero-title{
-  font-size:42px;
-  line-height:1.05;
-  font-weight:800;
-  margin:0 0 9px;
+font-size:42px;
+line-height:1.05;
+font-weight:800;
+margin:0 0 9px;
 }
 
 .hero-title span{
-  color:#0878ff;
+color:#0878ff;
 }
 
 .hero-subtitle{
-  font-size:16px;
-  margin:0;
-  color:#e6eef8;
+font-size:16px;
+margin:0;
+color:#e6eef8;
 }
 
 .hero-logo{
-  position:absolute;
-  right:42px;
-  top:73px;
-  font-size:38px;
-  font-weight:900;
-  letter-spacing:2px;
+position:absolute;
+right:42px;
+top:73px;
+font-size:38px;
+font-weight:900;
+letter-spacing:2px;
 }
 
-/* =========================
-   ÁREA DE TRABALHO
-========================= */
-
 .workspace{
-  padding:10px 25px 0;
+padding:10px 25px 0;
 }
 
 .cards-top{
-  display:grid;
-  grid-template-columns:1.05fr 1.15fr .67fr;
-  gap:10px;
+display:grid;
+grid-template-columns:1.05fr 1.15fr .67fr;
+gap:10px;
 }
 
-/* =========================
-   CARD
-========================= */
-
 .card{
-  background:
-    linear-gradient(145deg,rgba(5,34,58,.94),rgba(3,24,42,.94));
-  border:1px solid rgba(40,126,214,.68);
-  border-radius:10px;
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.025),
-    0 5px 18px rgba(0,0,0,.18);
-  overflow:hidden;
+background:
+linear-gradient(145deg,rgba(5,34,58,.94),rgba(3,24,42,.94));
+border:1px solid rgba(40,126,214,.68);
+border-radius:10px;
+box-shadow:
+inset 0 1px 0 rgba(255,255,255,.025),
+0 5px 18px rgba(0,0,0,.18);
+overflow:hidden;
 }
 
 .input-card{
-  min-height:274px;
-  padding:10px 15px 14px;
+min-height:274px;
+padding:10px 15px 14px;
 }
 
 .card-title{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  font-weight:700;
-  font-size:14px;
-  margin-bottom:8px;
+display:flex;
+align-items:center;
+gap:12px;
+font-weight:700;
+font-size:14px;
+margin-bottom:8px;
 }
 
 .number{
-  width:31px;
-  height:31px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#0878ff;
-  font-size:17px;
-  font-weight:700;
-  box-shadow:0 0 15px rgba(0,116,255,.25);
+width:31px;
+height:31px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#0878ff;
+font-size:17px;
+font-weight:700;
+box-shadow:0 0 15px rgba(0,116,255,.25);
 }
 
 .drop-zone{
-  height:95px;
-  border:1px dashed #3488d8;
-  border-radius:9px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  text-align:center;
-  cursor:pointer;
-  background:rgba(8,53,88,.25);
-  transition:.2s;
-  position:relative;
+height:95px;
+border:1px dashed #3488d8;
+border-radius:9px;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+text-align:center;
+cursor:pointer;
+background:rgba(8,53,88,.25);
+transition:.2s;
+position:relative;
 }
 
 .drop-zone:hover{
-  background:rgba(10,91,157,.25);
-  border-color:#1685ff;
+background:rgba(10,91,157,.25);
+border-color:#1685ff;
 }
 
 .drop-icon{
-  font-size:27px;
-  margin-bottom:6px;
+font-size:27px;
+margin-bottom:6px;
 }
 
 .drop-text{
-  font-size:12px;
-  line-height:1.4;
-  color:#dbe9f8;
+font-size:12px;
+line-height:1.4;
+color:#dbe9f8;
 }
 
 .drop-input{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  opacity:0;
-  cursor:pointer;
+position:absolute;
+inset:0;
+width:100%;
+height:100%;
+opacity:0;
+cursor:pointer;
 }
 
 .preview-wrap{
-  position:relative;
-  margin-top:14px;
-  width:100%;
+position:relative;
+margin-top:14px;
+width:100%;
 }
 
 .preview-list{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  align-items:flex-start;
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+align-items:flex-start;
 }
 
 .preview-item{
-  position:relative;
-  width:116px;
-  height:99px;
+position:relative;
+width:116px;
+height:99px;
 }
 
 .preview-item img{
-  width:116px;
-  height:99px;
-  object-fit:cover;
-  border-radius:9px;
-  border:1px solid #7893ab;
-  box-shadow:0 4px 12px rgba(0,0,0,.35);
-  display:block;
-  background:#031321;
+width:116px;
+height:99px;
+object-fit:cover;
+border-radius:9px;
+border:1px solid #7893ab;
+box-shadow:0 4px 12px rgba(0,0,0,.35);
+display:block;
+background:#031321;
 }
 
 .remove-preview{
-  position:absolute;
-  right:-7px;
-  top:-7px;
-  width:23px;
-  height:23px;
-  border-radius:50%;
-  background:#203c58;
-  border:2px solid #081c30;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  font-size:13px;
-  z-index:5;
+position:absolute;
+right:-7px;
+top:-7px;
+width:23px;
+height:23px;
+border-radius:50%;
+background:#203c58;
+border:2px solid #081c30;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+font-size:13px;
+z-index:5;
 }
 
 .remove-preview:hover{
-  background:#0878ff;
+background:#0878ff;
 }
 
-/* =========================
-   POWERPOINTS
-========================= */
-
 .ppt-drop{
-  margin-bottom:7px;
+margin-bottom:7px;
 }
 
 .ppt-help{
-  font-size:11px;
-  color:#dce8f4;
-  margin:0 0 7px;
+font-size:11px;
+color:#dce8f4;
+margin:0 0 7px;
 }
 
 .file-list{
-  max-height:94px;
-  overflow-y:auto;
+max-height:94px;
+overflow-y:auto;
 }
 
 .file-item{
-  height:27px;
-  display:flex;
-  align-items:center;
-  gap:8px;
-  background:rgba(7,55,91,.42);
-  border:1px solid rgba(45,113,169,.28);
-  border-radius:6px;
-  margin-bottom:4px;
-  padding:0 8px;
-  font-size:11px;
+height:27px;
+display:flex;
+align-items:center;
+gap:8px;
+background:rgba(7,55,91,.42);
+border:1px solid rgba(45,113,169,.28);
+border-radius:6px;
+margin-bottom:4px;
+padding:0 8px;
+font-size:11px;
 }
 
 .ppt-icon{
-  width:18px;
-  height:20px;
-  border-radius:3px;
-  background:#ef4c2f;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:10px;
-  font-weight:bold;
+width:18px;
+height:20px;
+border-radius:3px;
+background:#ef4c2f;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:10px;
+font-weight:bold;
 }
 
 .file-name{
-  flex:1;
-  overflow:hidden;
-  white-space:nowrap;
-  text-overflow:ellipsis;
+flex:1;
+overflow:hidden;
+white-space:nowrap;
+text-overflow:ellipsis;
 }
 
 .file-size{
-  color:#e6edf4;
-  white-space:nowrap;
+color:#e6edf4;
+white-space:nowrap;
 }
 
 .file-remove{
-  cursor:pointer;
-  font-size:15px;
-  opacity:.8;
+cursor:pointer;
+font-size:15px;
+opacity:.8;
 }
 
-/* =========================
-   CARD DE BUSCA
-========================= */
-
 .search-card{
-  min-height:274px;
-  padding:18px 15px 14px;
-  position:relative;
-  text-align:center;
-  background:
-    linear-gradient(145deg,rgba(6,38,65,.94),rgba(3,21,37,.96));
+min-height:274px;
+padding:18px 15px 14px;
+position:relative;
+text-align:center;
+background:
+linear-gradient(145deg,rgba(6,38,65,.94),rgba(3,21,37,.96));
 }
 
 .search-bg{
-  position:absolute;
-  right:-45px;
-  top:0;
-  width:190px;
-  height:100%;
-  background:
-    linear-gradient(90deg,transparent,rgba(0,54,103,.25)),
-    url("IMG_6447.jpeg") center/cover no-repeat;
-  opacity:.16;
-  pointer-events:none;
+position:absolute;
+right:-45px;
+top:0;
+width:190px;
+height:100%;
+background:
+linear-gradient(90deg,transparent,rgba(0,54,103,.25)),
+url("IMG_6447.jpeg") center/cover no-repeat;
+opacity:.16;
+pointer-events:none;
 }
 
 .search-content{
-  position:relative;
-  z-index:2;
+position:relative;
+z-index:2;
 }
 
 .search-icon{
-  font-size:39px;
-  margin-bottom:7px;
+font-size:39px;
+margin-bottom:7px;
 }
 
 .search-title{
-  font-size:17px;
-  font-weight:800;
-  line-height:1.2;
-  margin-bottom:12px;
+font-size:17px;
+font-weight:800;
+line-height:1.2;
+margin-bottom:12px;
 }
 
 .search-description{
-  font-size:13px;
-  line-height:1.35;
-  color:#e5edf6;
-  margin:0 auto 14px;
-  max-width:205px;
+font-size:13px;
+line-height:1.35;
+color:#e5edf6;
+margin:0 auto 14px;
+max-width:205px;
 }
 
 #btn{
-  width:100%;
-  height:44px;
-  background:linear-gradient(90deg,#0878ff,#0563eb);
-  color:#fff;
-  border:0;
-  border-radius:8px;
-  font-size:13px;
-  font-weight:bold;
-  cursor:pointer;
-  transition:.2s;
-  margin:0;
+width:100%;
+height:44px;
+background:linear-gradient(90deg,#0878ff,#0563eb);
+color:#fff;
+border:0;
+border-radius:8px;
+font-size:13px;
+font-weight:bold;
+cursor:pointer;
+transition:.2s;
+margin:0;
 }
 
 #btn:hover{
-  background:linear-gradient(90deg,#1684ff,#0870ff);
-  box-shadow:0 5px 16px rgba(0,107,255,.25);
+background:linear-gradient(90deg,#1684ff,#0870ff);
+box-shadow:0 5px 16px rgba(0,107,255,.25);
 }
 
 #btn:disabled{
-  opacity:.6;
-  cursor:wait;
+opacity:.6;
+cursor:wait;
 }
-
-/* =========================
-   STATUS
-========================= */
 
 #status{
-  font-size:12px;
-  min-height:18px;
-  margin:5px 0 0;
-  color:#bcd4eb;
+font-size:12px;
+min-height:18px;
+margin:5px 0 0;
+color:#bcd4eb;
 }
 
-/* =========================
-   INFORMAÇÕES
-========================= */
-
 .info-strip{
-  margin-top:10px;
-  padding:11px 15px;
-  background:
-    linear-gradient(90deg,#062a4a,#05233d);
-  border:1px solid rgba(30,119,211,.72);
-  border-radius:10px;
-  display:grid;
-  grid-template-columns:1.15fr 1fr 1fr 1fr;
-  align-items:center;
+margin-top:10px;
+padding:11px 15px;
+background:
+linear-gradient(90deg,#062a4a,#05233d);
+border:1px solid rgba(30,119,211,.72);
+border-radius:10px;
+display:grid;
+grid-template-columns:1.15fr 1fr 1fr 1fr;
+align-items:center;
 }
 
 .info-header{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  font-size:12px;
+display:flex;
+align-items:center;
+gap:12px;
+font-size:12px;
 }
 
 .info-circle{
-  width:23px;
-  height:23px;
-  background:#0878ff;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:bold;
-  font-size:13px;
+width:23px;
+height:23px;
+background:#0878ff;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:bold;
+font-size:13px;
 }
 
 .info-item{
-  border-left:1px solid #0878ff;
-  padding-left:25px;
-  min-height:32px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
+border-left:1px solid #0878ff;
+padding-left:25px;
+min-height:32px;
+display:flex;
+flex-direction:column;
+justify-content:center;
 }
 
 .info-label{
-  font-size:12px;
-  font-weight:bold;
-  margin-bottom:4px;
+font-size:12px;
+font-weight:bold;
+margin-bottom:4px;
 }
 
 .info-example{
-  font-size:11px;
-  color:#d4e3f1;
+font-size:11px;
+color:#d4e3f1;
 }
 
-/* =========================
-   RESULTADOS
-========================= */
-
 .results-card{
-  margin-top:10px;
-  padding:12px 15px 14px;
-  border:1px solid rgba(40,126,214,.68);
-  border-radius:10px;
-  background:
-    linear-gradient(145deg,rgba(3,28,48,.97),rgba(2,20,35,.97));
+margin-top:10px;
+padding:12px 15px 14px;
+border:1px solid rgba(40,126,214,.68);
+border-radius:10px;
+background:
+linear-gradient(145deg,rgba(3,28,48,.97),rgba(2,20,35,.97));
 }
 
 .results-header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-bottom:8px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-bottom:8px;
 }
 
 .results-title{
-  display:flex;
-  align-items:center;
-  gap:11px;
-  font-size:22px;
-  font-weight:800;
+display:flex;
+align-items:center;
+gap:11px;
+font-size:22px;
+font-weight:800;
 }
 
 .results-title-icon{
-  font-size:23px;
+font-size:23px;
 }
 
 .top-results{
-  background:#10375a;
-  border:1px solid rgba(65,133,191,.35);
-  border-radius:18px;
-  padding:7px 13px;
-  font-size:10px;
-  color:#e8f2fc;
+background:#10375a;
+border:1px solid rgba(65,133,191,.35);
+border-radius:18px;
+padding:7px 13px;
+font-size:10px;
+color:#e8f2fc;
 }
 
-/* =========================
-   GRID DE RESULTADOS
-========================= */
-
 #resultados{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:12px;
-  align-items:start;
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:12px;
+align-items:start;
 }
 
 .resultado{
-  position:relative;
-  min-width:0;
-  min-height:245px;
-  background:
-    linear-gradient(150deg,#06233b,#041a2e);
-  border:1px solid rgba(33,105,163,.68);
-  border-radius:9px;
-  padding:10px;
-  margin:0;
-  box-shadow:0 4px 12px rgba(0,0,0,.15);
-  overflow:hidden;
+position:relative;
+min-width:0;
+min-height:245px;
+background:
+linear-gradient(150deg,#06233b,#041a2e);
+border:1px solid rgba(33,105,163,.68);
+border-radius:9px;
+padding:10px;
+margin:0;
+box-shadow:0 4px 12px rgba(0,0,0,.15);
+overflow:hidden;
 }
 
 .resultado .separador{
-  display:none;
+display:none;
 }
 
 .tag{
-  position:absolute;
-  left:10px;
-  top:10px;
-  z-index:3;
-  display:inline-block;
-  background:#54edc1;
-  color:#052b2a;
-  padding:5px 9px;
-  border-radius:15px;
-  font-size:11px;
-  font-weight:bold;
-  margin:0;
+position:absolute;
+left:10px;
+top:10px;
+z-index:3;
+display:inline-block;
+background:#54edc1;
+color:#052b2a;
+padding:5px 9px;
+border-radius:15px;
+font-size:11px;
+font-weight:bold;
+margin:0;
 }
 
 .desenho{
-  background:transparent;
-  border:0;
-  border-left:0;
-  padding:0;
-  margin:132px 0 4px;
-  border-radius:0;
-  font-size:10px;
-  line-height:1.35;
+background:transparent;
+border:0;
+border-left:0;
+padding:0;
+margin:132px 0 4px;
+border-radius:0;
+font-size:10px;
+line-height:1.35;
 }
 
 .dados{
-  line-height:1.42;
-  margin:0 0 6px;
-  font-size:10px;
-  color:#eef6ff;
-  min-height:67px;
+line-height:1.42;
+margin:0 0 6px;
+font-size:10px;
+color:#eef6ff;
+min-height:67px;
 }
 
 .imagem-encontrada{
-  width:100%;
-  height:125px;
-  max-width:none;
-  max-height:none;
-  object-fit:contain;
-  display:block;
-  margin:0 auto;
-  border-radius:6px;
-  background:#031321;
+width:100%;
+height:125px;
+max-width:none;
+max-height:none;
+object-fit:contain;
+display:block;
+margin:0 auto;
+border-radius:6px;
+background:#031321;
 }
 
 .resultado .imagem-encontrada{
-  position:absolute;
-  top:17px;
-  left:8px;
-  right:8px;
-  width:calc(100% - 16px);
-  height:108px;
-  object-fit:contain;
-  border-radius:6px;
-  background:#031321;
+position:absolute;
+top:17px;
+left:8px;
+right:8px;
+width:calc(100% - 16px);
+height:108px;
+object-fit:contain;
+border-radius:6px;
+background:#031321;
 }
 
 .resultado button{
-  display:none;
+display:none;
 }
 
 .nota{
-  display:none;
+display:none;
 }
 
 .erro{
-  color:#ffb5b5;
-  background:#4b1616;
-  padding:10px;
-  border-radius:6px;
+color:#ffb5b5;
+background:#4b1616;
+padding:10px;
+border-radius:6px;
 }
 
 .separador{
-  display:none;
+display:none;
 }
 
-/* =========================
-   TELA DE HISTÓRICO
-========================= */
-
 #telaHistorico{
-  display:none;
-  min-height:calc(100vh - 48px);
-  padding:20px 25px 25px;
+display:none;
+min-height:calc(100vh - 48px);
+padding:20px 25px 25px;
 }
 
 .historico-container{
-  background:
-    linear-gradient(145deg,rgba(5,34,58,.96),rgba(3,24,42,.96));
-  border:1px solid rgba(40,126,214,.68);
-  border-radius:10px;
-  padding:20px;
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.025),
-    0 5px 18px rgba(0,0,0,.18);
+background:
+linear-gradient(145deg,rgba(5,34,58,.96),rgba(3,24,42,.96));
+border:1px solid rgba(40,126,214,.68);
+border-radius:10px;
+padding:20px;
+box-shadow:
+inset 0 1px 0 rgba(255,255,255,.025),
+0 5px 18px rgba(0,0,0,.18);
 }
 
 .historico-topo{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-bottom:20px;
-  gap:15px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-bottom:20px;
+gap:15px;
 }
 
 .historico-titulo{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  font-size:25px;
-  font-weight:800;
+display:flex;
+align-items:center;
+gap:12px;
+font-size:25px;
+font-weight:800;
 }
 
 .historico-titulo-icon{
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  background:#0878ff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:22px;
+width:42px;
+height:42px;
+border-radius:50%;
+background:#0878ff;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:22px;
 }
 
 .btn-voltar{
-  width:auto !important;
-  min-width:190px;
-  height:40px !important;
-  margin:0 !important;
-  padding:0 18px !important;
-  background:#0878ff !important;
-  border-radius:8px !important;
-  color:#fff;
-  font-size:12px !important;
-  font-weight:bold;
+width:auto !important;
+min-width:190px;
+height:40px !important;
+margin:0 !important;
+padding:0 18px !important;
+background:#0878ff !important;
+border-radius:8px !important;
+color:#fff;
+font-size:12px !important;
+font-weight:bold;
 }
 
 .btn-limpar-historico{
-  width:auto !important;
-  height:40px !important;
-  margin:0 !important;
-  padding:0 18px !important;
-  background:#263f57 !important;
-  border:1px solid #42617e !important;
-  border-radius:8px !important;
-  color:#fff;
-  font-size:12px !important;
-  font-weight:bold;
+width:auto !important;
+height:40px !important;
+margin:0 !important;
+padding:0 18px !important;
+background:#263f57 !important;
+border:1px solid #42617e !important;
+border-radius:8px !important;
+color:#fff;
+font-size:12px !important;
+font-weight:bold;
 }
 
 .historico-acoes{
-  display:flex;
-  gap:8px;
-  align-items:center;
+display:flex;
+gap:8px;
+align-items:center;
 }
 
 .historico-grid{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:12px;
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:12px;
 }
 
 .historico-item{
-  position:relative;
-  min-width:0;
-  background:
-    linear-gradient(150deg,#06233b,#041a2e);
-  border:1px solid rgba(33,105,163,.68);
-  border-radius:9px;
-  padding:10px;
-  box-shadow:0 4px 12px rgba(0,0,0,.15);
+position:relative;
+min-width:0;
+background:
+linear-gradient(150deg,#06233b,#041a2e);
+border:1px solid rgba(33,105,163,.68);
+border-radius:9px;
+padding:10px;
+box-shadow:0 4px 12px rgba(0,0,0,.15);
 }
 
 .historico-numero{
-  position:absolute;
-  top:8px;
-  left:8px;
-  z-index:3;
-  background:#0878ff;
-  color:#fff;
-  border-radius:15px;
-  padding:4px 8px;
-  font-size:10px;
-  font-weight:bold;
+position:absolute;
+top:8px;
+left:8px;
+z-index:3;
+background:#0878ff;
+color:#fff;
+border-radius:15px;
+padding:4px 8px;
+font-size:10px;
+font-weight:bold;
 }
 
 .historico-imagem{
-  width:100%;
-  height:145px;
-  object-fit:contain;
-  display:block;
-  background:#031321;
-  border-radius:7px;
-  margin-bottom:10px;
+width:100%;
+height:145px;
+object-fit:contain;
+display:block;
+background:#031321;
+border-radius:7px;
+margin-bottom:10px;
 }
 
 .historico-nome{
-  font-size:11px;
-  font-weight:bold;
-  line-height:1.35;
-  word-break:break-word;
-  color:#fff;
-  min-height:31px;
+font-size:11px;
+font-weight:bold;
+line-height:1.35;
+word-break:break-word;
+color:#fff;
+min-height:31px;
 }
 
 .historico-data{
-  color:#9fb7ce;
-  font-size:9px;
-  margin-top:7px;
+color:#9fb7ce;
+font-size:9px;
+margin-top:7px;
 }
 
 .historico-abrir{
-  width:100% !important;
-  height:30px !important;
-  margin-top:9px !important;
-  background:#0878ff !important;
-  font-size:10px !important;
+width:100% !important;
+height:30px !important;
+margin-top:9px !important;
+background:#0878ff !important;
+font-size:10px !important;
 }
 
 .historico-vazio{
-  padding:60px 20px;
-  text-align:center;
-  color:#9fb7ce;
-  border:1px dashed #315a7e;
-  border-radius:10px;
+padding:60px 20px;
+text-align:center;
+color:#9fb7ce;
+border:1px dashed #315a7e;
+border-radius:10px;
 }
 
 .historico-vazio-icon{
-  font-size:45px;
-  margin-bottom:12px;
+font-size:45px;
+margin-bottom:12px;
 }
 
 .historico-vazio-titulo{
-  font-size:18px;
-  font-weight:bold;
-  color:#fff;
-  margin-bottom:7px;
+font-size:18px;
+font-weight:bold;
+color:#fff;
+margin-bottom:7px;
 }
 
-/* =========================
-   RODAPÉ
-========================= */
-
 .footer{
-  height:48px;
-  margin-top:10px;
-  border-top:1px solid rgba(44,119,183,.55);
-  background:#031321;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 25px;
-  color:#d7e5f2;
-  font-size:10px;
+height:48px;
+margin-top:10px;
+border-top:1px solid rgba(44,119,183,.55);
+background:#031321;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 25px;
+color:#d7e5f2;
+font-size:10px;
 }
 
 .footer-left{
-  display:flex;
-  align-items:center;
-  gap:28px;
+display:flex;
+align-items:center;
+gap:28px;
 }
 
 .footer-logo{
-  font-size:19px;
-  font-weight:900;
-  color:#fff;
+font-size:19px;
+font-weight:900;
+color:#fff;
 }
 
 .footer-right{
-  display:flex;
-  align-items:center;
-  gap:8px;
+display:flex;
+align-items:center;
+gap:8px;
 }
-
-/* =========================
-   RESPONSIVO
-========================= */
 
 @media(max-width:1100px){
 
-  .cards-top{
-    grid-template-columns:1fr 1fr;
-  }
+.cards-top{
+grid-template-columns:1fr 1fr;
+}
 
-  .search-card{
-    grid-column:1/-1;
-  }
+.search-card{
+grid-column:1/-1;
+}
 
-  #resultados{
-    grid-template-columns:repeat(3,1fr);
-  }
+#resultados{
+grid-template-columns:repeat(3,1fr);
+}
 
-  .historico-grid{
-    grid-template-columns:repeat(3,1fr);
-  }
+.historico-grid{
+grid-template-columns:repeat(3,1fr);
+}
 
-  .info-strip{
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-  }
+.info-strip{
+grid-template-columns:1fr 1fr;
+gap:10px;
+}
 
-  .info-item:nth-child(3),
-  .info-item:nth-child(4){
-    border-left:0;
-  }
+.info-item:nth-child(3),
+.info-item:nth-child(4){
+border-left:0;
+}
 
 }
 
 @media(max-width:800px){
 
-  .sidebar{
-    width:70px;
-    min-width:70px;
-  }
+.sidebar{
+width:70px;
+min-width:70px;
+}
 
-  .logo-iveco{
-    font-size:16px;
-    padding:20px 8px;
-    text-align:center;
-  }
+.logo-iveco{
+font-size:16px;
+padding:20px 8px;
+text-align:center;
+}
 
-  .menu-item{
-    justify-content:center;
-    padding:0;
-  }
+.menu-item{
+justify-content:center;
+padding:0;
+}
 
-  .menu-item span:last-child{
-    display:none;
-  }
+.menu-item span:last-child{
+display:none;
+}
 
-  .sidebar-message{
-    display:none;
-  }
+.sidebar-message{
+display:none;
+}
 
-  .main{
-    margin-left:70px;
-    width:calc(100% - 70px);
-  }
+.main{
+margin-left:70px;
+width:calc(100% - 70px);
+}
 
-  .hero-content{
-    padding:0 100px 0 190px;
-  }
+.hero-content{
+padding:0 100px 0 190px;
+}
 
-  .hero-title{
-    font-size:30px;
-  }
+.hero-title{
+font-size:30px;
+}
 
-  .hero-subtitle{
-    font-size:12px;
-  }
+.hero-subtitle{
+font-size:12px;
+}
 
-  .hero-logo{
-    right:20px;
-    font-size:25px;
-  }
+.hero-logo{
+right:20px;
+font-size:25px;
+}
 
-  .cards-top{
-    grid-template-columns:1fr;
-  }
+.cards-top{
+grid-template-columns:1fr;
+}
 
-  .search-card{
-    grid-column:auto;
-  }
+.search-card{
+grid-column:auto;
+}
 
-  #resultados{
-    grid-template-columns:repeat(2,1fr);
-  }
+#resultados{
+grid-template-columns:repeat(2,1fr);
+}
 
-  .historico-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
+.historico-grid{
+grid-template-columns:repeat(2,1fr);
+}
 
-  .historico-topo{
-    align-items:flex-start;
-    flex-direction:column;
-  }
+.historico-topo{
+align-items:flex-start;
+flex-direction:column;
+}
 
 }
 
 @media(max-width:560px){
 
-  .workspace{
-    padding:8px;
-  }
+.workspace{
+padding:8px;
+}
 
-  .hero{
-    height:155px;
-  }
+.hero{
+height:155px;
+}
 
-  .hero-content{
-    padding:0 15px 0 130px;
-  }
+.hero-content{
+padding:0 15px 0 130px;
+}
 
-  .hero-title{
-    font-size:23px;
-  }
+.hero-title{
+font-size:23px;
+}
 
-  .hero-subtitle{
-    font-size:10px;
-  }
+.hero-subtitle{
+font-size:10px;
+}
 
-  .hero-logo{
-    display:none;
-  }
+.hero-logo{
+display:none;
+}
 
-  .info-strip{
-    grid-template-columns:1fr;
-  }
+.info-strip{
+grid-template-columns:1fr;
+}
 
-  .info-item{
-    border-left:0;
-    border-top:1px solid rgba(8,120,255,.5);
-    padding:8px 0 0;
-  }
+.info-item{
+border-left:0;
+border-top:1px solid rgba(8,120,255,.5);
+padding:8px 0 0;
+}
 
-  #resultados{
-    grid-template-columns:1fr;
-  }
+#resultados{
+grid-template-columns:1fr;
+}
 
-  .historico-grid{
-    grid-template-columns:1fr;
-  }
+.historico-grid{
+grid-template-columns:1fr;
+}
 
-  #telaHistorico{
-    padding:8px;
-  }
+#telaHistorico{
+padding:8px;
+}
 
-  .historico-container{
-    padding:12px;
-  }
+.historico-container{
+padding:12px;
+}
 
-  .historico-acoes{
-    width:100%;
-    flex-direction:column;
-  }
+.historico-acoes{
+width:100%;
+flex-direction:column;
+}
 
-  .btn-voltar,
-  .btn-limpar-historico{
-    width:100% !important;
-  }
+.btn-voltar,
+.btn-limpar-historico{
+width:100% !important;
+}
 
-  .footer{
-    padding:0 10px;
-  }
+.footer{
+padding:0 10px;
+}
 
-  .footer-left{
-    gap:10px;
-  }
+.footer-left{
+gap:10px;
+}
 
 }
 
@@ -1090,3463 +1043,3998 @@ body{
 
 <div class="app">
 
-  <aside class="sidebar">
+<aside class="sidebar">
 
-    <div class="logo-iveco">
-      IVECO
-    </div>
+<div class="logo-iveco">
+IVECO
+</div>
 
-    <div class="menu">
+<div class="menu">
 
-      <div class="menu-item active" id="menuInicio">
+<div class="menu-item active" id="menuInicio">
 
-        <span class="menu-icon">⌂</span>
+<span class="menu-icon">⌂</span>
 
-        <span>Início</span>
+<span>Início</span>
 
-      </div>
+</div>
 
-      <div class="menu-item" id="menuHistorico">
+<div class="menu-item" id="menuHistorico">
 
-        <span class="menu-icon">◔</span>
+<span class="menu-icon">◔</span>
 
-        <span>Histórico</span>
+<span>Histórico</span>
 
-      </div>
+</div>
 
-    </div>
+</div>
 
-    <div class="sidebar-bottom">
+<div class="sidebar-bottom">
 
-      <div class="sidebar-message">
-        Mais tecnologia<br>
-        para o <strong>seu<br>dia a dia.</strong>
-      </div>
+<div class="sidebar-message">
+Mais tecnologia<br>
+para o <strong>seu<br>dia a dia.</strong>
+</div>
 
-      <img
-        class="sidebar-truck"
-        src="IMG_6447.jpeg"
-        alt=""
-      >
+<img
+class="sidebar-truck"
+src="IMG_6447.jpeg"
+alt=""
+>
 
-    </div>
+</div>
 
-  </aside>
+</aside>
 
 
-  <main class="main">
+<main class="main">
 
-    <div id="telaInicio">
+<div id="telaInicio">
 
-      <section class="hero">
+<section class="hero">
 
-        <img
-          class="hero-image"
-          src="IMG_6447.jpeg"
-          alt="Caminhão IVECO"
-        >
+<img
+class="hero-image"
+src="IMG_6447.jpeg"
+alt="Caminhão IVECO"
+>
 
-        <div class="hero-blue"></div>
+<div class="hero-blue"></div>
 
-        <div class="hero-content">
+<div class="hero-content">
 
-          <div>
+<div>
 
-            <h1 class="hero-title">
-              Localizador de <span>Fotos</span>
-            </h1>
+<h1 class="hero-title">
+Localizador de <span>Fotos</span>
+</h1>
 
-            <p class="hero-subtitle">
-              Encontre rapidamente imagens nos seus PowerPoints.
-            </p>
+<p class="hero-subtitle">
+Encontre rapidamente imagens nos seus PowerPoints.
+</p>
 
-          </div>
+</div>
 
-        </div>
+</div>
 
-        <div class="hero-logo">
-          IVECO
-        </div>
+<div class="hero-logo">
+IVECO
+</div>
 
-      </section>
+</section>
 
 
-      <div class="workspace">
+<div class="workspace">
 
-        <div class="cards-top">
+<div class="cards-top">
 
-          <!-- FOTO -->
+<div class="card input-card">
 
-          <div class="card input-card">
+<div class="card-title">
 
-            <div class="card-title">
+<div class="number">
+1
+</div>
 
-              <div class="number">
-                1
-              </div>
-
-              <span>
-                Foto para procurar
-              </span>
-
-            </div>
-
-
-            <div class="drop-zone">
-
-              <div class="drop-icon">
-                ▧
-              </div>
-
-              <div class="drop-text">
-
-                Clique para selecionar uma ou várias imagens<br>
-                ou arraste aqui
-
-              </div>
-
-              <input
-                class="drop-input"
-                type="file"
-                id="foto"
-                accept="image/*"
-                multiple
-              >
-
-            </div>
-
-
-            <div class="preview-wrap">
-
-              <div
-                class="preview-list"
-                id="previewList"
-              ></div>
-
-            </div>
-
-          </div>
-
-
-          <!-- POWERPOINTS -->
-
-          <div class="card input-card">
-
-            <div class="card-title">
-
-              <div class="number">
-                2
-              </div>
-
-              <span>
-                PowerPoints
-              </span>
-
-            </div>
-
-
-            <div class="drop-zone ppt-drop">
-
-              <div class="drop-icon">
-                ▤
-              </div>
-
-              <div class="drop-text">
-
-                Clique para selecionar vários<br>
-                PowerPoints (.pptx)
-
-              </div>
-
-              <input
-                class="drop-input"
-                type="file"
-                id="ppt"
-                accept=".pptx"
-                multiple
-              >
-
-            </div>
-
-
-            <p class="ppt-help">
-              Você pode selecionar vários arquivos de uma vez.
-            </p>
-
-
-            <div
-              class="file-list"
-              id="fileList"
-            ></div>
-
-          </div>
-
-
-          <!-- BUSCA -->
-
-          <div class="card search-card">
-
-            <div class="search-bg"></div>
-
-            <div class="search-content">
-
-              <div class="search-icon">
-                ◉
-              </div>
-
-              <div class="search-title">
-
-                Busca com<br>
-                precisão e agilidade
-
-              </div>
-
-
-              <p class="search-description">
-
-                Nossa ferramenta encontra
-                as imagens que você precisa
-                nos seus PowerPoints.
-
-              </p>
-
-
-              <button id="btn">
-
-                ⌕ &nbsp; PROCURAR FOTO
-
-              </button>
-
-
-              <p id="status"></p>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- INFORMAÇÕES -->
-
-        <div class="info-strip">
-
-          <div class="info-header">
-
-            <div class="info-circle">
-              i
-            </div>
-
-            <div>
-              <b>O resultado mostrará:</b>
-            </div>
-
-          </div>
-
-
-          <div class="info-item">
-
-            <div class="info-label">
-              Desenho:
-            </div>
-
-            <div class="info-example">
-             L&V 001.: 504136408  -  SUPORTE
-            </div>
-
-          </div>
-
-
-          <div class="info-item">
-
-            <div class="info-label">
-              PowerPoint:
-            </div>
-
-            <div class="info-example">
-              Título do PowerPoint
-            </div>
-
-          </div>
-
-
-          <div class="info-item">
-
-            <div class="info-label">
-              Slide:
-            </div>
-
-            <div class="info-example">
-              Número do slide
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- RESULTADOS -->
-
-        <div class="results-card">
-
-          <div class="results-header">
-
-            <div class="results-title">
-
-              <span class="results-title-icon">
-                ▣
-              </span>
-
-              <span>
-                Resultados
-              </span>
-
-            </div>
-
-
-            <div class="top-results">
-
-              ★ &nbsp; 10 melhores resultados
-
-            </div>
-
-          </div>
-
-
-          <div id="resultados">
-
-            Os resultados aparecerão aqui.
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- TELA DE HISTÓRICO -->
-
-    <div id="telaHistorico">
-
-      <div class="historico-container">
-
-        <div class="historico-topo">
-
-          <div class="historico-titulo">
-
-            <div class="historico-titulo-icon">
-              ◔
-            </div>
-
-            <div>
-              Histórico
-            </div>
-
-          </div>
-
-
-          <div class="historico-acoes">
-
-            <button
-              class="btn-limpar-historico"
-              id="btnLimparHistorico"
-            >
-              🗑️ Limpar histórico
-            </button>
-
-            <button
-              class="btn-voltar"
-              id="btnVoltarInicio"
-            >
-              ← Voltar para o início
-            </button>
-
-          </div>
-
-        </div>
-
-
-        <div
-          class="historico-grid"
-          id="historicoGrid"
-        ></div>
-
-      </div>
-
-    </div>
-
-
-    <!-- RODAPÉ -->
-
-    <footer class="footer">
-
-      <div class="footer-left">
-
-        <div class="footer-logo">
-          IVECO
-        </div>
-
-        <div>
-          Tecnologia que move o seu mundo.
-        </div>
-
-      </div>
-
-
-      <div class="footer-right">
-
-        ♢
-
-        <span>
-          Tudo processado no seu computador
-        </span>
-
-      </div>
-
-    </footer>
-
-  </main>
+<span>
+Foto para procurar
+</span>
 
 </div>
 
 
-<!-- JSZIP -->
+<div class="drop-zone">
+
+<div class="drop-icon">
+▧
+</div>
+
+<div class="drop-text">
+
+Clique para selecionar uma ou várias imagens<br>
+ou arraste aqui
+
+</div>
+
+<input
+class="drop-input"
+type="file"
+id="foto"
+accept="image/*"
+multiple
+>
+
+</div>
+
+
+<div class="preview-wrap">
+
+<div
+class="preview-list"
+id="previewList"
+></div>
+
+</div>
+
+</div>
+
+
+<div class="card input-card">
+
+<div class="card-title">
+
+<div class="number">
+2
+</div>
+
+<span>
+PowerPoints
+</span>
+
+</div>
+
+
+<div class="drop-zone ppt-drop">
+
+<div class="drop-icon">
+▤
+</div>
+
+<div class="drop-text">
+
+Clique para selecionar vários<br>
+PowerPoints (.pptx)
+
+</div>
+
+<input
+class="drop-input"
+type="file"
+id="ppt"
+accept=".pptx"
+multiple
+>
+
+</div>
+
+
+<p class="ppt-help">
+Você pode selecionar vários arquivos de uma vez.
+</p>
+
+
+<div
+class="file-list"
+id="fileList"
+></div>
+
+</div>
+
+
+<div class="card search-card">
+
+<div class="search-bg"></div>
+
+<div class="search-content">
+
+<div class="search-icon">
+◉
+</div>
+
+<div class="search-title">
+
+Busca com<br>
+precisão e agilidade
+
+</div>
+
+
+<p class="search-description">
+
+Nossa ferramenta encontra
+as imagens que você precisa
+nos seus PowerPoints.
+
+</p>
+
+
+<button id="btn">
+
+⌕ &nbsp; PROCURAR FOTO
+
+</button>
+
+
+<p id="status"></p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="info-strip">
+
+<div class="info-header">
+
+<div class="info-circle">
+i
+</div>
+
+<div>
+<b>O resultado mostrará:</b>
+</div>
+
+</div>
+
+
+<div class="info-item">
+
+<div class="info-label">
+Desenho:
+</div>
+
+<div class="info-example">
+L&V 001.: 504136408 - SUPORTE
+</div>
+
+</div>
+
+
+<div class="info-item">
+
+<div class="info-label">
+PowerPoint:
+</div>
+
+<div class="info-example">
+Título do PowerPoint
+</div>
+
+</div>
+
+
+<div class="info-item">
+
+<div class="info-label">
+Slide:
+</div>
+
+<div class="info-example">
+Número do slide
+</div>
+
+</div>
+
+</div>
+
+
+<div class="results-card">
+
+<div class="results-header">
+
+<div class="results-title">
+
+<span class="results-title-icon">
+▣
+</span>
+
+<span>
+Resultados
+</span>
+
+</div>
+
+
+<div class="top-results">
+
+★ &nbsp; 10 melhores resultados
+
+</div>
+
+</div>
+
+
+<div id="resultados">
+
+Os resultados aparecerão aqui.
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div id="telaHistorico">
+
+<div class="historico-container">
+
+<div class="historico-topo">
+
+<div class="historico-titulo">
+
+<div class="historico-titulo-icon">
+◔
+</div>
+
+<div>
+Histórico
+</div>
+
+</div>
+
+
+<div class="historico-acoes">
+
+<button
+class="btn-limpar-historico"
+id="btnLimparHistorico"
+>
+🗑️ Limpar histórico
+</button>
+
+<button
+class="btn-voltar"
+id="btnVoltarInicio"
+>
+← Voltar para o início
+</button>
+
+</div>
+
+</div>
+
+
+<div
+class="historico-grid"
+id="historicoGrid"
+></div>
+
+</div>
+
+</div>
+
+
+<footer class="footer">
+
+<div class="footer-left">
+
+<div class="footer-logo">
+IVECO
+</div>
+
+<div>
+Tecnologia que move o seu mundo.
+</div>
+
+</div>
+
+
+<div class="footer-right">
+
+♢
+
+<span>
+Tudo processado no seu computador
+</span>
+
+</div>
+
+</footer>
+
+</main>
+
+</div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
-
 
 <script>
 
 /* ==========================================================
-   VARIÁVEIS
+VARIÁVEIS
 ========================================================== */
 
 let fotos = [];
 
 
 /* ==========================================================
-   HISTÓRICO
+HISTÓRICO
 ========================================================== */
 
 function obterHistorico(){
 
-  try{
+try{
 
-    return JSON.parse(
-      localStorage.getItem("historicoFotosIveco") || "[]"
-    );
+return JSON.parse(
+localStorage.getItem("historicoFotosIveco") || "[]"
+);
 
-  }catch(e){
+}catch(e){
 
-    return [];
+return [];
 
-  }
+}
 
 }
 
 
 function salvarHistorico(historico){
 
-  try{
+try{
 
-    localStorage.setItem(
-      "historicoFotosIveco",
-      JSON.stringify(historico)
-    );
+localStorage.setItem(
+"historicoFotosIveco",
+JSON.stringify(historico)
+);
 
-  }catch(e){
+}catch(e){
 
-    console.warn(
-      "Não foi possível salvar o histórico.",
-      e
-    );
+console.warn(
+"Não foi possível salvar o histórico.",
+e
+);
 
-  }
+}
 
 }
 
 
 function adicionarFotoAoHistorico(arquivo){
 
-  if(!arquivo)
-    return;
+if(!arquivo)
+return;
 
+const leitor =
+new FileReader();
 
-  const leitor = new FileReader();
+leitor.onload = function(e){
 
+const historico =
+obterHistorico();
 
-  leitor.onload = function(e){
+const novoItem = {
 
-    const historico = obterHistorico();
+nome: arquivo.name,
 
+imagem: e.target.result,
 
-    const novoItem = {
+data: new Date().toLocaleString("pt-BR")
 
-      nome: arquivo.name,
+};
 
-      imagem: e.target.result,
+historico.unshift(
+novoItem
+);
 
-      data: new Date().toLocaleString("pt-BR")
+const limitado =
+historico.slice(0,50);
 
-    };
+salvarHistorico(
+limitado
+);
 
+};
 
-    historico.unshift(novoItem);
-
-
-    const limitado =
-      historico.slice(0,50);
-
-
-    salvarHistorico(limitado);
-
-  };
-
-
-  leitor.readAsDataURL(arquivo);
+leitor.readAsDataURL(
+arquivo
+);
 
 }
 
 
 /* ==========================================================
-   MOSTRAR HISTÓRICO
+MOSTRAR HISTÓRICO
 ========================================================== */
 
 function mostrarHistorico(){
 
-  const telaInicio =
-    document.getElementById("telaInicio");
+const telaInicio =
+document.getElementById(
+"telaInicio"
+);
 
-  const telaHistorico =
-    document.getElementById("telaHistorico");
+const telaHistorico =
+document.getElementById(
+"telaHistorico"
+);
 
-  const menuInicio =
-    document.getElementById("menuInicio");
+const menuInicio =
+document.getElementById(
+"menuInicio"
+);
 
-  const menuHistorico =
-    document.getElementById("menuHistorico");
+const menuHistorico =
+document.getElementById(
+"menuHistorico"
+);
 
+telaInicio.style.display =
+"none";
 
-  telaInicio.style.display = "none";
+telaHistorico.style.display =
+"block";
 
-  telaHistorico.style.display = "block";
+menuInicio.classList.remove(
+"active"
+);
 
+menuHistorico.classList.add(
+"active"
+);
 
-  menuInicio.classList.remove("active");
-
-  menuHistorico.classList.add("active");
-
-
-  carregarHistorico();
+carregarHistorico();
 
 }
 
 
 /* ==========================================================
-   MOSTRAR INÍCIO
+MOSTRAR INÍCIO
 ========================================================== */
 
 function mostrarInicio(){
 
-  const telaInicio =
-    document.getElementById("telaInicio");
+const telaInicio =
+document.getElementById(
+"telaInicio"
+);
 
-  const telaHistorico =
-    document.getElementById("telaHistorico");
+const telaHistorico =
+document.getElementById(
+"telaHistorico"
+);
 
-  const menuInicio =
-    document.getElementById("menuInicio");
+const menuInicio =
+document.getElementById(
+"menuInicio"
+);
 
-  const menuHistorico =
-    document.getElementById("menuHistorico");
+const menuHistorico =
+document.getElementById(
+"menuHistorico"
+);
 
+telaHistorico.style.display =
+"none";
 
-  telaHistorico.style.display = "none";
+telaInicio.style.display =
+"block";
 
-  telaInicio.style.display = "block";
+menuHistorico.classList.remove(
+"active"
+);
 
-
-  menuHistorico.classList.remove("active");
-
-  menuInicio.classList.add("active");
+menuInicio.classList.add(
+"active"
+);
 
 }
 
 
 /* ==========================================================
-   CARREGAR HISTÓRICO
+CARREGAR HISTÓRICO
 ========================================================== */
 
 function carregarHistorico(){
 
-  const area =
-    document.getElementById("historicoGrid");
+const area =
+document.getElementById(
+"historicoGrid"
+);
 
+const historico =
+obterHistorico();
 
-  const historico =
-    obterHistorico();
+area.innerHTML =
+"";
 
+if(!historico.length){
 
-  area.innerHTML = "";
+area.innerHTML = `
 
+<div
+class="historico-vazio"
+style="grid-column:1/-1;"
+>
 
-  if(!historico.length){
+<div class="historico-vazio-icon">
+◫
+</div>
 
-    area.innerHTML = `
+<div class="historico-vazio-titulo">
+Nenhuma imagem no histórico
+</div>
 
-      <div class="historico-vazio"
-           style="grid-column:1/-1;">
+<div>
+As imagens que você selecionar
+aparecerão aqui automaticamente.
+</div>
 
-        <div class="historico-vazio-icon">
-          ◫
-        </div>
+</div>
 
-        <div class="historico-vazio-titulo">
-          Nenhuma imagem no histórico
-        </div>
+`;
 
-        <div>
-          As imagens que você selecionar
-          aparecerão aqui automaticamente.
-        </div>
+return;
 
-      </div>
+}
 
-    `;
+historico.forEach(
+function(item,index){
 
-    return;
+const card =
+document.createElement(
+"div"
+);
 
-  }
+card.className =
+"historico-item";
 
+card.innerHTML = `
 
-  historico.forEach(function(item,index){
+<div class="historico-numero">
+${index + 1}
+</div>
 
-    const card =
-      document.createElement("div");
+<img
+class="historico-imagem"
+src="${item.imagem}"
+alt="Imagem do histórico"
+>
 
+<div class="historico-nome">
+${escapeHtml(item.nome)}
+</div>
 
-    card.className =
-      "historico-item";
+<div class="historico-data">
+Selecionada em:
+${escapeHtml(item.data)}
+</div>
 
+<button
+class="historico-abrir"
+type="button"
+>
+▧ Abrir imagem
+</button>
 
-    card.innerHTML = `
+`;
 
-      <div class="historico-numero">
-        ${index + 1}
-      </div>
+const botao =
+card.querySelector(
+".historico-abrir"
+);
 
-      <img
-        class="historico-imagem"
-        src="${item.imagem}"
-        alt="Imagem do histórico"
-      >
+botao.onclick =
+function(){
 
-      <div class="historico-nome">
-        ${escapeHtml(item.nome)}
-      </div>
+const janela =
+window.open(
+"",
+"_blank"
+);
 
-      <div class="historico-data">
-        Selecionada em: ${escapeHtml(item.data)}
-      </div>
+if(!janela)
+return;
 
-      <button
-        class="historico-abrir"
-        type="button"
-      >
-        ▧ Abrir imagem
-      </button>
+janela.document.write(`
 
-    `;
+<!DOCTYPE html>
 
+<html lang="pt-BR">
 
-    const botao =
-      card.querySelector(".historico-abrir");
+<head>
 
+<meta charset="UTF-8">
 
-    botao.onclick = function(){
+<title>
+${escapeHtml(item.nome)}
+</title>
 
-      const janela =
-        window.open("", "_blank");
+<style>
 
+body{
+margin:0;
+background:#020d19;
+display:flex;
+align-items:center;
+justify-content:center;
+min-height:100vh;
+}
 
-      if(!janela)
-        return;
+img{
+max-width:95vw;
+max-height:95vh;
+object-fit:contain;
+}
 
+</style>
 
-      janela.document.write(`
+</head>
 
-        <!DOCTYPE html>
+<body>
 
-        <html lang="pt-BR">
+<img
+src="${item.imagem}"
+alt="Imagem"
+>
 
-        <head>
+</body>
 
-          <meta charset="UTF-8">
+</html>
 
-          <title>
-            ${escapeHtml(item.nome)}
-          </title>
+`);
 
-          <style>
+janela.document.close();
 
-            body{
-              margin:0;
-              background:#020d19;
-              display:flex;
-              align-items:center;
-              justify-content:center;
-              min-height:100vh;
-            }
+};
 
-            img{
-              max-width:95vw;
-              max-height:95vh;
-              object-fit:contain;
-            }
+area.appendChild(
+card
+);
 
-          </style>
-
-        </head>
-
-        <body>
-
-          <img
-            src="${item.imagem}"
-            alt="Imagem"
-          >
-
-        </body>
-
-        </html>
-
-      `);
-
-      janela.document.close();
-
-    };
-
-
-    area.appendChild(card);
-
-  });
+}
+);
 
 }
 
 
 /* ==========================================================
-   BOTÕES
+BOTÕES
 ========================================================== */
 
 document
-  .getElementById("menuHistorico")
-  .addEventListener(
-    "click",
-    mostrarHistorico
-  );
+.getElementById("menuHistorico")
+.addEventListener(
+"click",
+mostrarHistorico
+);
 
 
 document
-  .getElementById("menuInicio")
-  .addEventListener(
-    "click",
-    mostrarInicio
-  );
+.getElementById("menuInicio")
+.addEventListener(
+"click",
+mostrarInicio
+);
 
 
 document
-  .getElementById("btnVoltarInicio")
-  .addEventListener(
-    "click",
-    mostrarInicio
-  );
+.getElementById("btnVoltarInicio")
+.addEventListener(
+"click",
+mostrarInicio
+);
 
 
 document
-  .getElementById("btnLimparHistorico")
-  .addEventListener(
-    "click",
-    function(){
+.getElementById("btnLimparHistorico")
+.addEventListener(
+"click",
+function(){
 
-      const historico =
-        obterHistorico();
+const historico =
+obterHistorico();
 
+if(!historico.length){
 
-      if(!historico.length){
+alert(
+"O histórico já está vazio."
+);
 
-        alert(
-          "O histórico já está vazio."
-        );
+return;
 
-        return;
+}
 
-      }
+const confirmar =
+confirm(
+"Deseja realmente apagar todo o histórico de imagens?"
+);
 
+if(!confirmar)
+return;
 
-      const confirmar =
-        confirm(
-          "Deseja realmente apagar todo o histórico de imagens?"
-        );
+localStorage.removeItem(
+"historicoFotosIveco"
+);
 
+carregarHistorico();
 
-      if(!confirmar)
-        return;
-
-
-      localStorage.removeItem(
-        "historicoFotosIveco"
-      );
-
-
-      carregarHistorico();
-
-    }
-  );
+}
+);
 
 
 /* ==========================================================
-   SELEÇÃO DE VÁRIAS FOTOS
+SELEÇÃO DE VÁRIAS FOTOS
 ========================================================== */
 
 document
-  .getElementById("foto")
-  .onchange = function(){
+.getElementById("foto")
+.onchange = function(){
 
-    const novosArquivos =
-      Array.from(this.files);
+const novosArquivos =
+Array.from(
+this.files
+);
 
+if(!novosArquivos.length)
+return;
 
-    if(!novosArquivos.length)
-      return;
+fotos =
+fotos.concat(
+novosArquivos
+);
 
+fotos =
+fotos.filter(
+arquivo =>
+arquivo &&
+arquivo.type.startsWith(
+"image/"
+)
+);
 
-    fotos =
-      fotos.concat(
-        novosArquivos
-      );
+for(
+const arquivo
+of novosArquivos
+){
 
+adicionarFotoAoHistorico(
+arquivo
+);
 
-    fotos =
-      fotos.filter(
-        arquivo =>
-          arquivo &&
-          arquivo.type.startsWith("image/")
-      );
+}
 
+atualizarPreviews();
 
-    for(
-      const arquivo
-      of novosArquivos
-    ){
+this.value = "";
 
-      adicionarFotoAoHistorico(
-        arquivo
-      );
-
-    }
-
-
-    atualizarPreviews();
-
-
-    this.value = "";
-
-  };
+};
 
 
 /* ==========================================================
-   MOSTRAR FOTOS SELECIONADAS
+MOSTRAR FOTOS SELECIONADAS
 ========================================================== */
 
 function atualizarPreviews(){
 
-  const area =
-    document.getElementById(
-      "previewList"
-    );
+const area =
+document.getElementById(
+"previewList"
+);
 
+area.innerHTML =
+"";
 
-  area.innerHTML = "";
+fotos.forEach(
+function(arquivo,index){
 
+const item =
+document.createElement(
+"div"
+);
 
-  fotos.forEach(
-    function(arquivo,index){
+item.className =
+"preview-item";
 
-      const item =
-        document.createElement(
-          "div"
-        );
+const imagem =
+document.createElement(
+"img"
+);
 
+imagem.alt =
+arquivo.name;
 
-      item.className =
-        "preview-item";
+imagem.src =
+URL.createObjectURL(
+arquivo
+);
 
+const remover =
+document.createElement(
+"div"
+);
 
-      const imagem =
-        document.createElement(
-          "img"
-        );
+remover.className =
+"remove-preview";
 
+remover.innerText =
+"×";
 
-      imagem.alt =
-        arquivo.name;
+remover.title =
+"Remover esta foto";
 
+remover.onclick =
+function(){
 
-      imagem.src =
-        URL.createObjectURL(
-          arquivo
-        );
+fotos.splice(
+index,
+1
+);
 
+atualizarPreviews();
 
-      const remover =
-        document.createElement(
-          "div"
-        );
+};
 
+item.appendChild(
+imagem
+);
 
-      remover.className =
-        "remove-preview";
+item.appendChild(
+remover
+);
 
+area.appendChild(
+item
+);
 
-      remover.innerText =
-        "×";
-
-
-      remover.title =
-        "Remover esta foto";
-
-
-      remover.onclick =
-        function(){
-
-          fotos.splice(
-            index,
-            1
-          );
-
-
-          atualizarPreviews();
-
-        };
-
-
-      item.appendChild(
-        imagem
-      );
-
-
-      item.appendChild(
-        remover
-      );
-
-
-      area.appendChild(
-        item
-      );
-
-    }
-  );
+}
+);
 
 }
 
 
 /* ==========================================================
-   LISTA DE POWERPOINTS
+LISTA DE POWERPOINTS
 ========================================================== */
 
 document
-  .getElementById("ppt")
-  .onchange = function(){
-
-    const lista =
-      document.getElementById("fileList");
-
-
-    lista.innerHTML = "";
-
-
-    const arquivos =
-      Array.from(this.files);
-
-
-    for(const arquivo of arquivos){
-
-      const item =
-        document.createElement("div");
-
-
-      item.className =
-        "file-item";
-
-
-      const tamanhoMB =
-        (
-          arquivo.size /
-          1024 /
-          1024
-        ).toFixed(1);
-
-
-      item.innerHTML =
-
-        '<div class="ppt-icon">P</div>' +
-
-        '<div class="file-name">' +
-
-        escapeHtml(
-          arquivo.name
-        ) +
-
-        '</div>' +
-
-        '<div class="file-size">' +
-
-        tamanhoMB +
-
-        ' MB</div>';
-
-
-      lista.appendChild(item);
-
-    }
-
-  };
-
-
-/* ==========================================================
-   NORMALIZAR CAMINHO
-========================================================== */
-
-function normalizarCaminho(base,target){
-
-  const partes =
-    (base + "/" + target)
-      .split("/");
-
-
-  const saida = [];
-
-
-  for(const p of partes){
-
-    if(!p || p === ".")
-      continue;
-
-
-    if(p === "..")
-      saida.pop();
-
-    else
-      saida.push(p);
-
-  }
-
-
-  return saida.join("/");
-
-}
-
-
-/* ==========================================================
-   TEXTO
-========================================================== */
-
-async function texto(zip,nome){
-
-  if(!zip.files[nome])
-    return "";
-
-
-  return await zip.files[nome]
-    .async("text");
-
-}
-
-
-/* ==========================================================
-   RELACIONAMENTOS
-========================================================== */
-
-function extrairRelacionamentos(xml){
-
-  const mapa = {};
-
-
-  const doc =
-    new DOMParser()
-      .parseFromString(
-        xml,
-        "application/xml"
-      );
-
-
-  const relacoes =
-    Array.from(
-      doc.getElementsByTagName(
-        "Relationship"
-      )
-    );
-
-
-  for(const rel of relacoes){
-
-    const id =
-      rel.getAttribute("Id");
-
-
-    const target =
-      rel.getAttribute("Target");
-
-
-    if(id && target)
-      mapa[id] = target;
-
-  }
-
-
-  return mapa;
-
-}
-
-
-/* ==========================================================
-   TEXTOS DO SLIDE
-========================================================== */
-
-function extrairTextosDoSlide(xml){
-
-  const doc =
-    new DOMParser()
-      .parseFromString(
-        xml,
-        "application/xml"
-      );
-
-
-  const textos = [];
-
-
-  const paragrafos =
-    Array.from(
-      doc.getElementsByTagName(
-        "a:p"
-      )
-    );
-
-
-  for(const p of paragrafos){
-
-    const partes =
-      Array.from(
-        p.getElementsByTagName(
-          "a:t"
-        )
-      );
-
-
-    let texto = "";
-
-
-    for(const t of partes){
-
-      texto +=
-        t.textContent || "";
-
-    }
-
-
-    texto =
-      texto
-        .replace(/\s+/g," ")
-        .trim();
-
-
-    if(texto)
-      textos.push(texto);
-
-  }
-
-
-  return textos;
-
-}
-
-
-/* ==========================================================
-   ENCONTRAR DESENHO
-========================================================== */
-
-function encontrarDesenho(xml){
-
-  const textos =
-    extrairTextosDoSlide(xml);
-
-
-  for(
-    const textoOriginal
-    of textos
-  ){
-
-    const texto =
-      textoOriginal.trim();
-
-
-    if(
-      /^Desenho\s*\/?/i
-        .test(texto)
-    ){
-
-      let conteudo =
-        texto
-          .replace(
-            /^Desenho\s*\/?\s*/i,
-            ""
-          )
-          .trim();
-
-
-      /*
-        Acrescenta L antes do &
-        quando o código começar com &.
-      */
-
-      if(
-        conteudo.startsWith("&")
-      ){
-
-        conteudo =
-          "L" + conteudo;
-
-      }
-
-
-      const partes =
-        conteudo
-          .split(/\s+-\s+/);
-
-
-      if(partes.length >= 3){
-
-        conteudo =
-          partes
-            .slice(0,3)
-            .join(" - ")
-            .trim();
-
-      }
-
-
-      return conteudo;
-
-    }
-
-  }
-
-
-  return "Desenho não identificado";
-
-}
-
-
-/* ==========================================================
-   IMAGEM DO BLOB
-========================================================== */
-
-async function imagemDoBlob(blob){
-
-  return await new Promise(
-    (resolve,reject)=>{
-
-      const url =
-        URL.createObjectURL(blob);
-
-
-      const img =
-        new Image();
-
-
-      img.onload = ()=>{
-
-        URL.revokeObjectURL(url);
-
-        resolve(img);
-
-      };
-
-
-      img.onerror = ()=>{
-
-        URL.revokeObjectURL(url);
-
-        reject(
-          new Error("Imagem inválida")
-        );
-
-      };
-
-
-      img.src = url;
-
-    }
-  );
-
-}
-
-
-/* ==========================================================
-   NORMALIZAÇÃO DE VETOR
-========================================================== */
-
-function normalizarVetor(vetor){
-
-  let media = 0;
-
-
-  for(
-    let i=0;
-    i<vetor.length;
-    i++
-  ){
-
-    media +=
-      vetor[i];
-
-  }
-
-
-  media /=
-    vetor.length;
-
-
-  let variancia = 0;
-
-
-  for(
-    let i=0;
-    i<vetor.length;
-    i++
-  ){
-
-    const d =
-      vetor[i]-media;
-
-
-    variancia +=
-      d*d;
-
-  }
-
-
-  const desvio =
-    Math.sqrt(
-      variancia /
-      vetor.length
-    ) || 1;
-
-
-  for(
-    let i=0;
-    i<vetor.length;
-    i++
-  ){
-
-    vetor[i] =
-      (
-        vetor[i]-media
-      ) /
-      desvio;
-
-  }
-
-
-  return vetor;
-
-}
-
-
-/* ==========================================================
-   HISTOGRAMA DE CORES
-========================================================== */
-
-function histogramaCores(data){
-
-  const hist =
-    new Float32Array(64);
-
-
-  for(
-    let i=0;
-    i<data.length;
-    i+=4
-  ){
-
-    const r =
-      Math.min(
-        3,
-        Math.floor(
-          data[i] / 64
-        )
-      );
-
-
-    const g =
-      Math.min(
-        3,
-        Math.floor(
-          data[i+1] / 64
-        )
-      );
-
-
-    const b =
-      Math.min(
-        3,
-        Math.floor(
-          data[i+2] / 64
-        )
-      );
-
-
-    const indice =
-      r*16 +
-      g*4 +
-      b;
-
-
-    hist[indice]++;
-
-  }
-
-
-  let total = 0;
-
-
-  for(
-    let i=0;
-    i<hist.length;
-    i++
-  ){
-
-    total +=
-      hist[i];
-
-  }
-
-
-  if(total){
-
-    for(
-      let i=0;
-      i<hist.length;
-      i++
-    ){
-
-      hist[i] /=
-        total;
-
-    }
-
-  }
-
-
-  return hist;
-
-}
-
-
-/* ==========================================================
-   DISTÂNCIA NORMALIZADA
-========================================================== */
-
-function distanciaNormalizada(a,b){
-
-  if(
-    !a ||
-    !b ||
-    a.length !== b.length
-  ){
-
-    return 999;
-
-  }
-
-
-  let soma = 0;
-
-
-  for(
-    let i=0;
-    i<a.length;
-    i++
-  ){
-
-    const d =
-      a[i]-b[i];
-
-
-    soma +=
-      d*d;
-
-  }
-
-
-  return Math.sqrt(
-    soma/a.length
-  );
-
-}
-
-
-/* ==========================================================
-   DISTÂNCIA DE HISTOGRAMA
-========================================================== */
-
-function distanciaHistograma(a,b){
-
-  let soma = 0;
-
-
-  for(
-    let i=0;
-    i<a.length;
-    i++
-  ){
-
-    soma +=
-      Math.sqrt(
-        Math.max(0,a[i]) *
-        Math.max(0,b[i])
-      );
-
-  }
-
-
-  return Math.max(
-    0,
-    Math.min(
-      1,
-      1-soma
-    )
-  );
-
-}
-
-
-/* ==========================================================
-   RENDERIZAR VARIANTE DA IMAGEM
-========================================================== */
-
-function renderizarVariante(
-  img,
-  tamanho,
-  modo,
-  rotacao
+.getElementById("ppt")
+.onchange = function(){
+
+const lista =
+document.getElementById(
+"fileList"
+);
+
+lista.innerHTML =
+"";
+
+const arquivos =
+Array.from(
+this.files
+);
+
+for(
+const arquivo
+of arquivos
 ){
 
-  const canvas =
-    document.createElement("canvas");
+const item =
+document.createElement(
+"div"
+);
 
+item.className =
+"file-item";
 
-  canvas.width =
-    tamanho;
+const tamanhoMB =
+(
+arquivo.size /
+1024 /
+1024
+).toFixed(1);
 
-  canvas.height =
-    tamanho;
+item.innerHTML =
 
+'<div class="ppt-icon">P</div>' +
 
-  const ctx =
-    canvas.getContext(
-      "2d",
-      {
-        willReadFrequently:true
-      }
-    );
+'<div class="file-name">' +
 
+escapeHtml(
+arquivo.name
+) +
 
-  ctx.fillStyle =
-    "#ffffff";
+'</div>' +
 
+'<div class="file-size">' +
 
-  ctx.fillRect(
-    0,
-    0,
-    tamanho,
-    tamanho
-  );
+tamanhoMB +
 
+' MB</div>';
 
-  const angulo =
-    rotacao *
-    Math.PI /
-    180;
-
-
-  ctx.save();
-
-
-  ctx.translate(
-    tamanho/2,
-    tamanho/2
-  );
-
-
-  ctx.rotate(
-    angulo
-  );
-
-
-  const largura =
-    img.naturalWidth;
-
-
-  const altura =
-    img.naturalHeight;
-
-
-  let escala;
-
-
-  /*
-    CONTAIN:
-    mantém toda a imagem.
-  */
-
-  if(modo === "contain"){
-
-    escala =
-      Math.min(
-        tamanho/largura,
-        tamanho/altura
-      );
-
-  }
-
-  /*
-    CROP 85:
-    aproxima levemente o objeto.
-  */
-
-  else if(modo === "crop85"){
-
-    escala =
-      tamanho /
-      (Math.min(largura,altura)*0.85);
-
-  }
-
-  /*
-    CROP 70:
-    aproxima bastante o centro.
-  */
-
-  else{
-
-    escala =
-      tamanho /
-      (Math.min(largura,altura)*0.70);
-
-  }
-
-
-  const dw =
-    largura *
-    escala;
-
-
-  const dh =
-    altura *
-    escala;
-
-
-  ctx.drawImage(
-    img,
-    -dw/2,
-    -dh/2,
-    dw,
-    dh
-  );
-
-
-  ctx.restore();
-
-
-  return canvas;
+lista.appendChild(
+item
+);
 
 }
 
+};
+
 
 /* ==========================================================
-   DESCRITOR VISUAL
+NORMALIZAR CAMINHO
 ========================================================== */
 
-function criarDescritor(
-  canvas
+function normalizarCaminho(
+base,
+target
 ){
 
-  const tamanho =
-    canvas.width;
-
-
-  const ctx =
-    canvas.getContext(
-      "2d",
-      {
-        willReadFrequently:true
-      }
-    );
-
-
-  const data =
-    ctx.getImageData(
-      0,
-      0,
-      tamanho,
-      tamanho
-    ).data;
-
-
-  const total =
-    tamanho *
-    tamanho;
-
-
-  const cinza =
-    new Float32Array(
-      total
-    );
-
-
-  for(
-    let i=0,p=0;
-    i<data.length;
-    i+=4,p++
-  ){
-
-    cinza[p] =
-      .299*data[i] +
-      .587*data[i+1] +
-      .114*data[i+2];
-
-  }
-
-
-  /*
-    Normalização de iluminação.
-  */
-
-  normalizarVetor(
-    cinza
-  );
-
-
-  /*
-    Sobel.
-    Dá maior importância para
-    os contornos da peça.
-  */
-
-  const bordas =
-    new Float32Array(
-      total
-    );
-
-
-  for(
-    let y=1;
-    y<tamanho-1;
-    y++
-  ){
-
-    for(
-      let x=1;
-      x<tamanho-1;
-      x++
-    ){
-
-      const p =
-        y*tamanho+x;
-
-
-      const gx =
-        -cinza[p-tamanho-1] +
-        cinza[p-tamanho+1] -
-
-        2*cinza[p-1] +
-        2*cinza[p+1] -
-
-        cinza[p+tamanho-1] +
-        cinza[p+tamanho+1];
-
-
-      const gy =
-        -cinza[p-tamanho-1] -
-        2*cinza[p-tamanho] -
-        cinza[p-tamanho+1] +
-
-        cinza[p+tamanho-1] +
-        2*cinza[p+tamanho] +
-        cinza[p+tamanho+1];
-
-
-      bordas[p] =
-        Math.sqrt(
-          gx*gx +
-          gy*gy
-        );
-
-    }
-
-  }
-
-
-  normalizarVetor(
-    bordas
-  );
-
-
-  /*
-    Histograma de cores.
-    Tem peso baixo porque o fundo
-    das fotos pode ser diferente.
-  */
-
-  const cores =
-    histogramaCores(
-      data
-    );
-
-
-  /*
-    Projeções de borda.
-    Ajudam a reconhecer o formato
-    geral da peça mesmo quando há
-    pequenas diferenças de enquadramento.
-  */
-
-  const projX =
-    new Float32Array(
-      tamanho
-    );
-
-
-  const projY =
-    new Float32Array(
-      tamanho
-    );
-
-
-  for(
-    let y=0;
-    y<tamanho;
-    y++
-  ){
-
-    for(
-      let x=0;
-      x<tamanho;
-      x++
-    ){
-
-      const valor =
-        Math.abs(
-          bordas[
-            y*tamanho+x
-          ]
-        );
-
-
-      projX[x] +=
-        valor;
-
-
-      projY[y] +=
-        valor;
-
-    }
-
-  }
-
-
-  normalizarVetor(
-    projX
-  );
-
-
-  normalizarVetor(
-    projY
-  );
-
-
-  return {
-
-    cinza,
-
-    bordas,
-
-    cores,
-
-    projX,
-
-    projY
-
-  };
-
-}
-
-
-/* ==========================================================
-   CRIAR CONJUNTO DE VARIANTES
-========================================================== */
-
-async function criarConjuntoVisual(
-  blob,
-  tamanho
+const partes =
+(base + "/" + target)
+.split("/");
+
+const saida = [];
+
+for(
+const p
+of partes
 ){
 
-  const img =
-    await imagemDoBlob(
-      blob
-    );
+if(!p || p === ".")
+continue;
 
+if(p === "..")
+saida.pop();
 
-  const variantes = [];
+else
+saida.push(p);
 
+}
 
-  /*
-    Para a análise rápida:
-    vários enquadramentos.
-  */
-
-  const modos = [
-    "contain",
-    "crop85",
-    "crop70"
-  ];
-
-
-  for(
-    const modo
-    of modos
-  ){
-
-    const canvas =
-      renderizarVariante(
-        img,
-        tamanho,
-        modo,
-        0
-      );
-
-
-    variantes.push({
-
-      modo,
-
-      rotacao:0,
-
-      descritor:
-        criarDescritor(
-          canvas
-        )
-
-    });
-
-  }
-
-
-  return {
-
-    largura:
-      img.naturalWidth,
-
-    altura:
-      img.naturalHeight,
-
-    proporcao:
-      img.naturalWidth /
-      img.naturalHeight,
-
-    variantes
-
-  };
+return saida.join("/");
 
 }
 
 
 /* ==========================================================
-   CONJUNTO DETALHADO
+TEXTO
 ========================================================== */
 
-async function criarConjuntoDetalhado(
-  blob,
-  tamanho
+async function texto(
+zip,
+nome
 ){
 
-  const img =
-    await imagemDoBlob(
-      blob
-    );
+if(!zip.files[nome])
+return "";
 
-
-  const variantes = [];
-
-
-  const modos = [
-    "contain",
-    "crop85",
-    "crop70"
-  ];
-
-
-  const rotacoes = [
-    0,
-    90,
-    180,
-    270
-  ];
-
-
-  /*
-    Na segunda etapa são testados
-    todos os enquadramentos e rotações.
-  */
-
-  for(
-    const modo
-    of modos
-  ){
-
-    for(
-      const rotacao
-      of rotacoes
-    ){
-
-      const canvas =
-        renderizarVariante(
-          img,
-          tamanho,
-          modo,
-          rotacao
-        );
-
-
-      variantes.push({
-
-        modo,
-
-        rotacao,
-
-        descritor:
-          criarDescritor(
-            canvas
-          )
-
-      });
-
-    }
-
-  }
-
-
-  return {
-
-    largura:
-      img.naturalWidth,
-
-    altura:
-      img.naturalHeight,
-
-    proporcao:
-      img.naturalWidth /
-      img.naturalHeight,
-
-    variantes
-
-  };
+return await zip.files[nome]
+.async("text");
 
 }
 
 
 /* ==========================================================
-   COMPARAÇÃO DE DESCRITORES
+RELACIONAMENTOS
 ========================================================== */
 
-function compararDescritores(
-  a,
-  b
+function extrairRelacionamentos(
+xml
 ){
 
-  if(!a || !b)
-    return 0;
+const mapa = {};
 
+const doc =
+new DOMParser()
+.parseFromString(
+xml,
+"application/xml"
+);
 
-  const distanciaCinza =
-    distanciaNormalizada(
-      a.cinza,
-      b.cinza
-    );
+const relacoes =
+Array.from(
+doc.getElementsByTagName(
+"Relationship"
+)
+);
 
-
-  const distanciaBordas =
-    distanciaNormalizada(
-      a.bordas,
-      b.bordas
-    );
-
-
-  const distanciaProjX =
-    distanciaNormalizada(
-      a.projX,
-      b.projX
-    );
-
-
-  const distanciaProjY =
-    distanciaNormalizada(
-      a.projY,
-      b.projY
-    );
-
-
-  const distanciaCores =
-    distanciaHistograma(
-      a.cores,
-      b.cores
-    );
-
-
-  /*
-    Converte as distâncias
-    em pontuações.
-
-    O contorno recebe peso maior
-    porque é a característica mais
-    importante para reconhecer a peça.
-  */
-
-  const scoreEstrutura =
-    100 *
-    Math.exp(
-      -distanciaCinza /
-      0.82
-    );
-
-
-  const scoreBordas =
-    100 *
-    Math.exp(
-      -distanciaBordas /
-      0.88
-    );
-
-
-  const scoreProjecaoX =
-    100 *
-    Math.exp(
-      -distanciaProjX /
-      0.95
-    );
-
-
-  const scoreProjecaoY =
-    100 *
-    Math.exp(
-      -distanciaProjY /
-      0.95
-    );
-
-
-  const scoreProjecao =
-    (
-      scoreProjecaoX +
-      scoreProjecaoY
-    ) / 2;
-
-
-  const scoreCores =
-    Math.max(
-      0,
-      Math.min(
-        100,
-        100 *
-        (1-distanciaCores)
-      )
-    );
-
-
-  /*
-    Peso final:
-
-    30% estrutura
-    45% contornos
-    15% projeção/formato
-    10% cor
-  */
-
-  const resultado =
-
-    scoreEstrutura * 0.30 +
-
-    scoreBordas * 0.45 +
-
-    scoreProjecao * 0.15 +
-
-    scoreCores * 0.10;
-
-
-  return Math.max(
-    0,
-    Math.min(
-      100,
-      resultado
-    )
-  );
-
-}
-
-
-/* ==========================================================
-   COMPARAR CONJUNTOS
-========================================================== */
-
-function compararConjuntos(
-  referencia,
-  candidato
+for(
+const rel
+of relacoes
 ){
 
-  if(
-    !referencia ||
-    !candidato
-  ){
+const id =
+rel.getAttribute(
+"Id"
+);
 
-    return 0;
+const target =
+rel.getAttribute(
+"Target"
+);
 
-  }
+if(id && target)
+mapa[id] =
+target;
 
+}
 
-  let melhor =
-    0;
-
-
-  /*
-    A primeira etapa compara
-    vários enquadramentos.
-
-    Não depende de uma única
-    posição da imagem.
-  */
-
-  for(
-    const vr
-    of referencia.variantes
-  ){
-
-    for(
-      const vc
-      of candidato.variantes
-    ){
-
-      const score =
-        compararDescritores(
-          vr.descritor,
-          vc.descritor
-        );
-
-
-      if(score > melhor){
-
-        melhor =
-          score;
-
-      }
-
-    }
-
-  }
-
-
-  return melhor;
+return mapa;
 
 }
 
 
 /* ==========================================================
-   COMPARAÇÃO DETALHADA
+TEXTOS DO SLIDE
 ========================================================== */
 
-function compararConjuntosDetalhados(
-  referencia,
-  candidato
+function extrairTextosDoSlide(
+xml
 ){
 
-  if(
-    !referencia ||
-    !candidato
-  ){
+const doc =
+new DOMParser()
+.parseFromString(
+xml,
+"application/xml"
+);
 
-    return 0;
+const textos = [];
 
-  }
+const paragrafos =
+Array.from(
+doc.getElementsByTagName(
+"a:p"
+)
+);
 
-
-  let melhor =
-    0;
-
-
-  /*
-    A comparação detalhada permite
-    rotação e recortes diferentes.
-
-    Para evitar custo excessivo,
-    comparamos primeiro as variantes
-    de mesmo tipo de enquadramento.
-  */
-
-  for(
-    const vr
-    of referencia.variantes
-  ){
-
-    for(
-      const vc
-      of candidato.variantes
-    ){
-
-      /*
-        Preferência por recortes
-        semelhantes, mas ainda permite
-        comparar todos os tipos.
-      */
-
-      const score =
-        compararDescritores(
-          vr.descritor,
-          vc.descritor
-        );
-
-
-      if(score > melhor){
-
-        melhor =
-          score;
-
-      }
-
-    }
-
-  }
-
-
-  return melhor;
-
-}
-
-
-/* ==========================================================
-   AJUSTE DE PROPORÇÃO
-========================================================== */
-
-function aplicarAjusteProporcao(
-  score,
-  referencia,
-  candidato
+for(
+const p
+of paragrafos
 ){
 
-  if(
-    !referencia ||
-    !candidato ||
-    !referencia.proporcao ||
-    !candidato.proporcao
-  ){
+const partes =
+Array.from(
+p.getElementsByTagName(
+"a:t"
+)
+);
 
-    return score;
+let texto =
+"";
 
-  }
+for(
+const t
+of partes
+){
 
+texto +=
+t.textContent || "";
 
-  const diferenca =
-    Math.min(
-      1,
-      Math.abs(
-        Math.log(
-          referencia.proporcao /
-          candidato.proporcao
-        )
-      )
-    );
+}
 
+texto =
+texto
+.replace(/\s+/g," ")
+.trim();
 
-  /*
-    Penalização pequena.
+if(texto)
+textos.push(
+texto
+);
 
-    Não podemos dar peso alto para
-    proporção porque a mesma peça pode
-    estar fotografada na vertical,
-    horizontal ou com enquadramento
-    diferente.
-  */
+}
 
-  const fator =
-    1 -
-    diferenca * 0.06;
-
-
-  return Math.max(
-    0,
-    Math.min(
-      100,
-      score * fator
-    )
-  );
+return textos;
 
 }
 
 
 /* ==========================================================
-   ASSINATURA COMPATÍVEL
+ENCONTRAR DESENHO
 ========================================================== */
 
-async function assinatura(blob){
+function encontrarDesenho(
+xml
+){
 
-  const conjunto =
-    await criarConjuntoVisual(
-      blob,
-      32
-    );
+const textos =
+extrairTextosDoSlide(
+xml
+);
 
+for(
+const textoOriginal
+of textos
+){
 
-  return conjunto;
+const texto =
+textoOriginal.trim();
+
+if(
+/^Desenho\s*\/?/i
+.test(texto)
+){
+
+let conteudo =
+texto
+.replace(
+/^Desenho\s*\/?\s*/i,
+""
+)
+.trim();
+
+if(
+conteudo.startsWith("&")
+){
+
+conteudo =
+"L" + conteudo;
+
+}
+
+const partes =
+conteudo
+.split(/\s+-\s+/);
+
+if(
+partes.length >= 3
+){
+
+conteudo =
+partes
+.slice(0,3)
+.join(" - ")
+.trim();
+
+}
+
+return conteudo;
+
+}
+
+}
+
+return "Desenho não identificado";
 
 }
 
 
 /* ==========================================================
-   ASSINATURA DETALHADA
+IMAGEM DO BLOB
 ========================================================== */
 
-async function assinaturaDetalhada(blob){
+async function imagemDoBlob(
+blob
+){
 
-  const conjunto =
-    await criarConjuntoDetalhado(
-      blob,
-      32
-    );
+return await new Promise(
+(resolve,reject)=>{
 
+const url =
+URL.createObjectURL(
+blob
+);
 
-  return conjunto;
+const img =
+new Image();
+
+img.onload =
+()=>{
+
+URL.revokeObjectURL(
+url
+);
+
+resolve(
+img
+);
+
+};
+
+img.onerror =
+()=>{
+
+URL.revokeObjectURL(
+url
+);
+
+reject(
+new Error(
+"Imagem inválida"
+)
+);
+
+};
+
+img.src =
+url;
+
+}
+);
 
 }
 
 
 /* ==========================================================
-   ESCAPE HTML
+YIELD
+Permite que a interface atualize
+durante a análise de milhares
+de imagens.
 ========================================================== */
 
-function escapeHtml(text){
+function esperarInterface(){
 
-  return String(text)
-
-    .replace(
-      /&/g,
-      "&amp;"
-    )
-
-    .replace(
-      /</g,
-      "&lt;"
-    )
-
-    .replace(
-      />/g,
-      "&gt;"
-    )
-
-    .replace(
-      /"/g,
-      "&quot;"
-    )
-
-    .replace(
-      /'/g,
-      "&#039;"
-    );
+return new Promise(
+resolve =>
+setTimeout(
+resolve,
+0
+)
+);
 
 }
 
 
 /* ==========================================================
-   PAUSA PARA O NAVEGADOR
+HASH EXATO
 ========================================================== */
 
-function esperarNavegador(){
+async function hashBlob(
+blob
+){
 
-  return new Promise(
-    resolve =>
-      setTimeout(
-        resolve,
-        0
-      )
-  );
+try{
+
+if(
+window.crypto &&
+crypto.subtle
+){
+
+const buffer =
+await blob.arrayBuffer();
+
+const hash =
+await crypto.subtle.digest(
+"SHA-256",
+buffer
+);
+
+const bytes =
+new Uint8Array(
+hash
+);
+
+let saida =
+"";
+
+for(
+const byte
+of bytes
+){
+
+saida +=
+byte
+.toString(16)
+.padStart(
+2,
+"0"
+);
+
+}
+
+return saida;
+
+}
+
+}catch(e){
+
+console.warn(
+"Hash exato indisponível.",
+e
+);
+
+}
+
+return "";
 
 }
 
 
 /* ==========================================================
-   PROCURAR
+NORMALIZAÇÃO DE VETOR
+========================================================== */
+
+function normalizarVetor(
+vetor
+){
+
+let media =
+0;
+
+for(
+let i=0;
+i<vetor.length;
+i++
+){
+
+media +=
+vetor[i];
+
+}
+
+media /=
+vetor.length;
+
+let variancia =
+0;
+
+for(
+let i=0;
+i<vetor.length;
+i++
+){
+
+const d =
+vetor[i] -
+media;
+
+variancia +=
+d*d;
+
+}
+
+const desvio =
+Math.sqrt(
+variancia /
+vetor.length
+) || 1;
+
+for(
+let i=0;
+i<vetor.length;
+i++
+){
+
+vetor[i] =
+(
+vetor[i] -
+media
+) /
+desvio;
+
+}
+
+return vetor;
+
+}
+
+
+/* ==========================================================
+CANVAS PADRONIZADO
+========================================================== */
+
+function criarCanvasImagem(
+img,
+tamanho,
+modo,
+zoom,
+rotacao
+){
+
+const canvas =
+document.createElement(
+"canvas"
+);
+
+canvas.width =
+tamanho;
+
+canvas.height =
+tamanho;
+
+const ctx =
+canvas.getContext(
+"2d",
+{
+willReadFrequently:true
+}
+);
+
+ctx.fillStyle =
+"#ffffff";
+
+ctx.fillRect(
+0,
+0,
+tamanho,
+tamanho
+);
+
+ctx.save();
+
+ctx.translate(
+tamanho/2,
+tamanho/2
+);
+
+ctx.rotate(
+rotacao *
+Math.PI /
+180
+);
+
+const w =
+img.naturalWidth ||
+img.width;
+
+const h =
+img.naturalHeight ||
+img.height;
+
+let escala;
+
+if(
+modo === "cover"
+){
+
+escala =
+Math.max(
+tamanho / w,
+tamanho / h
+);
+
+}else{
+
+escala =
+Math.min(
+tamanho / w,
+tamanho / h
+);
+
+}
+
+escala *=
+zoom;
+
+const dw =
+w * escala;
+
+const dh =
+h * escala;
+
+ctx.drawImage(
+img,
+-dw/2,
+-dh/2,
+dw,
+dh
+);
+
+ctx.restore();
+
+return canvas;
+
+}
+
+
+/* ==========================================================
+CONVERTER PARA CINZA
+========================================================== */
+
+function imagemCinza(
+data
+){
+
+const cinza =
+new Float32Array(
+data.length / 4
+);
+
+for(
+let i=0,p=0;
+i<data.length;
+i+=4,p++
+){
+
+cinza[p] =
+0.299 * data[i] +
+0.587 * data[i+1] +
+0.114 * data[i+2];
+
+}
+
+return cinza;
+
+}
+
+
+/* ==========================================================
+BORDAS SOBEL
+========================================================== */
+
+function gerarBordas(
+cinza,
+w,
+h
+){
+
+const bordas =
+new Float32Array(
+w*h
+);
+
+for(
+let y=1;
+y<h-1;
+y++
+){
+
+for(
+let x=1;
+x<w-1;
+x++
+){
+
+const p =
+y*w+x;
+
+const gx =
+
+-cinza[p-w-1] +
+cinza[p-w+1] +
+
+-2*cinza[p-1] +
+2*cinza[p+1] +
+
+-cinza[p+w-1] +
+cinza[p+w+1];
+
+const gy =
+
+-cinza[p-w-1] -
+2*cinza[p-w] -
+cinza[p-w+1] +
+
+cinza[p+w-1] +
+2*cinza[p+w] +
+cinza[p+w+1];
+
+bordas[p] =
+Math.sqrt(
+gx*gx +
+gy*gy
+);
+
+}
+
+}
+
+return normalizarVetor(
+bordas
+);
+
+}
+
+
+/* ==========================================================
+HISTOGRAMA DE CORES
+========================================================== */
+
+function histogramaCores(
+data
+){
+
+const hist =
+new Float32Array(
+64
+);
+
+for(
+let i=0;
+i<data.length;
+i+=4
+){
+
+const r =
+Math.min(
+3,
+Math.floor(
+data[i] / 64
+)
+);
+
+const g =
+Math.min(
+3,
+Math.floor(
+data[i+1] / 64
+)
+);
+
+const b =
+Math.min(
+3,
+Math.floor(
+data[i+2] / 64
+)
+);
+
+const indice =
+r*16 +
+g*4 +
+b;
+
+hist[indice]++;
+
+}
+
+let total =
+0;
+
+for(
+const v
+of hist
+){
+
+total +=
+v;
+
+}
+
+if(total){
+
+for(
+let i=0;
+i<hist.length;
+i++
+){
+
+hist[i] /=
+total;
+
+}
+
+}
+
+return hist;
+
+}
+
+
+/* ==========================================================
+pHASH
+========================================================== */
+
+function calcularPHash(
+cinza,
+largura,
+altura
+){
+
+const tamanho =
+32;
+
+const reduzido =
+new Float32Array(
+tamanho*tamanho
+);
+
+for(
+let y=0;
+y<tamanho;
+y++
+){
+
+const sy =
+Math.floor(
+y*altura/tamanho
+);
+
+for(
+let x=0;
+x<tamanho;
+x++
+){
+
+const sx =
+Math.floor(
+x*largura/tamanho
+);
+
+reduzido[
+y*tamanho+x
+] =
+cinza[
+sy*largura+sx
+];
+
+}
+
+}
+
+const n =
+8;
+
+const dct =
+new Float32Array(
+n*n
+);
+
+for(
+let v=0;
+v<n;
+v++
+){
+
+for(
+let u=0;
+u<n;
+u++
+){
+
+let soma =
+0;
+
+for(
+let y=0;
+y<tamanho;
+y++
+){
+
+for(
+let x=0;
+x<tamanho;
+x++
+){
+
+const valor =
+reduzido[
+y*tamanho+x
+];
+
+soma +=
+valor *
+Math.cos(
+((2*x+1)*u*Math.PI) /
+(2*tamanho)
+) *
+Math.cos(
+((2*y+1)*v*Math.PI) /
+(2*tamanho)
+);
+
+}
+
+}
+
+const au =
+u === 0
+? 1/Math.sqrt(2)
+: 1;
+
+const av =
+v === 0
+? 1/Math.sqrt(2)
+: 1;
+
+dct[
+v*n+u
+] =
+0.25 *
+au *
+av *
+soma;
+
+}
+
+}
+
+const valores =
+[];
+
+for(
+let i=1;
+i<64;
+i++
+){
+
+valores.push(
+dct[i]
+);
+
+}
+
+const ordenados =
+valores
+.slice()
+.sort(
+(a,b)=>a-b
+);
+
+const mediana =
+ordenados[
+Math.floor(
+ordenados.length/2
+)
+];
+
+const bits =
+new Uint8Array(
+63
+);
+
+for(
+let i=0;
+i<63;
+i++
+){
+
+bits[i] =
+valores[i] >
+mediana
+? 1
+: 0;
+
+}
+
+return bits;
+
+}
+
+
+/* ==========================================================
+dHASH
+========================================================== */
+
+function calcularDHash(
+cinza,
+largura,
+altura
+){
+
+const w =
+32;
+
+const h =
+32;
+
+const bits =
+new Uint8Array(
+w*(h-1)
+);
+
+let pos =
+0;
+
+for(
+let y=0;
+y<h;
+y++
+){
+
+const sy =
+Math.floor(
+y*altura/h
+);
+
+for(
+let x=0;
+x<w-1;
+x++
+){
+
+const sx =
+Math.floor(
+x*largura/w
+);
+
+const a =
+cinza[
+sy*largura+sx
+];
+
+const b =
+cinza[
+sy*largura+
+Math.min(
+largura-1,
+sx+1
+)
+];
+
+bits[pos++] =
+a > b
+? 1
+: 0;
+
+}
+
+}
+
+return bits;
+
+}
+
+
+/* ==========================================================
+SIMILARIDADE DE HASH
+========================================================== */
+
+function similaridadeHash(
+a,
+b
+){
+
+if(
+!a ||
+!b ||
+a.length !== b.length
+)
+return 0;
+
+let iguais =
+0;
+
+for(
+let i=0;
+i<a.length;
+i++
+){
+
+if(
+a[i] ===
+b[i]
+){
+
+iguais++;
+
+}
+
+}
+
+return (
+iguais /
+a.length
+) * 100;
+
+}
+
+
+/* ==========================================================
+DISTÂNCIA NORMALIZADA
+========================================================== */
+
+function distanciaNormalizada(
+a,
+b
+){
+
+if(
+!a ||
+!b ||
+a.length !== b.length
+){
+
+return Infinity;
+
+}
+
+let soma =
+0;
+
+for(
+let i=0;
+i<a.length;
+i++
+){
+
+const d =
+a[i]-b[i];
+
+soma +=
+d*d;
+
+}
+
+return Math.sqrt(
+soma/a.length
+);
+
+}
+
+
+/* ==========================================================
+CORRELAÇÃO DE ESTRUTURA
+========================================================== */
+
+function correlacao(
+a,
+b
+){
+
+if(
+!a ||
+!b ||
+a.length !== b.length
+)
+return 0;
+
+let somaA =
+0;
+
+let somaB =
+0;
+
+let somaAA =
+0;
+
+let somaBB =
+0;
+
+let somaAB =
+0;
+
+for(
+let i=0;
+i<a.length;
+i++
+){
+
+somaA +=
+a[i];
+
+somaB +=
+b[i];
+
+}
+
+const mediaA =
+somaA/a.length;
+
+const mediaB =
+somaB/b.length;
+
+for(
+let i=0;
+i<a.length;
+i++
+){
+
+const da =
+a[i]-mediaA;
+
+const db =
+b[i]-mediaB;
+
+somaAA +=
+da*da;
+
+somaBB +=
+db*db;
+
+somaAB +=
+da*db;
+
+}
+
+const denominador =
+Math.sqrt(
+somaAA*somaBB
+);
+
+if(
+!denominador
+)
+return 0;
+
+return Math.max(
+-1,
+Math.min(
+1,
+somaAB/denominador
+)
+);
+
+}
+
+
+/* ==========================================================
+DISTÂNCIA DE HISTOGRAMA
+========================================================== */
+
+function distanciaHistograma(
+a,
+b
+){
+
+let soma =
+0;
+
+for(
+let i=0;
+i<a.length;
+i++
+){
+
+soma +=
+Math.sqrt(
+Math.max(0,a[i]) *
+Math.max(0,b[i])
+);
+
+}
+
+return Math.max(
+0,
+Math.min(
+1,
+1-soma
+)
+);
+
+}
+
+
+/* ==========================================================
+ASSINATURA RÁPIDA
+========================================================== */
+
+async function assinaturaRapida(
+blob
+){
+
+const img =
+await imagemDoBlob(
+blob
+);
+
+const tamanho =
+64;
+
+const canvas =
+criarCanvasImagem(
+img,
+tamanho,
+"contain",
+1,
+0
+);
+
+const ctx =
+canvas.getContext(
+"2d",
+{
+willReadFrequently:true
+}
+);
+
+const data =
+ctx.getImageData(
+0,
+0,
+tamanho,
+tamanho
+).data;
+
+const cinza =
+imagemCinza(
+data
+);
+
+const cinzaNormalizado =
+normalizarVetor(
+cinza.slice()
+);
+
+const bordas =
+gerarBordas(
+cinzaNormalizado.slice(),
+tamanho,
+tamanho
+);
+
+const pHash =
+calcularPHash(
+cinza,
+tamanho,
+tamanho
+);
+
+const dHash =
+calcularDHash(
+cinza,
+tamanho,
+tamanho
+);
+
+const cores =
+histogramaCores(
+data
+);
+
+return {
+
+pHash,
+
+dHash,
+
+cinza:
+cinzaNormalizado,
+
+bordas,
+
+cores,
+
+proporcao:
+(
+img.naturalWidth /
+img.naturalHeight
+) || 1,
+
+largura:
+img.naturalWidth,
+
+altura:
+img.naturalHeight
+
+};
+
+}
+
+
+/* ==========================================================
+SCORE COARSE
+========================================================== */
+
+function scoreRapido(
+a,
+b
+){
+
+const phash =
+similaridadeHash(
+a.pHash,
+b.pHash
+);
+
+const dhash =
+similaridadeHash(
+a.dHash,
+b.dHash
+);
+
+const corrCinza =
+Math.max(
+0,
+correlacao(
+a.cinza,
+b.cinza
+)
+) * 100;
+
+const corrBordas =
+Math.max(
+0,
+correlacao(
+a.bordas,
+b.bordas
+)
+) * 100;
+
+const cor =
+Math.max(
+0,
+100 *
+(
+1 -
+distanciaHistograma(
+a.cores,
+b.cores
+)
+)
+);
+
+const diferencaProporcao =
+Math.min(
+1,
+Math.abs(
+Math.log(
+a.proporcao /
+b.proporcao
+)
+)
+);
+
+const proporcao =
+100 *
+Math.exp(
+-diferencaProporcao*2
+);
+
+/*
+Na primeira etapa damos muito
+mais importância à estrutura,
+bordas e hashes.
+*/
+
+return (
+
+phash * 0.25 +
+
+dhash * 0.15 +
+
+corrCinza * 0.25 +
+
+corrBordas * 0.25 +
+
+cor * 0.05 +
+
+proporcao * 0.05
+
+);
+
+}
+
+
+/* ==========================================================
+REPRESENTAÇÃO DETALHADA
+========================================================== */
+
+function gerarRepresentacaoDetalhada(
+img,
+tamanho,
+zoom,
+rotacao
+){
+
+const canvas =
+criarCanvasImagem(
+img,
+tamanho,
+"cover",
+zoom,
+rotacao
+);
+
+const ctx =
+canvas.getContext(
+"2d",
+{
+willReadFrequently:true
+}
+);
+
+const data =
+ctx.getImageData(
+0,
+0,
+tamanho,
+tamanho
+).data;
+
+const cinza =
+imagemCinza(
+data
+);
+
+const cinzaN =
+normalizarVetor(
+cinza.slice()
+);
+
+const bordas =
+gerarBordas(
+cinzaN.slice(),
+tamanho,
+tamanho
+);
+
+return {
+
+cinza:
+cinzaN,
+
+bordas,
+
+data,
+
+tamanho
+
+};
+
+}
+
+
+/* ==========================================================
+SCORE LOCAL POR BLOCOS
+========================================================== */
+
+function scoreBlocosLocais(
+a,
+b
+){
+
+const tamanho =
+a.tamanho;
+
+const blocos =
+4;
+
+const bloco =
+Math.floor(
+tamanho/blocos
+);
+
+let total =
+0;
+
+let quantidade =
+0;
+
+/*
+Cada bloco da referência procura
+o bloco mais parecido em toda a
+imagem candidata.
+
+Isso permite que a peça esteja
+em posição diferente.
+*/
+
+for(
+let by=0;
+by<blocos;
+by++
+){
+
+for(
+let bx=0;
+bx<blocos;
+bx++
+){
+
+const inicioX =
+bx*bloco;
+
+const inicioY =
+by*bloco;
+
+const patch =
+new Float32Array(
+12*12
+);
+
+let pp =
+0;
+
+for(
+let py=0;
+py<12;
+py++
+){
+
+const sy =
+inicioY +
+Math.floor(
+py*bloco/12
+);
+
+for(
+let px=0;
+px<12;
+px++
+){
+
+const sx =
+inicioX +
+Math.floor(
+px*bloco/12
+);
+
+patch[pp++] =
+a.bordas[
+sy*tamanho+sx
+];
+
+}
+
+}
+
+let melhor =
+-1;
+
+/*
+Procura esse bloco em uma
+malha inteira da candidata.
+*/
+
+for(
+let cy=0;
+cy<blocos;
+cy++
+){
+
+for(
+let cx=0;
+cx<blocos;
+cx++
+){
+
+const cand =
+new Float32Array(
+12*12
+);
+
+let cp =
+0;
+
+const cX =
+cx*bloco;
+
+const cY =
+cy*bloco;
+
+for(
+let py=0;
+py<12;
+py++
+){
+
+const sy =
+cY +
+Math.floor(
+py*bloco/12
+);
+
+for(
+let px=0;
+px<12;
+px++
+){
+
+const sx =
+cX +
+Math.floor(
+px*bloco/12
+);
+
+cand[cp++] =
+b.bordas[
+sy*tamanho+sx
+];
+
+}
+
+}
+
+const c =
+Math.max(
+0,
+correlacao(
+patch,
+cand
+)
+);
+
+if(c > melhor)
+melhor =
+c;
+
+}
+
+}
+
+if(melhor >= 0){
+
+total +=
+melhor;
+
+quantidade++;
+
+}
+
+}
+
+}
+
+if(!quantidade)
+return 0;
+
+return (
+total /
+quantidade
+) * 100;
+
+}
+
+
+/* ==========================================================
+SCORE DETALHADO DE UMA REPRESENTAÇÃO
+========================================================== */
+
+function scoreRepresentacao(
+a,
+b
+){
+
+const estrutura =
+Math.max(
+0,
+correlacao(
+a.cinza,
+b.cinza
+)
+) * 100;
+
+const bordas =
+Math.max(
+0,
+correlacao(
+a.bordas,
+b.bordas
+)
+) * 100;
+
+const local =
+scoreBlocosLocais(
+a,
+b
+);
+
+/*
+Para a comparação detalhada,
+a geometria da peça vale mais
+que a cor do fundo.
+*/
+
+return (
+
+estrutura * 0.30 +
+
+bordas * 0.35 +
+
+local * 0.35
+
+);
+
+}
+
+
+/* ==========================================================
+CACHE DE IMAGEM DETALHADA
+========================================================== */
+
+async function carregarImagemParaDetalhe(
+blob
+){
+
+return await imagemDoBlob(
+blob
+);
+
+}
+
+
+/* ==========================================================
+BUSCA DETALHADA
+========================================================== */
+
+async function similaridadeDetalhada(
+blobReferencia,
+blobCandidato
+){
+
+const imgA =
+await carregarImagemParaDetalhe(
+blobReferencia
+);
+
+const imgB =
+await carregarImagemParaDetalhe(
+blobCandidato
+);
+
+const tamanho =
+96;
+
+/*
+Referência:
+fazemos quatro orientações.
+*/
+
+const referencias =
+[];
+
+for(
+const rotacao
+of [0,90,180,270]
+){
+
+referencias.push(
+gerarRepresentacaoDetalhada(
+imgA,
+tamanho,
+1.0,
+rotacao
+)
+);
+
+}
+
+/*
+Candidato:
+múltiplos níveis de zoom
+e quatro orientações.
+*/
+
+const candidatos =
+[];
+
+for(
+const zoom
+of [0.90,1.00,1.15,1.30]
+){
+
+for(
+const rotacao
+of [0,90,180,270]
+){
+
+candidatos.push(
+gerarRepresentacaoDetalhada(
+imgB,
+tamanho,
+zoom,
+rotacao
+)
+);
+
+}
+
+}
+
+let melhor =
+0;
+
+/*
+Primeiro compara diretamente.
+*/
+
+for(
+const ref
+of referencias
+){
+
+for(
+const cand
+of candidatos
+){
+
+const score =
+scoreRepresentacao(
+ref,
+cand
+);
+
+if(
+score >
+melhor
+){
+
+melhor =
+score;
+
+}
+
+}
+
+}
+
+/*
+A segunda etapa tenta diferentes
+enquadramentos da própria referência.
+*/
+
+const referenciasZoom =
+[];
+
+for(
+const zoom
+of [0.85,1.00,1.20]
+){
+
+for(
+const rotacao
+of [0,90,180,270]
+){
+
+referenciasZoom.push(
+gerarRepresentacaoDetalhada(
+imgA,
+tamanho,
+zoom,
+rotacao
+)
+);
+
+}
+
+}
+
+for(
+const ref
+of referenciasZoom
+){
+
+for(
+const cand
+of candidatos
+){
+
+const score =
+scoreRepresentacao(
+ref,
+cand
+);
+
+if(
+score >
+melhor
+){
+
+melhor =
+score;
+
+}
+
+}
+
+}
+
+return Math.max(
+0,
+Math.min(
+100,
+melhor
+)
+);
+
+}
+
+
+/* ==========================================================
+SCORE FINAL MULTICRITÉRIO
+========================================================== */
+
+function combinarScores(
+rapido,
+detalhado,
+exato
+){
+
+/*
+Se os bytes forem exatamente iguais,
+não existe motivo para deixar essa
+imagem abaixo de outra.
+*/
+
+if(exato)
+return 100;
+
+/*
+O detalhado domina o resultado final.
+*/
+
+return Math.max(
+0,
+Math.min(
+100,
+
+detalhado * 0.72 +
+
+rapido * 0.28
+
+)
+);
+
+}
+
+
+/* ==========================================================
+ESCAPE HTML
+========================================================== */
+
+function escapeHtml(
+text
+){
+
+return String(text)
+
+.replace(
+/&/g,
+"&amp;"
+)
+
+.replace(
+/</g,
+"&lt;"
+)
+
+.replace(
+/>/g,
+"&gt;"
+)
+
+.replace(
+/"/g,
+"&quot;"
+)
+
+.replace(
+/'/g,
+"&#039;"
+);
+
+}
+
+
+/* ==========================================================
+PROCURAR
 ========================================================== */
 
 async function procurar(){
 
-  const ppts =
-    Array.from(
-      document
-        .getElementById("ppt")
-        .files
-    );
+const ppts =
+Array.from(
+document
+.getElementById(
+"ppt"
+)
+.files
+);
 
+const status =
+document.getElementById(
+"status"
+);
 
-  const status =
-    document
-      .getElementById("status");
+const area =
+document.getElementById(
+"resultados"
+);
 
+const btn =
+document.getElementById(
+"btn"
+);
 
-  const area =
-    document
-      .getElementById("resultados");
+if(!fotos.length){
 
+alert(
+"Escolha pelo menos uma foto."
+);
 
-  const btn =
-    document
-      .getElementById("btn");
+return;
 
+}
 
-  if(!fotos.length){
+if(!ppts.length){
 
-    alert(
-      "Escolha pelo menos uma foto."
-    );
+alert(
+"Escolha pelo menos um PowerPoint."
+);
 
-    return;
+return;
 
-  }
+}
 
+btn.disabled =
+true;
 
-  if(!ppts.length){
+area.innerHTML =
+"";
 
-    alert(
-      "Escolha pelo menos um PowerPoint."
-    );
+status.innerText =
+"Preparando busca visual multicritério...";
 
-    return;
+try{
 
-  }
+/* ======================================================
+REFERÊNCIAS
+====================================================== */
 
+const referencias =
+[];
 
-  btn.disabled = true;
+for(
+let f=0;
+f<fotos.length;
+f++
+){
 
+status.innerText =
+"Preparando foto " +
+(f+1) +
+" de " +
+fotos.length +
+"...";
 
-  area.innerHTML = "";
+const assinatura =
+await assinaturaRapida(
+fotos[f]
+);
 
+const hash =
+await hashBlob(
+fotos[f]
+);
 
-  status.innerText =
-    "Preparando análise visual criteriosa...";
+referencias.push({
 
+arquivo:
+fotos[f],
 
-  try{
+assinatura,
 
-    /* ======================================================
-       ETAPA 1
-       ASSINATURAS DAS FOTOS DE PESQUISA
-    ====================================================== */
+hash
 
-    const referencias = [];
+});
 
+await esperarInterface();
 
-    for(
-      let f=0;
-      f<fotos.length;
-      f++
-    ){
+}
 
-      status.innerText =
-        "Preparando foto de pesquisa " +
-        (f+1) +
-        " de " +
-        fotos.length +
-        "...";
 
+/*
+Guarda os melhores candidatos
+de cada foto.
+*/
 
-      const assinaturaFoto =
-        await assinatura(
-          fotos[f]
-        );
+const candidatosGlobais =
+new Map();
 
 
-      referencias.push({
+/* ======================================================
+PROCESSAR POWERPOINTS
+====================================================== */
 
-        arquivo:
-          fotos[f],
+for(
+let p=0;
+p<ppts.length;
+p++
+){
 
-        assinatura:
-          assinaturaFoto
+const ppt =
+ppts[p];
 
-      });
+status.innerText =
+"Lendo PowerPoint " +
+(p+1) +
+" de " +
+ppts.length +
+": " +
+ppt.name;
 
+await esperarInterface();
 
-      await esperarNavegador();
+const buffer =
+await ppt.arrayBuffer();
 
-    }
+const zip =
+await JSZip.loadAsync(
+buffer
+);
 
+const arquivos =
+Object.keys(
+zip.files
+);
 
-    const todos = [];
 
+/* ====================================================
+IMAGENS
+==================================================== */
 
-    /* ======================================================
-       LER TODOS OS POWERPOINTS
-    ====================================================== */
+const imagens =
+arquivos.filter(
+n =>
 
-    for(
-      let p=0;
-      p<ppts.length;
-      p++
-    ){
+n.startsWith(
+"ppt/media/"
+) &&
+
+/\.(jpg|jpeg|png|webp|bmp|gif|tif|tiff|svg)$/i
+.test(n)
+
+);
+
+
+/* ====================================================
+MAPA DE USOS
+==================================================== */
+
+const usos =
+{};
+
+const desenhos =
+{};
+
+
+/* ====================================================
+SLIDES
+==================================================== */
+
+const slides =
+arquivos
+
+.filter(
+n =>
+/^ppt\/slides\/slide\d+\.xml$/i
+.test(n)
+)
+
+.sort(
+(a,b)=>{
+
+const na =
++(
+a.match(
+/slide(\d+)\.xml/i
+) ||
+[,0]
+)[1];
+
+const nb =
++(
+b.match(
+/slide(\d+)\.xml/i
+) ||
+[,0]
+)[1];
+
+return na-nb;
+
+}
+);
+
+
+/* ====================================================
+MAPEAR CADA SLIDE
+==================================================== */
+
+for(
+let s=0;
+s<slides.length;
+s++
+){
+
+const slide =
+slides[s];
+
+const num =
++(
+slide.match(
+/slide(\d+)\.xml/i
+) ||
+[,0]
+)[1];
+
+const slideXml =
+await texto(
+zip,
+slide
+);
+
+desenhos[num] =
+encontrarDesenho(
+slideXml
+);
+
+const relXml =
+await texto(
+zip,
+"ppt/slides/_rels/slide" +
+num +
+".xml.rels"
+);
+
+const rels =
+extrairRelacionamentos(
+relXml
+);
+
+const doc =
+new DOMParser()
+.parseFromString(
+slideXml,
+"application/xml"
+);
+
+const blips =
+Array.from(
+doc.getElementsByTagName(
+"a:blip"
+)
+);
+
+for(
+const blip
+of blips
+){
+
+const rid =
+blip.getAttribute(
+"r:embed"
+) ||
+blip.getAttribute(
+"embed"
+);
+
+if(
+!rid ||
+!rels[rid]
+)
+continue;
+
+const target =
+normalizarCaminho(
+"ppt/slides",
+rels[rid]
+);
+
+if(
+!target.startsWith(
+"ppt/media/"
+)
+)
+continue;
+
+if(!usos[target])
+usos[target] =
+[];
+
+if(
+!usos[target]
+.includes(num)
+){
+
+usos[target].push(
+num
+);
+
+}
+
+}
+
+/*
+Atualiza a interface a cada
+bloco de slides.
+*/
+
+if(
+s % 100 === 0
+){
+
+status.innerText =
+"Mapeando slides do PowerPoint " +
+ppt.name +
+": " +
+(s+1) +
+" de " +
+slides.length +
+"...";
+
+await esperarInterface();
+
+}
+
+}
+
+
+/* ====================================================
+ANÁLISE COARSE DE TODAS AS IMAGENS
+==================================================== */
+
+const candidatos =
+[];
+
+for(
+let i=0;
+i<imagens.length;
+i++
+){
+
+const nome =
+imagens[i];
+
+try{
+
+status.innerText =
+"Análise visual inicial: " +
+ppt.name +
+" — " +
+(i+1) +
+" de " +
+imagens.length;
+
+await esperarInterface();
+
+const blob =
+await zip.files[nome]
+.async(
+"blob"
+);
+
+const assinatura =
+await assinaturaRapida(
+blob
+);
+
+const hash =
+await hashBlob(
+blob
+);
+
+let melhorRapido =
+0;
+
+let melhorReferencia =
+null;
 
-      const ppt =
-        ppts[p];
+let exato =
+false;
 
+for(
+const referencia
+of referencias
+){
 
-      status.innerText =
-        "Lendo PowerPoint " +
-        (p+1) +
-        " de " +
-        ppts.length +
-        ": " +
-        ppt.name;
+const igualdade =
+!!(
+hash &&
+referencia.hash &&
+hash ===
+referencia.hash
+);
 
+const rapido =
+igualdade
+? 100
+: scoreRapido(
+referencia.assinatura,
+assinatura
+);
 
-      await esperarNavegador();
+if(
+rapido >
+melhorRapido
+){
 
+melhorRapido =
+rapido;
 
-      const buffer =
-        await ppt.arrayBuffer();
+melhorReferencia =
+referencia;
 
+}
 
-      const zip =
-        await JSZip.loadAsync(
-          buffer
-        );
+if(
+igualdade
+){
 
+exato =
+true;
 
-      const arquivos =
-        Object.keys(
-          zip.files
-        );
+melhorRapido =
+100;
 
+melhorReferencia =
+referencia;
 
-      /*
-        Todas as imagens internas.
-      */
+}
 
-      const imagens =
-        arquivos.filter(
-          n =>
-            n.startsWith(
-              "ppt/media/"
-            ) &&
-            /\.(jpg|jpeg|png|webp|bmp|gif|tif|tiff|svg)$/i
-              .test(n)
-        );
+}
 
+const slidesDaImagem =
+usos[nome] ||
+[];
 
-      const usos = {};
+const desenhosEncontrados =
+slidesDaImagem.map(
+slide =>
+desenhos[slide] ||
+"Desenho não identificado"
+);
 
+candidatos.push({
 
-      const desenhos = {};
+arquivo:
+ppt.name,
 
+nome:
+nome.split("/")
+.pop(),
 
-      /* ====================================================
-         LOCALIZAR SLIDES
-      ==================================================== */
+caminho:
+nome,
 
-      const slides =
-        arquivos
+blob,
 
-          .filter(
-            n =>
-              /^ppt\/slides\/slide\d+\.xml$/i
-                .test(n)
-          )
+hash,
 
-          .sort(
-            (a,b)=>{
+assinatura,
 
-              const na = +(
-                a.match(
-                  /slide(\d+)\.xml/i
-                ) || [,0]
-              )[1];
+rapido:
+melhorRapido,
 
+exato,
 
-              const nb = +(
-                b.match(
-                  /slide(\d+)\.xml/i
-                ) || [,0]
-              )[1];
+referencia:
+melhorReferencia,
 
+slides:
+slidesDaImagem,
 
-              return na-nb;
+desenhos:
+desenhosEncontrados
 
-            }
-          );
+});
 
+}catch(e){
 
-      /* ====================================================
-         ANALISAR CADA SLIDE
-      ==================================================== */
+console.warn(
+"Imagem ignorada:",
+nome,
+e
+);
 
-      for(
-        let s=0;
-        s<slides.length;
-        s++
-      ){
+}
 
-        const slide =
-          slides[s];
+}
 
 
-        const num = +(
-          slide.match(
-            /slide(\d+)\.xml/i
-          ) || [,0]
-        )[1];
+/* ====================================================
+SEGUNDA ETAPA
+SOMENTE OS MELHORES CANDIDATOS
+==================================================== */
 
+candidatos.sort(
+(a,b) =>
+b.rapido -
+a.rapido
+);
 
-        const slideXml =
-          await texto(
-            zip,
-            slide
-          );
 
+/*
+180 candidatos passam para a
+comparação visual profunda.
 
-        desenhos[num] =
-          encontrarDesenho(
-            slideXml
-          );
+Se houver menos que isso,
+todos são analisados.
+*/
 
+const limiteDetalhado =
+Math.min(
+180,
+candidatos.length
+);
 
-        const relXml =
-          await texto(
-            zip,
-            "ppt/slides/_rels/slide" +
-            num +
-            ".xml.rels"
-          );
 
+for(
+let i=0;
+i<limiteDetalhado;
+i++
+){
 
-        const rels =
-          extrairRelacionamentos(
-            relXml
-          );
+const candidato =
+candidatos[i];
 
+try{
 
-        const doc =
-          new DOMParser()
-            .parseFromString(
-              slideXml,
-              "application/xml"
-            );
+status.innerText =
+"Comparação visual profunda: " +
+ppt.name +
+" — candidato " +
+(i+1) +
+" de " +
+limiteDetalhado +
+"...";
 
+await esperarInterface();
 
-        const blips =
-          Array.from(
-            doc.getElementsByTagName(
-              "a:blip"
-            )
-          );
+let melhorDetalhado =
+0;
 
+/*
+Se houver várias fotos de
+pesquisa, compara com todas.
+*/
 
-        for(
-          const blip
-          of blips
-        ){
+for(
+const referencia
+of referencias
+){
 
-          const rid =
-            blip.getAttribute(
-              "r:embed"
-            ) ||
-            blip.getAttribute(
-              "embed"
-            );
+/*
+Se for byte a byte igual,
+não precisamos gastar CPU
+com a etapa pesada.
+*/
 
+if(
+candidato.hash &&
+referencia.hash &&
+candidato.hash ===
+referencia.hash
+){
 
-          if(
-            !rid ||
-            !rels[rid]
-          )
-            continue;
+melhorDetalhado =
+100;
 
+candidato.exato =
+true;
 
-          const target =
-            normalizarCaminho(
-              "ppt/slides",
-              rels[rid]
-            );
+candidato.referencia =
+referencia;
 
+break;
 
-          if(
-            !target.startsWith(
-              "ppt/media/"
-            )
-          )
-            continue;
+}
 
+const detalhado =
+await similaridadeDetalhada(
+referencia.arquivo,
+candidato.blob
+);
 
-          if(!usos[target])
-            usos[target] = [];
+if(
+detalhado >
+melhorDetalhado
+){
 
+melhorDetalhado =
+detalhado;
 
-          if(
-            !usos[target]
-              .includes(num)
-          ){
+candidato.referencia =
+referencia;
 
-            usos[target]
-              .push(num);
+}
 
-          }
+}
 
-        }
+candidato.detalhado =
+melhorDetalhado;
 
+candidato.score =
+combinarScores(
+candidato.rapido,
+candidato.detalhado,
+candidato.exato
+);
 
-        /*
-          Libera o navegador entre grupos
-          de slides para não travar a interface.
-        */
+}catch(e){
 
-        if(
-          s % 40 === 0
-        ){
+console.warn(
+"Detalhamento falhou:",
+candidato.nome,
+e
+);
 
-          status.innerText =
-            "Mapeando imagens e slides do PowerPoint " +
-            ppt.name +
-            " — slide " +
-            num +
-            " de " +
-            slides.length +
-            "...";
+candidato.detalhado =
+candidato.rapido;
 
+candidato.score =
+candidato.rapido;
 
-          await esperarNavegador();
+}
 
-        }
+}
 
-      }
 
+/*
+Candidatos que não entraram na
+segunda etapa continuam com o
+score inicial.
+*/
 
-      /* ====================================================
-         CACHE VISUAL DAS IMAGENS
-      ==================================================== */
+for(
+const candidato
+of candidatos
+){
 
-      const cacheImagens =
-        new Map();
+if(
+typeof candidato.score !==
+"number"
+){
 
+candidato.detalhado =
+candidato.rapido;
 
-      /* ====================================================
-         PRIMEIRA PASSAGEM
-         BUSCA AMPLA
-      ==================================================== */
+candidato.score =
+candidato.rapido;
 
-      for(
-        let i=0;
-        i<imagens.length;
-        i++
-      ){
+}
 
-        const nome =
-          imagens[i];
+}
 
 
-        status.innerText =
-          "Busca visual ampla: " +
-          ppt.name +
-          " — imagem " +
-          (i+1) +
-          " de " +
-          imagens.length;
+/*
+Adiciona ao conjunto global.
+*/
 
+for(
+const candidato
+of candidatos
+){
 
-        if(
-          i % 4 === 0
-        ){
+/*
+A chave evita duplicar a mesma
+imagem física do PPT.
+*/
 
-          await esperarNavegador();
+const chave =
+ppt.name +
+"::" +
+candidato.caminho;
 
-        }
+const anterior =
+candidatosGlobais.get(
+chave
+);
 
+if(
+!anterior ||
+candidato.score >
+anterior.score
+){
 
-        try{
+candidatosGlobais.set(
+chave,
+candidato
+);
 
-          const blob =
-            await zip.files[nome]
-              .async("blob");
+}
 
+}
 
-          /*
-            Guarda o blob porque ele será
-            usado novamente na segunda etapa.
-          */
+}
 
-          const sig =
-            await assinatura(
-              blob
-            );
 
+/* ======================================================
+ORDENAR RESULTADOS
+====================================================== */
 
-          cacheImagens.set(
-            nome,
-            {
-              blob,
-              assinatura:sig
-            }
-          );
+const todos =
+Array.from(
+candidatosGlobais.values()
+);
 
 
-          const slidesDaImagem =
-            usos[nome] || [];
+todos.sort(
+(a,b) =>
+b.score -
+a.score
+);
 
 
-          const desenhosEncontrados =
-            slidesDaImagem.map(
-              slide =>
-                desenhos[slide] ||
-                "Desenho não identificado"
-            );
+area.innerHTML =
+"";
 
 
-          /*
-            Compara com TODAS as fotos
-            selecionadas.
-          */
+if(!todos.length){
 
-          for(
-            const referencia
-            of referencias
-          ){
+area.innerHTML =
+"<p>Nenhuma imagem foi encontrada nos PowerPoints selecionados.</p>";
 
-            let score =
-              compararConjuntos(
-                referencia.assinatura,
-                sig
-              );
+}else{
 
+const exibidos =
+todos.slice(
+0,
+10
+);
 
-            score =
-              aplicarAjusteProporcao(
-                score,
-                referencia.assinatura,
-                sig
-              );
 
+for(
+let i=0;
+i<exibidos.length;
+i++
+){
 
-            todos.push({
+const r =
+exibidos[i];
 
-              arquivo:
-                ppt.name,
+const div =
+document.createElement(
+"div"
+);
 
-              nome:
-                nome.split("/")
-                  .pop(),
+div.className =
+"resultado";
 
-              caminho:
-                nome,
 
-              blob,
+let desenho =
+"Desenho não identificado";
 
-              score,
 
-              scoreAmplo:
-                score,
+if(
+r.desenhos &&
+r.desenhos.length
+){
 
-              slides:
-                slidesDaImagem,
+desenho =
+r.desenhos.find(
+x =>
+x &&
+x !==
+"Desenho não identificado"
+) ||
+r.desenhos[0];
 
-              desenhos:
-                desenhosEncontrados,
+}
 
-              fotoPesquisa:
-                referencia.arquivo.name,
 
-              referencia:
+let tipoBusca =
+"Busca visual";
 
-                referencia
+if(
+r.exato
+){
 
-            });
+tipoBusca =
+"Correspondência exata";
 
-          }
+}else if(
+r.detalhado >= 80
+){
 
+tipoBusca =
+"Correspondência visual forte";
 
-        }catch(e){
+}else if(
+r.detalhado >= 65
+){
 
-          console.warn(
-            "Imagem ignorada",
-            nome,
-            e
-          );
+tipoBusca =
+"Correspondência visual";
 
-        }
+}
 
-      }
 
+div.innerHTML =
 
-      /* ====================================================
-         SEGUNDA ETAPA
-         REFINAMENTO DOS CANDIDATOS
-      ==================================================== */
+'<div class="tag">' +
+r.score.toFixed(1) +
+'%' +
+'</div>' +
 
-      /*
-        Retira duplicações da mesma combinação
-        PowerPoint + imagem + foto de pesquisa.
-      */
+'<div class="desenho">' +
 
-      todos.sort(
-        (a,b) =>
-          b.scoreAmplo -
-          a.scoreAmplo
-      );
+'<b>Desenho:</b><br>' +
 
+escapeHtml(
+desenho
+) +
 
-      /*
-        Para cada foto de pesquisa, os melhores
-        candidatos recebem uma análise muito
-        mais pesada.
+'</div>' +
 
-        Isso evita fazer rotação detalhada
-        em milhares de imagens desnecessariamente.
-      */
+'<div class="dados">' +
 
-      const candidatosPorFoto =
-        new Map();
+'<b>PowerPoint:</b> ' +
 
+escapeHtml(
+r.arquivo
+) +
 
-      for(
-        const referencia
-        of referencias
-      ){
+'<br><b>Slide:</b> ' +
 
-        const nomeFoto =
-          referencia.arquivo.name;
+(
+r.slides.length
+? r.slides.join(", ")
+: "não identificado"
+) +
 
+'<br><b>Semelhança visual:</b> ' +
 
-        const candidatos =
-          todos
-            .filter(
-              r =>
-                r.fotoPesquisa ===
-                nomeFoto
-            )
-            .sort(
-              (a,b) =>
-                b.scoreAmplo -
-                a.scoreAmplo
-            )
-            .slice(
-              0,
-              150
-            );
+r.score.toFixed(1) +
 
+'%' +
 
-        candidatosPorFoto.set(
-          nomeFoto,
-          candidatos
-        );
+'<br><b>Análise:</b> ' +
 
-      }
+escapeHtml(
+tipoBusca
+) +
 
+'</div>';
 
-      let contadorDetalhado = 0;
 
+const img =
+document.createElement(
+"img"
+);
 
-      for(
-        const referencia
-        of referencias
-      ){
+img.className =
+"imagem-encontrada";
 
-        const nomeFoto =
-          referencia.arquivo.name;
+img.src =
+URL.createObjectURL(
+r.blob
+);
 
+img.alt =
+"Imagem encontrada no PowerPoint";
 
-        const candidatos =
-          candidatosPorFoto.get(
-            nomeFoto
-          ) || [];
+div.appendChild(
+img
+);
 
+area.appendChild(
+div
+);
 
-        for(
-          let c=0;
-          c<candidatos.length;
-          c++
-        ){
+}
 
-          const candidato =
-            candidatos[c];
+}
 
 
-          contadorDetalhado++;
+status.innerText =
+"Busca multicritério concluída. " +
+fotos.length +
+" foto(s) comparada(s) com " +
+ppts.length +
+" PowerPoint(s). " +
+"Foram analisadas estrutura, contornos, enquadramentos, rotação e regiões locais.";
 
 
-          status.innerText =
-            "Refinando correspondências: " +
-            contadorDetalhado +
-            " — " +
-            ppt.name +
-            " — " +
-            candidato.nome;
+}catch(erro){
 
+console.error(
+erro
+);
 
-          if(
-            contadorDetalhado % 2 === 0
-          ){
+status.innerHTML =
 
-            await esperarNavegador();
+'<span class="erro">' +
 
-          }
+'Erro ao ler o PowerPoint: ' +
 
+escapeHtml(
+erro.message ||
+erro
+) +
 
-          try{
+'</span>';
 
-            const cache =
-              cacheImagens.get(
-                candidato.caminho
-              );
+}finally{
 
+btn.disabled =
+false;
 
-            if(!cache)
-              continue;
-
-
-            /*
-              Agora usamos 12 variantes:
-
-              3 enquadramentos
-              x
-              4 rotações
-            */
-
-            const detalhada =
-              await assinaturaDetalhada(
-                cache.blob
-              );
-
-
-            let scoreDetalhado =
-              compararConjuntosDetalhados(
-                referencia.assinatura,
-                detalhada
-              );
-
-
-            /*
-              A análise detalhada recebe
-              prioridade sobre a análise ampla.
-            */
-
-            const scoreFinal =
-
-              scoreDetalhado * 0.78 +
-
-              candidato.scoreAmplo * 0.22;
-
-
-            candidato.score =
-              aplicarAjusteProporcao(
-                scoreFinal,
-                referencia.assinatura,
-                detalhada
-              );
-
-
-            candidato.scoreDetalhado =
-              scoreDetalhado;
-
-
-          }catch(e){
-
-            console.warn(
-              "Falha na análise detalhada",
-              candidato.nome,
-              e
-            );
-
-          }
-
-        }
-
-      }
-
-    }
-
-
-    /* ======================================================
-       ORDENAÇÃO FINAL
-    ====================================================== */
-
-    todos.sort(
-      (a,b) =>
-        b.score -
-        a.score
-    );
-
-
-    /*
-      Remove resultados duplicados do mesmo
-      arquivo de mídia para evitar que a mesma
-      imagem apareça várias vezes.
-    */
-
-    const unicos = [];
-
-
-    const vistos =
-      new Set();
-
-
-    for(
-      const item
-      of todos
-    ){
-
-      const chave =
-
-        item.arquivo +
-        "|" +
-        item.caminho +
-        "|" +
-        item.fotoPesquisa;
-
-
-      if(
-        vistos.has(
-          chave
-        )
-      ){
-
-        continue;
-
-      }
-
-
-      vistos.add(
-        chave
-      );
-
-
-      unicos.push(
-        item
-      );
-
-    }
-
-
-    unicos.sort(
-      (a,b) =>
-        b.score -
-        a.score
-    );
-
-
-    area.innerHTML = "";
-
-
-    if(!unicos.length){
-
-      area.innerHTML =
-        "<p>Nenhuma imagem foi encontrada nos PowerPoints selecionados.</p>";
-
-    }else{
-
-      /*
-        Mantém os 10 melhores.
-      */
-
-      const exibidos =
-        unicos.slice(
-          0,
-          10
-        );
-
-
-      for(
-        let i=0;
-        i<exibidos.length;
-        i++
-      ){
-
-        const r =
-          exibidos[i];
-
-
-        const div =
-          document.createElement(
-            "div"
-          );
-
-
-        div.className =
-          "resultado";
-
-
-        let desenho =
-          "Desenho não identificado";
-
-
-        if(
-          r.desenhos &&
-          r.desenhos.length
-        ){
-
-          desenho =
-            r.desenhos.find(
-              x =>
-                x &&
-                x !==
-                "Desenho não identificado"
-            ) ||
-            r.desenhos[0];
-
-        }
-
-
-        div.innerHTML =
-
-          '<div class="tag">' +
-          r.score.toFixed(1) +
-          '%' +
-          '</div>' +
-
-          '<div class="desenho">' +
-
-          '<b>Desenho:</b><br>' +
-
-          escapeHtml(
-            desenho
-          ) +
-
-          '</div>' +
-
-          '<div class="dados">' +
-
-          '<b>PowerPoint:</b> ' +
-
-          escapeHtml(
-            r.arquivo
-          ) +
-
-          '<br><b>Slide:</b> ' +
-
-          (
-            r.slides.length
-              ? r.slides.join(", ")
-              : "não identificado"
-          ) +
-
-          '<br><b>Semelhança visual:</b> ' +
-
-          r.score.toFixed(1) +
-
-          '%' +
-
-          '</div>';
-
-
-        const img =
-          document.createElement(
-            "img"
-          );
-
-
-        img.className =
-          "imagem-encontrada";
-
-
-        img.src =
-          URL.createObjectURL(
-            r.blob
-          );
-
-
-        img.alt =
-          "Imagem encontrada no PowerPoint";
-
-
-        div.appendChild(
-          img
-        );
-
-
-        area.appendChild(
-          div
-        );
-
-      }
-
-    }
-
-
-    status.innerText =
-      "Busca criteriosa concluída: " +
-      fotos.length +
-      " foto(s) analisada(s) contra " +
-      ppts.length +
-      " PowerPoint(s). " +
-      "Foram comparados enquadramentos, contornos, estrutura, cores e rotações. " +
-      "Os 10 melhores resultados foram exibidos.";
-
-
-  }catch(erro){
-
-    console.error(
-      erro
-    );
-
-
-    status.innerHTML =
-
-      '<span class="erro">' +
-
-      'Erro ao ler o PowerPoint: ' +
-
-      escapeHtml(
-        erro.message ||
-        erro
-      ) +
-
-      '</span>';
-
-  }finally{
-
-    btn.disabled = false;
-
-  }
+}
 
 }
 
 
 /* ==========================================================
-   BOTÃO PROCURAR
+BOTÃO PROCURAR
 ========================================================== */
 
 document
-  .getElementById("btn")
-  .addEventListener(
-    "click",
-    procurar
-  );
+.getElementById("btn")
+.addEventListener(
+"click",
+procurar
+);
 
 
 /* ==========================================================
-   AO ABRIR O SISTEMA
+AO ABRIR O SISTEMA
 ========================================================== */
 
 carregarHistorico();
