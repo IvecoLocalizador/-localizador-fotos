@@ -1,21 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-
 <meta charset="UTF-8">
-
-<meta
-  name="viewport"
-  content="width=device-width,initial-scale=1"
->
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Localizador de Fotos | IVECO</title>
-
-<link
-  rel="icon"
-  type="image/jpeg"
-  href="caminhao.jpeg"
->
+<link rel="icon" type="image/jpeg" href="caminhao.jpeg">
 
 <style>
 
@@ -44,19 +33,9 @@ body{
 .app{
   min-height:100vh;
   display:flex;
-
   background:
-    radial-gradient(
-      circle at 70% 20%,
-      rgba(0,91,180,.18),
-      transparent 35%
-    ),
-    linear-gradient(
-      135deg,
-      #02101d,
-      #03192b 55%,
-      #020c17
-    );
+    radial-gradient(circle at 70% 20%,rgba(0,91,180,.18),transparent 35%),
+    linear-gradient(135deg,#02101d,#03192b 55%,#020c17);
 }
 
 /* =========================
@@ -67,29 +46,16 @@ body{
   width:176px;
   min-width:176px;
   min-height:100vh;
-
   background:
-    linear-gradient(
-      180deg,
-      #06182a 0%,
-      #031323 60%,
-      #020d18 100%
-    );
-
-  border-right:
-    1px solid rgba(55,139,226,.45);
-
+    linear-gradient(180deg,#06182a 0%,#031323 60%,#020d18 100%);
+  border-right:1px solid rgba(55,139,226,.45);
   position:fixed;
-
   left:0;
   top:0;
   bottom:0;
-
   z-index:20;
-
   display:flex;
   flex-direction:column;
-
   overflow:hidden;
 }
 
@@ -97,12 +63,7 @@ body{
   font-size:30px;
   font-weight:900;
   letter-spacing:1px;
-
-  padding:
-    24px
-    30px
-    25px;
-
+  padding:24px 30px 25px;
   color:#fff;
 }
 
@@ -112,43 +73,25 @@ body{
 
 .menu-item{
   height:47px;
-
   margin-bottom:7px;
-
   border-radius:8px;
-
   display:flex;
   align-items:center;
-
   gap:15px;
-
   padding:0 16px;
-
   color:#fff;
-
   font-size:14px;
-
   cursor:pointer;
-
   transition:.2s;
 }
 
 .menu-item:hover{
-  background:
-    rgba(21,109,220,.22);
+  background:rgba(21,109,220,.22);
 }
 
 .menu-item.active{
-  background:
-    linear-gradient(
-      90deg,
-      #0879ff,
-      #1261d6
-    );
-
-  box-shadow:
-    0 5px 15px
-    rgba(0,100,255,.22);
+  background:linear-gradient(90deg,#0879ff,#1261d6);
+  box-shadow:0 5px 15px rgba(0,100,255,.22);
 }
 
 .menu-icon{
@@ -159,40 +102,25 @@ body{
 
 .sidebar-bottom{
   margin-top:auto;
-
-  padding:
-    0
-    24px
-    22px;
-
+  padding:0 24px 22px;
   position:relative;
 }
 
 .sidebar-truck{
   width:100%;
-
   opacity:.25;
-
   position:absolute;
-
   bottom:0;
   left:0;
-
-  transform:
-    translateY(15%);
-
+  transform:translateY(15%);
   pointer-events:none;
 }
 
 .sidebar-message{
   position:relative;
-
   z-index:2;
-
   font-size:17px;
-
   line-height:1.35;
-
   color:#fff;
 }
 
@@ -206,12 +134,8 @@ body{
 
 .main{
   margin-left:176px;
-
-  width:
-    calc(100% - 176px);
-
+  width:calc(100% - 176px);
   min-height:100vh;
-
   padding-bottom:0;
 }
 
@@ -221,36 +145,24 @@ body{
 
 .hero{
   height:193px;
-
   position:relative;
-
   overflow:hidden;
-
-  border-bottom:
-    1px solid
-    rgba(42,130,230,.55);
-
+  border-bottom:1px solid rgba(42,130,230,.55);
   background:#041323;
 }
 
 .hero-image{
   position:absolute;
-
   inset:0;
-
   width:100%;
   height:100%;
-
   object-fit:cover;
-
   object-position:left center;
 }
 
 .hero-overlay{
   position:absolute;
-
   inset:0;
-
   background:
     linear-gradient(
       90deg,
@@ -263,34 +175,21 @@ body{
 
 .hero-content{
   position:relative;
-
   z-index:3;
-
   height:100%;
-
   display:flex;
-
   align-items:center;
-
   justify-content:center;
-
   text-align:left;
-
   padding-left:250px;
   padding-right:170px;
 }
 
 .hero-title{
   font-size:42px;
-
   line-height:1.05;
-
   font-weight:800;
-
-  margin:
-    0
-    0
-    9px;
+  margin:0 0 9px;
 }
 
 .hero-title span{
@@ -299,22 +198,16 @@ body{
 
 .hero-subtitle{
   font-size:16px;
-
   margin:0;
-
   color:#e6eef8;
 }
 
 .hero-logo{
   position:absolute;
-
   right:42px;
   top:73px;
-
   font-size:38px;
-
   font-weight:900;
-
   letter-spacing:2px;
 }
 
@@ -323,20 +216,12 @@ body{
 ========================= */
 
 .workspace{
-  padding:
-    10px
-    25px
-    0;
+  padding:10px 25px 0;
 }
 
 .cards-top{
   display:grid;
-
-  grid-template-columns:
-    1.05fr
-    1.15fr
-    .67fr;
-
+  grid-template-columns:1.05fr 1.15fr .67fr;
   gap:10px;
 }
 
@@ -346,190 +231,131 @@ body{
 
 .card{
   background:
-    linear-gradient(
-      145deg,
-      rgba(5,34,58,.94),
-      rgba(3,24,42,.94)
-    );
-
-  border:
-    1px solid
-    rgba(40,126,214,.68);
-
+    linear-gradient(145deg,rgba(5,34,58,.94),rgba(3,24,42,.94));
+  border:1px solid rgba(40,126,214,.68);
   border-radius:10px;
-
   box-shadow:
-    inset 0 1px 0
-    rgba(255,255,255,.025),
-
-    0 5px 18px
-    rgba(0,0,0,.18);
-
+    inset 0 1px 0 rgba(255,255,255,.025),
+    0 5px 18px rgba(0,0,0,.18);
   overflow:hidden;
 }
 
 .input-card{
   min-height:274px;
-
-  padding:
-    10px
-    15px
-    14px;
+  padding:10px 15px 14px;
 }
 
 .card-title{
   display:flex;
-
   align-items:center;
-
   gap:12px;
-
   font-weight:700;
-
   font-size:14px;
-
   margin-bottom:8px;
 }
 
 .number{
   width:31px;
   height:31px;
-
   border-radius:50%;
-
   display:flex;
-
   align-items:center;
-
   justify-content:center;
-
   background:#0878ff;
-
   font-size:17px;
-
   font-weight:700;
-
-  box-shadow:
-    0 0 15px
-    rgba(0,116,255,.25);
+  box-shadow:0 0 15px rgba(0,116,255,.25);
 }
 
 .drop-zone{
   height:95px;
-
-  border:
-    1px dashed
-    #3488d8;
-
+  border:1px dashed #3488d8;
   border-radius:9px;
-
   display:flex;
-
   align-items:center;
-
   justify-content:center;
-
   flex-direction:column;
-
   text-align:center;
-
   cursor:pointer;
-
-  background:
-    rgba(8,53,88,.25);
-
+  background:rgba(8,53,88,.25);
   transition:.2s;
-
   position:relative;
 }
 
 .drop-zone:hover{
-  background:
-    rgba(10,91,157,.25);
-
+  background:rgba(10,91,157,.25);
   border-color:#1685ff;
 }
 
 .drop-icon{
   font-size:27px;
-
   margin-bottom:6px;
 }
 
 .drop-text{
   font-size:12px;
-
   line-height:1.4;
-
   color:#dbe9f8;
 }
 
 .drop-input{
   position:absolute;
-
   inset:0;
-
   width:100%;
   height:100%;
-
   opacity:0;
-
   cursor:pointer;
 }
 
 .preview-wrap{
   position:relative;
-
   margin-top:14px;
-
-  display:inline-block;
+  width:100%;
 }
 
-#preview{
-  display:none;
+.preview-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  align-items:flex-start;
+}
 
+.preview-item{
+  position:relative;
   width:116px;
   height:99px;
+}
 
+.preview-item img{
+  width:116px;
+  height:99px;
   object-fit:cover;
-
   border-radius:9px;
-
-  border:
-    1px solid
-    #7893ab;
-
-  box-shadow:
-    0 4px 12px
-    rgba(0,0,0,.35);
+  border:1px solid #7893ab;
+  box-shadow:0 4px 12px rgba(0,0,0,.35);
+  display:block;
+  background:#031321;
 }
 
 .remove-preview{
   position:absolute;
-
-  right:-9px;
-  top:-9px;
-
+  right:-7px;
+  top:-7px;
   width:23px;
   height:23px;
-
   border-radius:50%;
-
   background:#203c58;
-
-  border:
-    2px solid
-    #081c30;
-
-  display:none;
-
+  border:2px solid #081c30;
+  display:flex;
   align-items:center;
-
   justify-content:center;
-
   cursor:pointer;
-
   font-size:13px;
+  z-index:5;
+}
+
+.remove-preview:hover{
+  background:#0878ff;
 }
 
 /* =========================
@@ -542,86 +368,55 @@ body{
 
 .ppt-help{
   font-size:11px;
-
   color:#dce8f4;
-
-  margin:
-    0
-    0
-    7px;
+  margin:0 0 7px;
 }
 
 .file-list{
   max-height:94px;
-
   overflow-y:auto;
 }
 
 .file-item{
   height:27px;
-
   display:flex;
-
   align-items:center;
-
   gap:8px;
-
-  background:
-    rgba(7,55,91,.42);
-
-  border:
-    1px solid
-    rgba(45,113,169,.28);
-
+  background:rgba(7,55,91,.42);
+  border:1px solid rgba(45,113,169,.28);
   border-radius:6px;
-
   margin-bottom:4px;
-
   padding:0 8px;
-
   font-size:11px;
 }
 
 .ppt-icon{
   width:18px;
   height:20px;
-
   border-radius:3px;
-
   background:#ef4c2f;
-
   display:flex;
-
   align-items:center;
-
   justify-content:center;
-
   font-size:10px;
-
   font-weight:bold;
 }
 
 .file-name{
   flex:1;
-
   overflow:hidden;
-
   white-space:nowrap;
-
   text-overflow:ellipsis;
 }
 
 .file-size{
   color:#e6edf4;
-
   white-space:nowrap;
 }
 
 .file-remove{
   cursor:pointer;
-
   font-size:15px;
-
   opacity:.8;
 }
 
@@ -631,131 +426,72 @@ body{
 
 .search-card{
   min-height:274px;
-
-  padding:
-    18px
-    15px
-    14px;
-
+  padding:18px 15px 14px;
   position:relative;
-
   text-align:center;
-
   background:
-    linear-gradient(
-      145deg,
-      rgba(6,38,65,.94),
-      rgba(3,21,37,.96)
-    );
+    linear-gradient(145deg,rgba(6,38,65,.94),rgba(3,21,37,.96));
 }
 
 .search-bg{
   position:absolute;
-
   right:-45px;
   top:0;
-
   width:190px;
   height:100%;
-
   background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(0,54,103,.25)
-    ),
-
-    url("IMG_6447.jpeg")
-    center/cover
-    no-repeat;
-
+    linear-gradient(90deg,transparent,rgba(0,54,103,.25)),
+    url("IMG_6447.jpeg") center/cover no-repeat;
   opacity:.16;
-
   pointer-events:none;
 }
 
 .search-content{
   position:relative;
-
   z-index:2;
 }
 
 .search-icon{
   font-size:39px;
-
   margin-bottom:7px;
 }
 
 .search-title{
   font-size:17px;
-
   font-weight:800;
-
   line-height:1.2;
-
   margin-bottom:12px;
 }
 
 .search-description{
   font-size:13px;
-
   line-height:1.35;
-
   color:#e5edf6;
-
-  margin:
-    0
-    auto
-    14px;
-
+  margin:0 auto 14px;
   max-width:205px;
 }
 
 #btn{
   width:100%;
-
   height:44px;
-
-  background:
-    linear-gradient(
-      90deg,
-      #0878ff,
-      #0563eb
-    );
-
+  background:linear-gradient(90deg,#0878ff,#0563eb);
   color:#fff;
-
   border:0;
-
   border-radius:8px;
-
   font-size:13px;
-
   font-weight:bold;
-
   cursor:pointer;
-
   transition:.2s;
-
   margin:0;
 }
 
 #btn:hover{
-  background:
-    linear-gradient(
-      90deg,
-      #1684ff,
-      #0870ff
-    );
-
-  box-shadow:
-    0 5px 16px
-    rgba(0,107,255,.25);
+  background:linear-gradient(90deg,#1684ff,#0870ff);
+  box-shadow:0 5px 16px rgba(0,107,255,.25);
 }
 
 #btn:disabled{
   opacity:.6;
-
   cursor:wait;
 }
 
@@ -765,14 +501,8 @@ body{
 
 #status{
   font-size:12px;
-
   min-height:18px;
-
-  margin:
-    5px
-    0
-    0;
-
+  margin:5px 0 0;
   color:#bcd4eb;
 }
 
@@ -782,91 +512,52 @@ body{
 
 .info-strip{
   margin-top:10px;
-
-  padding:
-    11px
-    15px;
-
+  padding:11px 15px;
   background:
-    linear-gradient(
-      90deg,
-      #062a4a,
-      #05233d
-    );
-
-  border:
-    1px solid
-    rgba(30,119,211,.72);
-
+    linear-gradient(90deg,#062a4a,#05233d);
+  border:1px solid rgba(30,119,211,.72);
   border-radius:10px;
-
   display:grid;
-
-  grid-template-columns:
-    1.15fr
-    1fr
-    1fr
-    1fr;
-
+  grid-template-columns:1.15fr 1fr 1fr 1fr;
   align-items:center;
 }
 
 .info-header{
   display:flex;
-
   align-items:center;
-
   gap:12px;
-
   font-size:12px;
 }
 
 .info-circle{
   width:23px;
   height:23px;
-
   background:#0878ff;
-
   border-radius:50%;
-
   display:flex;
-
   align-items:center;
-
   justify-content:center;
-
   font-weight:bold;
-
   font-size:13px;
 }
 
 .info-item{
-  border-left:
-    1px solid
-    #0878ff;
-
+  border-left:1px solid #0878ff;
   padding-left:25px;
-
   min-height:32px;
-
   display:flex;
-
   flex-direction:column;
-
   justify-content:center;
 }
 
 .info-label{
   font-size:12px;
-
   font-weight:bold;
-
   margin-bottom:4px;
 }
 
 .info-example{
   font-size:11px;
-
   color:#d4e3f1;
 }
 
@@ -876,45 +567,25 @@ body{
 
 .results-card{
   margin-top:10px;
-
-  padding:
-    12px
-    15px
-    14px;
-
-  border:
-    1px solid
-    rgba(40,126,214,.68);
-
+  padding:12px 15px 14px;
+  border:1px solid rgba(40,126,214,.68);
   border-radius:10px;
-
   background:
-    linear-gradient(
-      145deg,
-      rgba(3,28,48,.97),
-      rgba(2,20,35,.97)
-    );
+    linear-gradient(145deg,rgba(3,28,48,.97),rgba(2,20,35,.97));
 }
 
 .results-header{
   display:flex;
-
   align-items:center;
-
   justify-content:space-between;
-
   margin-bottom:8px;
 }
 
 .results-title{
   display:flex;
-
   align-items:center;
-
   gap:11px;
-
   font-size:22px;
-
   font-weight:800;
 }
 
@@ -924,19 +595,10 @@ body{
 
 .top-results{
   background:#10375a;
-
-  border:
-    1px solid
-    rgba(65,133,191,.35);
-
+  border:1px solid rgba(65,133,191,.35);
   border-radius:18px;
-
-  padding:
-    7px
-    13px;
-
+  padding:7px 13px;
   font-size:10px;
-
   color:#e8f2fc;
 }
 
@@ -946,43 +608,22 @@ body{
 
 #resultados{
   display:grid;
-
-  grid-template-columns:
-    repeat(5,1fr);
-
+  grid-template-columns:repeat(5,1fr);
   gap:12px;
-
   align-items:start;
 }
 
 .resultado{
   position:relative;
-
   min-width:0;
-
   min-height:245px;
-
   background:
-    linear-gradient(
-      150deg,
-      #06233b,
-      #041a2e
-    );
-
-  border:
-    1px solid
-    rgba(33,105,163,.68);
-
+    linear-gradient(150deg,#06233b,#041a2e);
+  border:1px solid rgba(33,105,163,.68);
   border-radius:9px;
-
   padding:10px;
-
   margin:0;
-
-  box-shadow:
-    0 4px 12px
-    rgba(0,0,0,.15);
-
+  box-shadow:0 4px 12px rgba(0,0,0,.15);
   overflow:hidden;
 }
 
@@ -992,106 +633,59 @@ body{
 
 .tag{
   position:absolute;
-
   left:10px;
   top:10px;
-
   z-index:3;
-
   display:inline-block;
-
   background:#54edc1;
-
   color:#052b2a;
-
-  padding:
-    5px
-    9px;
-
+  padding:5px 9px;
   border-radius:15px;
-
   font-size:11px;
-
   font-weight:bold;
-
   margin:0;
 }
 
 .desenho{
   background:transparent;
-
   border:0;
-
   border-left:0;
-
   padding:0;
-
-  margin:
-    132px
-    0
-    4px;
-
+  margin:132px 0 4px;
   border-radius:0;
-
   font-size:10px;
-
   line-height:1.35;
 }
 
 .dados{
   line-height:1.42;
-
-  margin:
-    0
-    0
-    6px;
-
+  margin:0 0 6px;
   font-size:10px;
-
   color:#eef6ff;
-
   min-height:67px;
 }
 
 .imagem-encontrada{
   width:100%;
-
   height:125px;
-
   max-width:none;
-
   max-height:none;
-
   object-fit:contain;
-
   display:block;
-
-  margin:
-    0
-    auto;
-
+  margin:0 auto;
   border-radius:6px;
-
   background:#031321;
 }
 
 .resultado .imagem-encontrada{
   position:absolute;
-
   top:17px;
-
   left:8px;
   right:8px;
-
-  width:
-    calc(100% - 16px);
-
+  width:calc(100% - 16px);
   height:108px;
-
   object-fit:contain;
-
   border-radius:6px;
-
   background:#031321;
 }
 
@@ -1105,11 +699,8 @@ body{
 
 .erro{
   color:#ffb5b5;
-
   background:#4b1616;
-
   padding:10px;
-
   border-radius:6px;
 }
 
@@ -1123,273 +714,160 @@ body{
 
 #telaHistorico{
   display:none;
-
-  min-height:
-    calc(100vh - 48px);
-
-  padding:
-    20px
-    25px
-    25px;
+  min-height:calc(100vh - 48px);
+  padding:20px 25px 25px;
 }
 
 .historico-container{
   background:
-    linear-gradient(
-      145deg,
-      rgba(5,34,58,.96),
-      rgba(3,24,42,.96)
-    );
-
-  border:
-    1px solid
-    rgba(40,126,214,.68);
-
+    linear-gradient(145deg,rgba(5,34,58,.96),rgba(3,24,42,.96));
+  border:1px solid rgba(40,126,214,.68);
   border-radius:10px;
-
   padding:20px;
-
   box-shadow:
-    inset 0 1px 0
-    rgba(255,255,255,.025),
-
-    0 5px 18px
-    rgba(0,0,0,.18);
+    inset 0 1px 0 rgba(255,255,255,.025),
+    0 5px 18px rgba(0,0,0,.18);
 }
 
 .historico-topo{
   display:flex;
-
   align-items:center;
-
   justify-content:space-between;
-
   margin-bottom:20px;
-
   gap:15px;
 }
 
 .historico-titulo{
   display:flex;
-
   align-items:center;
-
   gap:12px;
-
   font-size:25px;
-
   font-weight:800;
 }
 
 .historico-titulo-icon{
   width:42px;
   height:42px;
-
   border-radius:50%;
-
   background:#0878ff;
-
   display:flex;
-
   align-items:center;
-
   justify-content:center;
-
   font-size:22px;
 }
 
 .btn-voltar{
   width:auto !important;
-
   min-width:190px;
-
   height:40px !important;
-
   margin:0 !important;
-
-  padding:
-    0
-    18px !important;
-
+  padding:0 18px !important;
   background:#0878ff !important;
-
   border-radius:8px !important;
-
   color:#fff;
-
   font-size:12px !important;
-
   font-weight:bold;
 }
 
 .btn-limpar-historico{
   width:auto !important;
-
   height:40px !important;
-
   margin:0 !important;
-
-  padding:
-    0
-    18px !important;
-
+  padding:0 18px !important;
   background:#263f57 !important;
-
-  border:
-    1px solid
-    #42617e !important;
-
+  border:1px solid #42617e !important;
   border-radius:8px !important;
-
   color:#fff;
-
   font-size:12px !important;
-
   font-weight:bold;
 }
 
 .historico-acoes{
   display:flex;
-
   gap:8px;
-
   align-items:center;
 }
 
 .historico-grid{
   display:grid;
-
-  grid-template-columns:
-    repeat(5,1fr);
-
+  grid-template-columns:repeat(5,1fr);
   gap:12px;
 }
 
 .historico-item{
   position:relative;
-
   min-width:0;
-
   background:
-    linear-gradient(
-      150deg,
-      #06233b,
-      #041a2e
-    );
-
-  border:
-    1px solid
-    rgba(33,105,163,.68);
-
+    linear-gradient(150deg,#06233b,#041a2e);
+  border:1px solid rgba(33,105,163,.68);
   border-radius:9px;
-
   padding:10px;
-
-  box-shadow:
-    0 4px 12px
-    rgba(0,0,0,.15);
+  box-shadow:0 4px 12px rgba(0,0,0,.15);
 }
 
 .historico-numero{
   position:absolute;
-
   top:8px;
   left:8px;
-
   z-index:3;
-
   background:#0878ff;
-
   color:#fff;
-
   border-radius:15px;
-
-  padding:
-    4px
-    8px;
-
+  padding:4px 8px;
   font-size:10px;
-
   font-weight:bold;
 }
 
 .historico-imagem{
   width:100%;
-
   height:145px;
-
   object-fit:contain;
-
   display:block;
-
   background:#031321;
-
   border-radius:7px;
-
   margin-bottom:10px;
 }
 
 .historico-nome{
   font-size:11px;
-
   font-weight:bold;
-
   line-height:1.35;
-
   word-break:break-word;
-
   color:#fff;
-
   min-height:31px;
 }
 
 .historico-data{
   color:#9fb7ce;
-
   font-size:9px;
-
   margin-top:7px;
 }
 
 .historico-abrir{
   width:100% !important;
-
   height:30px !important;
-
   margin-top:9px !important;
-
   background:#0878ff !important;
-
   font-size:10px !important;
 }
 
 .historico-vazio{
   padding:60px 20px;
-
   text-align:center;
-
   color:#9fb7ce;
-
-  border:
-    1px dashed
-    #315a7e;
-
+  border:1px dashed #315a7e;
   border-radius:10px;
 }
 
 .historico-vazio-icon{
   font-size:45px;
-
   margin-bottom:12px;
 }
 
 .historico-vazio-titulo{
   font-size:18px;
-
   font-weight:bold;
-
   color:#fff;
-
   margin-bottom:7px;
 }
 
@@ -1399,51 +877,32 @@ body{
 
 .footer{
   height:48px;
-
   margin-top:10px;
-
-  border-top:
-    1px solid
-    rgba(44,119,183,.55);
-
+  border-top:1px solid rgba(44,119,183,.55);
   background:#031321;
-
   display:flex;
-
   align-items:center;
-
   justify-content:space-between;
-
-  padding:
-    0
-    25px;
-
+  padding:0 25px;
   color:#d7e5f2;
-
   font-size:10px;
 }
 
 .footer-left{
   display:flex;
-
   align-items:center;
-
   gap:28px;
 }
 
 .footer-logo{
   font-size:19px;
-
   font-weight:900;
-
   color:#fff;
 }
 
 .footer-right{
   display:flex;
-
   align-items:center;
-
   gap:8px;
 }
 
@@ -1462,19 +921,15 @@ body{
   }
 
   #resultados{
-    grid-template-columns:
-      repeat(3,1fr);
+    grid-template-columns:repeat(3,1fr);
   }
 
   .historico-grid{
-    grid-template-columns:
-      repeat(3,1fr);
+    grid-template-columns:repeat(3,1fr);
   }
 
   .info-strip{
-    grid-template-columns:
-      1fr 1fr;
-
+    grid-template-columns:1fr 1fr;
     gap:10px;
   }
 
@@ -1489,23 +944,17 @@ body{
 
   .sidebar{
     width:70px;
-
     min-width:70px;
   }
 
   .logo-iveco{
     font-size:16px;
-
-    padding:
-      20px
-      8px;
-
+    padding:20px 8px;
     text-align:center;
   }
 
   .menu-item{
     justify-content:center;
-
     padding:0;
   }
 
@@ -1519,17 +968,11 @@ body{
 
   .main{
     margin-left:70px;
-
-    width:
-      calc(100% - 70px);
+    width:calc(100% - 70px);
   }
 
   .hero-content{
-    padding:
-      0
-      100px
-      0
-      190px;
+    padding:0 100px 0 190px;
   }
 
   .hero-title{
@@ -1542,7 +985,6 @@ body{
 
   .hero-logo{
     right:20px;
-
     font-size:25px;
   }
 
@@ -1555,18 +997,15 @@ body{
   }
 
   #resultados{
-    grid-template-columns:
-      repeat(2,1fr);
+    grid-template-columns:repeat(2,1fr);
   }
 
   .historico-grid{
-    grid-template-columns:
-      repeat(2,1fr);
+    grid-template-columns:repeat(2,1fr);
   }
 
   .historico-topo{
     align-items:flex-start;
-
     flex-direction:column;
   }
 
@@ -1583,11 +1022,7 @@ body{
   }
 
   .hero-content{
-    padding:
-      0
-      15px
-      0
-      130px;
+    padding:0 15px 0 130px;
   }
 
   .hero-title{
@@ -1608,15 +1043,8 @@ body{
 
   .info-item{
     border-left:0;
-
-    border-top:
-      1px solid
-      rgba(8,120,255,.5);
-
-    padding:
-      8px
-      0
-      0;
+    border-top:1px solid rgba(8,120,255,.5);
+    padding:8px 0 0;
   }
 
   #resultados{
@@ -1637,7 +1065,6 @@ body{
 
   .historico-acoes{
     width:100%;
-
     flex-direction:column;
   }
 
@@ -1647,9 +1074,7 @@ body{
   }
 
   .footer{
-    padding:
-      0
-      10px;
+    padding:0 10px;
   }
 
   .footer-left{
@@ -1659,14 +1084,11 @@ body{
 }
 
 </style>
-
 </head>
 
 <body>
 
 <div class="app">
-
-  <!-- MENU -->
 
   <aside class="sidebar">
 
@@ -1676,33 +1098,19 @@ body{
 
     <div class="menu">
 
-      <div
-        class="menu-item active"
-        id="menuInicio"
-      >
+      <div class="menu-item active" id="menuInicio">
 
-        <span class="menu-icon">
-          ⌂
-        </span>
+        <span class="menu-icon">⌂</span>
 
-        <span>
-          Início
-        </span>
+        <span>Início</span>
 
       </div>
 
-      <div
-        class="menu-item"
-        id="menuHistorico"
-      >
+      <div class="menu-item" id="menuHistorico">
 
-        <span class="menu-icon">
-          ◔
-        </span>
+        <span class="menu-icon">◔</span>
 
-        <span>
-          Histórico
-        </span>
+        <span>Histórico</span>
 
       </div>
 
@@ -1711,15 +1119,8 @@ body{
     <div class="sidebar-bottom">
 
       <div class="sidebar-message">
-
         Mais tecnologia<br>
-
-        para o
-        <strong>
-          seu<br>
-          dia a dia.
-        </strong>
-
+        para o <strong>seu<br>dia a dia.</strong>
       </div>
 
       <img
@@ -1735,10 +1136,6 @@ body{
 
   <main class="main">
 
-    <!-- =========================
-         INÍCIO
-    ========================== -->
-
     <div id="telaInicio">
 
       <section class="hero">
@@ -1749,26 +1146,18 @@ body{
           alt="Caminhão IVECO"
         >
 
-        <div class="hero-overlay"></div>
+        <div class="hero-blue"></div>
 
         <div class="hero-content">
 
           <div>
 
             <h1 class="hero-title">
-
-              Localizador de
-              <span>
-                Fotos
-              </span>
-
+              Localizador de <span>Fotos</span>
             </h1>
 
             <p class="hero-subtitle">
-
-              Encontre rapidamente imagens
-              nos seus PowerPoints.
-
+              Encontre rapidamente imagens nos seus PowerPoints.
             </p>
 
           </div>
@@ -1802,6 +1191,7 @@ body{
 
             </div>
 
+
             <div class="drop-zone">
 
               <div class="drop-icon">
@@ -1810,7 +1200,7 @@ body{
 
               <div class="drop-text">
 
-                Clique para selecionar uma imagem<br>
+                Clique para selecionar uma ou várias imagens<br>
                 ou arraste aqui
 
               </div>
@@ -1820,30 +1210,25 @@ body{
                 type="file"
                 id="foto"
                 accept="image/*"
+                multiple
               >
 
             </div>
 
+
             <div class="preview-wrap">
 
-              <img
-                id="preview"
-                alt="Imagem selecionada"
-              >
-
               <div
-                class="remove-preview"
-                id="removePreview"
-              >
-                ×
-              </div>
+                class="preview-list"
+                id="previewList"
+              ></div>
 
             </div>
 
           </div>
 
 
-          <!-- POWERPOINT -->
+          <!-- POWERPOINTS -->
 
           <div class="card input-card">
 
@@ -1858,6 +1243,7 @@ body{
               </span>
 
             </div>
+
 
             <div class="drop-zone ppt-drop">
 
@@ -1882,12 +1268,11 @@ body{
 
             </div>
 
+
             <p class="ppt-help">
-
-              Você pode selecionar vários
-              arquivos de uma vez.
-
+              Você pode selecionar vários arquivos de uma vez.
             </p>
+
 
             <div
               class="file-list"
@@ -1916,6 +1301,7 @@ body{
 
               </div>
 
+
               <p class="search-description">
 
                 Nossa ferramenta encontra
@@ -1924,11 +1310,13 @@ body{
 
               </p>
 
+
               <button id="btn">
 
                 ⌕ &nbsp; PROCURAR FOTO
 
               </button>
+
 
               <p id="status"></p>
 
@@ -1950,12 +1338,11 @@ body{
             </div>
 
             <div>
-              <b>
-                O resultado mostrará:
-              </b>
+              <b>O resultado mostrará:</b>
             </div>
 
           </div>
+
 
           <div class="info-item">
 
@@ -1964,10 +1351,11 @@ body{
             </div>
 
             <div class="info-example">
-              L&V 001.: 504136408 - SUPORTE
+             L&V 001.: 504136408  -  SUPORTE
             </div>
 
           </div>
+
 
           <div class="info-item">
 
@@ -1980,6 +1368,7 @@ body{
             </div>
 
           </div>
+
 
           <div class="info-item">
 
@@ -2014,6 +1403,7 @@ body{
 
             </div>
 
+
             <div class="top-results">
 
               ★ &nbsp; 10 melhores resultados
@@ -2021,6 +1411,7 @@ body{
             </div>
 
           </div>
+
 
           <div id="resultados">
 
@@ -2035,9 +1426,7 @@ body{
     </div>
 
 
-    <!-- =========================
-         HISTÓRICO
-    ========================== -->
+    <!-- TELA DE HISTÓRICO -->
 
     <div id="telaHistorico">
 
@@ -2056,6 +1445,7 @@ body{
             </div>
 
           </div>
+
 
           <div class="historico-acoes">
 
@@ -2076,6 +1466,7 @@ body{
           </div>
 
         </div>
+
 
         <div
           class="historico-grid"
@@ -2102,6 +1493,7 @@ body{
         </div>
 
       </div>
+
 
       <div class="footer-right">
 
@@ -2131,7 +1523,7 @@ body{
    VARIÁVEIS
 ========================================================== */
 
-let foto = null;
+let fotos = [];
 
 
 /* ==========================================================
@@ -2143,9 +1535,7 @@ function obterHistorico(){
   try{
 
     return JSON.parse(
-      localStorage.getItem(
-        "historicoFotosIveco"
-      ) || "[]"
+      localStorage.getItem("historicoFotosIveco") || "[]"
     );
 
   }catch(e){
@@ -2183,132 +1573,104 @@ function adicionarFotoAoHistorico(arquivo){
   if(!arquivo)
     return;
 
-  const leitor =
-    new FileReader();
 
-  leitor.onload =
-    function(e){
+  const leitor = new FileReader();
 
-      const historico =
-        obterHistorico();
 
-      const novoItem = {
+  leitor.onload = function(e){
 
-        nome:
-          arquivo.name,
+    const historico = obterHistorico();
 
-        imagem:
-          e.target.result,
 
-        data:
-          new Date()
-            .toLocaleString("pt-BR")
+    const novoItem = {
 
-      };
+      nome: arquivo.name,
 
-      historico.unshift(
-        novoItem
-      );
+      imagem: e.target.result,
 
-      const limitado =
-        historico.slice(
-          0,
-          50
-        );
-
-      salvarHistorico(
-        limitado
-      );
+      data: new Date().toLocaleString("pt-BR")
 
     };
 
-  leitor.readAsDataURL(
-    arquivo
-  );
+
+    historico.unshift(novoItem);
+
+
+    const limitado =
+      historico.slice(0,50);
+
+
+    salvarHistorico(limitado);
+
+  };
+
+
+  leitor.readAsDataURL(arquivo);
 
 }
 
 
 /* ==========================================================
-   HISTÓRICO
+   MOSTRAR HISTÓRICO
 ========================================================== */
 
 function mostrarHistorico(){
 
   const telaInicio =
-    document.getElementById(
-      "telaInicio"
-    );
+    document.getElementById("telaInicio");
 
   const telaHistorico =
-    document.getElementById(
-      "telaHistorico"
-    );
+    document.getElementById("telaHistorico");
 
   const menuInicio =
-    document.getElementById(
-      "menuInicio"
-    );
+    document.getElementById("menuInicio");
 
   const menuHistorico =
-    document.getElementById(
-      "menuHistorico"
-    );
+    document.getElementById("menuHistorico");
 
-  telaInicio.style.display =
-    "none";
 
-  telaHistorico.style.display =
-    "block";
+  telaInicio.style.display = "none";
 
-  menuInicio.classList.remove(
-    "active"
-  );
+  telaHistorico.style.display = "block";
 
-  menuHistorico.classList.add(
-    "active"
-  );
+
+  menuInicio.classList.remove("active");
+
+  menuHistorico.classList.add("active");
+
 
   carregarHistorico();
 
 }
 
 
+/* ==========================================================
+   MOSTRAR INÍCIO
+========================================================== */
+
 function mostrarInicio(){
 
   const telaInicio =
-    document.getElementById(
-      "telaInicio"
-    );
+    document.getElementById("telaInicio");
 
   const telaHistorico =
-    document.getElementById(
-      "telaHistorico"
-    );
+    document.getElementById("telaHistorico");
 
   const menuInicio =
-    document.getElementById(
-      "menuInicio"
-    );
+    document.getElementById("menuInicio");
 
   const menuHistorico =
-    document.getElementById(
-      "menuHistorico"
-    );
+    document.getElementById("menuHistorico");
 
-  telaHistorico.style.display =
-    "none";
 
-  telaInicio.style.display =
-    "block";
+  telaHistorico.style.display = "none";
 
-  menuHistorico.classList.remove(
-    "active"
-  );
+  telaInicio.style.display = "block";
 
-  menuInicio.classList.add(
-    "active"
-  );
+
+  menuHistorico.classList.remove("active");
+
+  menuInicio.classList.add("active");
 
 }
 
@@ -2320,23 +1682,22 @@ function mostrarInicio(){
 function carregarHistorico(){
 
   const area =
-    document.getElementById(
-      "historicoGrid"
-    );
+    document.getElementById("historicoGrid");
+
 
   const historico =
     obterHistorico();
 
+
   area.innerHTML = "";
+
 
   if(!historico.length){
 
     area.innerHTML = `
 
-      <div
-        class="historico-vazio"
-        style="grid-column:1/-1;"
-      >
+      <div class="historico-vazio"
+           style="grid-column:1/-1;">
 
         <div class="historico-vazio-icon">
           ◫
@@ -2360,137 +1721,126 @@ function carregarHistorico(){
   }
 
 
-  historico.forEach(
-    function(item,index){
+  historico.forEach(function(item,index){
 
-      const card =
-        document.createElement(
-          "div"
-        );
-
-      card.className =
-        "historico-item";
-
-      card.innerHTML = `
-
-        <div class="historico-numero">
-          ${index + 1}
-        </div>
-
-        <img
-          class="historico-imagem"
-          src="${item.imagem}"
-          alt="Imagem do histórico"
-        >
-
-        <div class="historico-nome">
-          ${escapeHtml(item.nome)}
-        </div>
-
-        <div class="historico-data">
-          Selecionada em:
-          ${escapeHtml(item.data)}
-        </div>
-
-        <button
-          class="historico-abrir"
-          type="button"
-        >
-          ▧ Abrir imagem
-        </button>
-
-      `;
+    const card =
+      document.createElement("div");
 
 
-      const botao =
-        card.querySelector(
-          ".historico-abrir"
-        );
+    card.className =
+      "historico-item";
 
 
-      botao.onclick =
-        function(){
+    card.innerHTML = `
 
-          const janela =
-            window.open(
-              "",
-              "_blank"
-            );
+      <div class="historico-numero">
+        ${index + 1}
+      </div>
 
-          if(!janela)
-            return;
+      <img
+        class="historico-imagem"
+        src="${item.imagem}"
+        alt="Imagem do histórico"
+      >
 
-          janela.document.write(`
+      <div class="historico-nome">
+        ${escapeHtml(item.nome)}
+      </div>
 
-            <!DOCTYPE html>
+      <div class="historico-data">
+        Selecionada em: ${escapeHtml(item.data)}
+      </div>
 
-            <html lang="pt-BR">
+      <button
+        class="historico-abrir"
+        type="button"
+      >
+        ▧ Abrir imagem
+      </button>
 
-            <head>
-
-              <meta charset="UTF-8">
-
-              <title>
-                ${escapeHtml(item.nome)}
-              </title>
-
-              <style>
-
-                body{
-                  margin:0;
-                  background:#020d19;
-                  display:flex;
-                  align-items:center;
-                  justify-content:center;
-                  min-height:100vh;
-                }
-
-                img{
-                  max-width:95vw;
-                  max-height:95vh;
-                  object-fit:contain;
-                }
-
-              </style>
-
-            </head>
-
-            <body>
-
-              <img
-                src="${item.imagem}"
-                alt="Imagem"
-              >
-
-            </body>
-
-            </html>
-
-          `);
-
-          janela.document.close();
-
-        };
+    `;
 
 
-      area.appendChild(
-        card
-      );
+    const botao =
+      card.querySelector(".historico-abrir");
 
-    }
-  );
+
+    botao.onclick = function(){
+
+      const janela =
+        window.open("", "_blank");
+
+
+      if(!janela)
+        return;
+
+
+      janela.document.write(`
+
+        <!DOCTYPE html>
+
+        <html lang="pt-BR">
+
+        <head>
+
+          <meta charset="UTF-8">
+
+          <title>
+            ${escapeHtml(item.nome)}
+          </title>
+
+          <style>
+
+            body{
+              margin:0;
+              background:#020d19;
+              display:flex;
+              align-items:center;
+              justify-content:center;
+              min-height:100vh;
+            }
+
+            img{
+              max-width:95vw;
+              max-height:95vh;
+              object-fit:contain;
+            }
+
+          </style>
+
+        </head>
+
+        <body>
+
+          <img
+            src="${item.imagem}"
+            alt="Imagem"
+          >
+
+        </body>
+
+        </html>
+
+      `);
+
+      janela.document.close();
+
+    };
+
+
+    area.appendChild(card);
+
+  });
 
 }
 
 
 /* ==========================================================
-   BOTÕES DO MENU
+   BOTÕES
 ========================================================== */
 
 document
-  .getElementById(
-    "menuHistorico"
-  )
+  .getElementById("menuHistorico")
   .addEventListener(
     "click",
     mostrarHistorico
@@ -2498,9 +1848,7 @@ document
 
 
 document
-  .getElementById(
-    "menuInicio"
-  )
+  .getElementById("menuInicio")
   .addEventListener(
     "click",
     mostrarInicio
@@ -2508,29 +1856,22 @@ document
 
 
 document
-  .getElementById(
-    "btnVoltarInicio"
-  )
+  .getElementById("btnVoltarInicio")
   .addEventListener(
     "click",
     mostrarInicio
   );
 
 
-/* ==========================================================
-   LIMPAR HISTÓRICO
-========================================================== */
-
 document
-  .getElementById(
-    "btnLimparHistorico"
-  )
+  .getElementById("btnLimparHistorico")
   .addEventListener(
     "click",
     function(){
 
       const historico =
         obterHistorico();
+
 
       if(!historico.length){
 
@@ -2542,17 +1883,21 @@ document
 
       }
 
+
       const confirmar =
         confirm(
           "Deseja realmente apagar todo o histórico de imagens?"
         );
 
+
       if(!confirmar)
         return;
+
 
       localStorage.removeItem(
         "historicoFotosIveco"
       );
+
 
       carregarHistorico();
 
@@ -2561,86 +1906,149 @@ document
 
 
 /* ==========================================================
-   SELEÇÃO DA FOTO
+   SELEÇÃO DE VÁRIAS FOTOS
 ========================================================== */
 
 document
-  .getElementById(
-    "foto"
-  )
-  .onchange =
-  function(){
+  .getElementById("foto")
+  .onchange = function(){
 
-    foto =
-      this.files[0];
+    const novosArquivos =
+      Array.from(this.files);
 
-    if(foto){
 
-      const img =
-        document.getElementById(
-          "preview"
-        );
+    if(!novosArquivos.length)
+      return;
 
-      img.src =
-        URL.createObjectURL(
-          foto
-        );
 
-      img.style.display =
-        "block";
+    fotos =
+      fotos.concat(
+        novosArquivos
+      );
 
-      document
-        .getElementById(
-          "removePreview"
-        )
-        .style.display =
-        "flex";
+
+    fotos =
+      fotos.filter(
+        arquivo =>
+          arquivo &&
+          arquivo.type.startsWith("image/")
+      );
+
+
+    for(
+      const arquivo
+      of novosArquivos
+    ){
 
       adicionarFotoAoHistorico(
-        foto
+        arquivo
       );
 
     }
+
+
+    atualizarPreviews();
+
+
+    this.value = "";
 
   };
 
 
 /* ==========================================================
-   REMOVER PREVIEW
+   MOSTRAR FOTOS SELECIONADAS
 ========================================================== */
 
-document
-  .getElementById(
-    "removePreview"
-  )
-  .onclick =
-  function(){
+function atualizarPreviews(){
 
-    document
-      .getElementById(
-        "foto"
-      )
-      .value = "";
+  const area =
+    document.getElementById(
+      "previewList"
+    );
 
-    foto = null;
 
-    document
-      .getElementById(
-        "preview"
-      )
-      .src = "";
+  area.innerHTML = "";
 
-    document
-      .getElementById(
-        "preview"
-      )
-      .style.display =
-      "none";
 
-    this.style.display =
-      "none";
+  fotos.forEach(
+    function(arquivo,index){
 
-  };
+      const item =
+        document.createElement(
+          "div"
+        );
+
+
+      item.className =
+        "preview-item";
+
+
+      const imagem =
+        document.createElement(
+          "img"
+        );
+
+
+      imagem.alt =
+        arquivo.name;
+
+
+      imagem.src =
+        URL.createObjectURL(
+          arquivo
+        );
+
+
+      const remover =
+        document.createElement(
+          "div"
+        );
+
+
+      remover.className =
+        "remove-preview";
+
+
+      remover.innerText =
+        "×";
+
+
+      remover.title =
+        "Remover esta foto";
+
+
+      remover.onclick =
+        function(){
+
+          fotos.splice(
+            index,
+            1
+          );
+
+
+          atualizarPreviews();
+
+        };
+
+
+      item.appendChild(
+        imagem
+      );
+
+
+      item.appendChild(
+        remover
+      );
+
+
+      area.appendChild(
+        item
+      );
+
+    }
+  );
+
+}
 
 
 /* ==========================================================
@@ -2648,36 +2056,29 @@ document
 ========================================================== */
 
 document
-  .getElementById(
-    "ppt"
-  )
-  .onchange =
-  function(){
+  .getElementById("ppt")
+  .onchange = function(){
 
     const lista =
-      document.getElementById(
-        "fileList"
-      );
+      document.getElementById("fileList");
+
 
     lista.innerHTML = "";
 
-    const arquivos =
-      Array.from(
-        this.files
-      );
 
-    for(
-      const arquivo
-      of arquivos
-    ){
+    const arquivos =
+      Array.from(this.files);
+
+
+    for(const arquivo of arquivos){
 
       const item =
-        document.createElement(
-          "div"
-        );
+        document.createElement("div");
+
 
       item.className =
         "file-item";
+
 
       const tamanhoMB =
         (
@@ -2685,6 +2086,7 @@ document
           1024 /
           1024
         ).toFixed(1);
+
 
       item.innerHTML =
 
@@ -2704,9 +2106,8 @@ document
 
         ' MB</div>';
 
-      lista.appendChild(
-        item
-      );
+
+      lista.appendChild(item);
 
     }
 
@@ -2717,24 +2118,21 @@ document
    NORMALIZAR CAMINHO
 ========================================================== */
 
-function normalizarCaminho(
-  base,
-  target
-){
+function normalizarCaminho(base,target){
 
   const partes =
     (base + "/" + target)
       .split("/");
 
+
   const saida = [];
 
-  for(
-    const p
-    of partes
-  ){
+
+  for(const p of partes){
 
     if(!p || p === ".")
       continue;
+
 
     if(p === "..")
       saida.pop();
@@ -2743,6 +2141,7 @@ function normalizarCaminho(
       saida.push(p);
 
   }
+
 
   return saida.join("/");
 
@@ -2753,13 +2152,11 @@ function normalizarCaminho(
    TEXTO
 ========================================================== */
 
-async function texto(
-  zip,
-  nome
-){
+async function texto(zip,nome){
 
   if(!zip.files[nome])
     return "";
+
 
   return await zip.files[nome]
     .async("text");
@@ -2771,11 +2168,10 @@ async function texto(
    RELACIONAMENTOS
 ========================================================== */
 
-function extrairRelacionamentos(
-  xml
-){
+function extrairRelacionamentos(xml){
 
   const mapa = {};
+
 
   const doc =
     new DOMParser()
@@ -2784,6 +2180,7 @@ function extrairRelacionamentos(
         "application/xml"
       );
 
+
   const relacoes =
     Array.from(
       doc.getElementsByTagName(
@@ -2791,26 +2188,22 @@ function extrairRelacionamentos(
       )
     );
 
-  for(
-    const rel
-    of relacoes
-  ){
+
+  for(const rel of relacoes){
 
     const id =
-      rel.getAttribute(
-        "Id"
-      );
+      rel.getAttribute("Id");
+
 
     const target =
-      rel.getAttribute(
-        "Target"
-      );
+      rel.getAttribute("Target");
+
 
     if(id && target)
-      mapa[id] =
-        target;
+      mapa[id] = target;
 
   }
+
 
   return mapa;
 
@@ -2821,9 +2214,7 @@ function extrairRelacionamentos(
    TEXTOS DO SLIDE
 ========================================================== */
 
-function extrairTextosDoSlide(
-  xml
-){
+function extrairTextosDoSlide(xml){
 
   const doc =
     new DOMParser()
@@ -2832,7 +2223,9 @@ function extrairTextosDoSlide(
         "application/xml"
       );
 
+
   const textos = [];
+
 
   const paragrafos =
     Array.from(
@@ -2841,10 +2234,8 @@ function extrairTextosDoSlide(
       )
     );
 
-  for(
-    const p
-    of paragrafos
-  ){
+
+  for(const p of paragrafos){
 
     const partes =
       Array.from(
@@ -2853,32 +2244,29 @@ function extrairTextosDoSlide(
         )
       );
 
+
     let texto = "";
 
-    for(
-      const t
-      of partes
-    ){
+
+    for(const t of partes){
 
       texto +=
         t.textContent || "";
 
     }
 
+
     texto =
       texto
-        .replace(
-          /\s+/g,
-          " "
-        )
+        .replace(/\s+/g," ")
         .trim();
 
+
     if(texto)
-      textos.push(
-        texto
-      );
+      textos.push(texto);
 
   }
+
 
   return textos;
 
@@ -2889,14 +2277,11 @@ function extrairTextosDoSlide(
    ENCONTRAR DESENHO
 ========================================================== */
 
-function encontrarDesenho(
-  xml
-){
+function encontrarDesenho(xml){
 
   const textos =
-    extrairTextosDoSlide(
-      xml
-    );
+    extrairTextosDoSlide(xml);
+
 
   for(
     const textoOriginal
@@ -2905,6 +2290,7 @@ function encontrarDesenho(
 
     const texto =
       textoOriginal.trim();
+
 
     if(
       /^Desenho\s*\/?/i
@@ -2920,39 +2306,32 @@ function encontrarDesenho(
           .trim();
 
 
-      /* L antes do & */
+      /*
+        Acrescenta L antes do &
+        quando o código começar com &.
+      */
 
       if(
         conteudo.startsWith("&")
       ){
 
         conteudo =
-          "L" +
-          conteudo;
+          "L" + conteudo;
 
       }
 
 
       const partes =
         conteudo
-          .split(
-            /\s+-\s+/
-          );
+          .split(/\s+-\s+/);
 
 
-      if(
-        partes.length >= 3
-      ){
+      if(partes.length >= 3){
 
         conteudo =
           partes
-            .slice(
-              0,
-              3
-            )
-            .join(
-              " - "
-            )
+            .slice(0,3)
+            .join(" - ")
             .trim();
 
       }
@@ -2964,60 +2343,50 @@ function encontrarDesenho(
 
   }
 
+
   return "Desenho não identificado";
 
 }
 
 
 /* ==========================================================
-   IMAGEM
+   IMAGEM DO BLOB
 ========================================================== */
 
-async function imagemDoBlob(
-  blob
-){
+async function imagemDoBlob(blob){
 
   return await new Promise(
     (resolve,reject)=>{
 
       const url =
-        URL.createObjectURL(
-          blob
-        );
+        URL.createObjectURL(blob);
+
 
       const img =
         new Image();
 
-      img.onload =
-        function(){
 
-          URL.revokeObjectURL(
-            url
-          );
+      img.onload = ()=>{
 
-          resolve(
-            img
-          );
+        URL.revokeObjectURL(url);
 
-        };
+        resolve(img);
 
-      img.onerror =
-        function(){
+      };
 
-          URL.revokeObjectURL(
-            url
-          );
 
-          reject(
-            new Error(
-              "Imagem inválida"
-            )
-          );
+      img.onerror = ()=>{
 
-        };
+        URL.revokeObjectURL(url);
 
-      img.src =
-        url;
+        reject(
+          new Error("Imagem inválida")
+        );
+
+      };
+
+
+      img.src = url;
 
     }
   );
@@ -3026,26 +2395,265 @@ async function imagemDoBlob(
 
 
 /* ==========================================================
-   CANVAS NORMALIZADO
+   NORMALIZAÇÃO DE VETOR
 ========================================================== */
 
-function criarCanvasAnalise(
+function normalizarVetor(vetor){
+
+  let media = 0;
+
+
+  for(
+    let i=0;
+    i<vetor.length;
+    i++
+  ){
+
+    media +=
+      vetor[i];
+
+  }
+
+
+  media /=
+    vetor.length;
+
+
+  let variancia = 0;
+
+
+  for(
+    let i=0;
+    i<vetor.length;
+    i++
+  ){
+
+    const d =
+      vetor[i]-media;
+
+
+    variancia +=
+      d*d;
+
+  }
+
+
+  const desvio =
+    Math.sqrt(
+      variancia /
+      vetor.length
+    ) || 1;
+
+
+  for(
+    let i=0;
+    i<vetor.length;
+    i++
+  ){
+
+    vetor[i] =
+      (
+        vetor[i]-media
+      ) /
+      desvio;
+
+  }
+
+
+  return vetor;
+
+}
+
+
+/* ==========================================================
+   HISTOGRAMA DE CORES
+========================================================== */
+
+function histogramaCores(data){
+
+  const hist =
+    new Float32Array(64);
+
+
+  for(
+    let i=0;
+    i<data.length;
+    i+=4
+  ){
+
+    const r =
+      Math.min(
+        3,
+        Math.floor(
+          data[i] / 64
+        )
+      );
+
+
+    const g =
+      Math.min(
+        3,
+        Math.floor(
+          data[i+1] / 64
+        )
+      );
+
+
+    const b =
+      Math.min(
+        3,
+        Math.floor(
+          data[i+2] / 64
+        )
+      );
+
+
+    const indice =
+      r*16 +
+      g*4 +
+      b;
+
+
+    hist[indice]++;
+
+  }
+
+
+  let total = 0;
+
+
+  for(
+    let i=0;
+    i<hist.length;
+    i++
+  ){
+
+    total +=
+      hist[i];
+
+  }
+
+
+  if(total){
+
+    for(
+      let i=0;
+      i<hist.length;
+      i++
+    ){
+
+      hist[i] /=
+        total;
+
+    }
+
+  }
+
+
+  return hist;
+
+}
+
+
+/* ==========================================================
+   DISTÂNCIA NORMALIZADA
+========================================================== */
+
+function distanciaNormalizada(a,b){
+
+  if(
+    !a ||
+    !b ||
+    a.length !== b.length
+  ){
+
+    return 999;
+
+  }
+
+
+  let soma = 0;
+
+
+  for(
+    let i=0;
+    i<a.length;
+    i++
+  ){
+
+    const d =
+      a[i]-b[i];
+
+
+    soma +=
+      d*d;
+
+  }
+
+
+  return Math.sqrt(
+    soma/a.length
+  );
+
+}
+
+
+/* ==========================================================
+   DISTÂNCIA DE HISTOGRAMA
+========================================================== */
+
+function distanciaHistograma(a,b){
+
+  let soma = 0;
+
+
+  for(
+    let i=0;
+    i<a.length;
+    i++
+  ){
+
+    soma +=
+      Math.sqrt(
+        Math.max(0,a[i]) *
+        Math.max(0,b[i])
+      );
+
+  }
+
+
+  return Math.max(
+    0,
+    Math.min(
+      1,
+      1-soma
+    )
+  );
+
+}
+
+
+/* ==========================================================
+   RENDERIZAR VARIANTE DA IMAGEM
+========================================================== */
+
+function renderizarVariante(
   img,
-  crop = 1,
-  rotacao = 0,
-  tamanho = 64
+  tamanho,
+  modo,
+  rotacao
 ){
 
   const canvas =
-    document.createElement(
-      "canvas"
-    );
+    document.createElement("canvas");
+
 
   canvas.width =
     tamanho;
 
   canvas.height =
     tamanho;
+
 
   const ctx =
     canvas.getContext(
@@ -3055,8 +2663,10 @@ function criarCanvasAnalise(
       }
     );
 
+
   ctx.fillStyle =
     "#ffffff";
+
 
   ctx.fillRect(
     0,
@@ -3066,72 +2676,91 @@ function criarCanvasAnalise(
   );
 
 
-  const w =
-    img.naturalWidth ||
-    img.width;
-
-  const h =
-    img.naturalHeight ||
-    img.height;
-
-
-  let sx = 0;
-  let sy = 0;
-  let sw = w;
-  let sh = h;
-
-
-  if(crop < 1){
-
-    sw =
-      w * crop;
-
-    sh =
-      h * crop;
-
-    sx =
-      (w-sw)/2;
-
-    sy =
-      (h-sh)/2;
-
-  }
+  const angulo =
+    rotacao *
+    Math.PI /
+    180;
 
 
   ctx.save();
+
 
   ctx.translate(
     tamanho/2,
     tamanho/2
   );
 
+
   ctx.rotate(
-    rotacao *
-    Math.PI /
-    180
+    angulo
   );
 
 
-  const escala =
-    Math.min(
-      tamanho / sw,
-      tamanho / sh
-    );
+  const largura =
+    img.naturalWidth;
+
+
+  const altura =
+    img.naturalHeight;
+
+
+  let escala;
+
+
+  /*
+    CONTAIN:
+    mantém toda a imagem.
+  */
+
+  if(modo === "contain"){
+
+    escala =
+      Math.min(
+        tamanho/largura,
+        tamanho/altura
+      );
+
+  }
+
+  /*
+    CROP 85:
+    aproxima levemente o objeto.
+  */
+
+  else if(modo === "crop85"){
+
+    escala =
+      tamanho /
+      (Math.min(largura,altura)*0.85);
+
+  }
+
+  /*
+    CROP 70:
+    aproxima bastante o centro.
+  */
+
+  else{
+
+    escala =
+      tamanho /
+      (Math.min(largura,altura)*0.70);
+
+  }
 
 
   const dw =
-    sw * escala;
+    largura *
+    escala;
+
 
   const dh =
-    sh * escala;
+    altura *
+    escala;
 
 
   ctx.drawImage(
     img,
-    sx,
-    sy,
-    sw,
-    sh,
     -dw/2,
     -dh/2,
     dw,
@@ -3148,15 +2777,16 @@ function criarCanvasAnalise(
 
 
 /* ==========================================================
-   DESCRITOR DE IMAGEM
+   DESCRITOR VISUAL
 ========================================================== */
 
-function extrairDescritorCanvas(
+function criarDescritor(
   canvas
 ){
 
   const tamanho =
     canvas.width;
+
 
   const ctx =
     canvas.getContext(
@@ -3181,30 +2811,10 @@ function extrairDescritorCanvas(
     tamanho;
 
 
-  const gray =
+  const cinza =
     new Float32Array(
       total
     );
-
-
-  const r =
-    new Float32Array(
-      total
-    );
-
-  const g =
-    new Float32Array(
-      total
-    );
-
-  const b =
-    new Float32Array(
-      total
-    );
-
-
-  let media =
-    0;
 
 
   for(
@@ -3213,102 +2823,33 @@ function extrairDescritorCanvas(
     i+=4,p++
   ){
 
-    const rr =
-      data[i];
-
-    const gg =
-      data[i+1];
-
-    const bb =
-      data[i+2];
-
-
-    r[p] =
-      rr / 255;
-
-    g[p] =
-      gg / 255;
-
-    b[p] =
-      bb / 255;
-
-
-    const v =
-      (
-        0.299 * rr +
-        0.587 * gg +
-        0.114 * bb
-      ) / 255;
-
-
-    gray[p] =
-      v;
-
-    media +=
-      v;
+    cinza[p] =
+      .299*data[i] +
+      .587*data[i+1] +
+      .114*data[i+2];
 
   }
 
 
-  media /=
-    total;
+  /*
+    Normalização de iluminação.
+  */
+
+  normalizarVetor(
+    cinza
+  );
 
 
-  let variancia =
-    0;
+  /*
+    Sobel.
+    Dá maior importância para
+    os contornos da peça.
+  */
 
-
-  for(
-    let i=0;
-    i<total;
-    i++
-  ){
-
-    const d =
-      gray[i] -
-      media;
-
-    variancia +=
-      d*d;
-
-  }
-
-
-  const desvio =
-    Math.sqrt(
-      variancia /
-      total
-    ) || 1;
-
-
-  for(
-    let i=0;
-    i<total;
-    i++
-  ){
-
-    gray[i] =
-      (
-        gray[i] -
-        media
-      ) /
-      desvio;
-
-  }
-
-
-  /* =========================
-     BORDAS / GRADIENTES
-  ========================= */
-
-  const edge =
+  const bordas =
     new Float32Array(
       total
     );
-
-
-  let edgeMedia =
-    0;
 
 
   for(
@@ -3328,198 +2869,71 @@ function extrairDescritorCanvas(
 
 
       const gx =
+        -cinza[p-tamanho-1] +
+        cinza[p-tamanho+1] -
 
-        -gray[p-tamanho-1] +
-        gray[p-tamanho+1] +
+        2*cinza[p-1] +
+        2*cinza[p+1] -
 
-        -2*gray[p-1] +
-        2*gray[p+1] +
-
-        -gray[p+tamanho-1] +
-        gray[p+tamanho+1];
+        cinza[p+tamanho-1] +
+        cinza[p+tamanho+1];
 
 
       const gy =
+        -cinza[p-tamanho-1] -
+        2*cinza[p-tamanho] -
+        cinza[p-tamanho+1] +
 
-        -gray[p-tamanho-1] -
-        2*gray[p-tamanho] -
-        gray[p-tamanho+1] +
-
-        gray[p+tamanho-1] +
-        2*gray[p+tamanho] +
-        gray[p+tamanho+1];
+        cinza[p+tamanho-1] +
+        2*cinza[p+tamanho] +
+        cinza[p+tamanho+1];
 
 
-      const mag =
+      bordas[p] =
         Math.sqrt(
           gx*gx +
           gy*gy
         );
 
-
-      edge[p] =
-        mag;
-
-      edgeMedia +=
-        mag;
-
     }
 
   }
 
 
-  edgeMedia /=
-    total;
+  normalizarVetor(
+    bordas
+  );
 
 
-  let edgeVar =
-    0;
+  /*
+    Histograma de cores.
+    Tem peso baixo porque o fundo
+    das fotos pode ser diferente.
+  */
 
-
-  for(
-    let i=0;
-    i<total;
-    i++
-  ){
-
-    const d =
-      edge[i] -
-      edgeMedia;
-
-    edgeVar +=
-      d*d;
-
-  }
-
-
-  const edgeDesvio =
-    Math.sqrt(
-      edgeVar /
-      total
-    ) || 1;
-
-
-  for(
-    let i=0;
-    i<total;
-    i++
-  ){
-
-    edge[i] =
-      (
-        edge[i] -
-        edgeMedia
-      ) /
-      edgeDesvio;
-
-  }
-
-
-  /* =========================
-     HISTOGRAMA DE COR
-  ========================= */
-
-  const hist =
-    new Float32Array(
-      24
+  const cores =
+    histogramaCores(
+      data
     );
 
 
-  for(
-    let i=0;
-    i<total;
-    i++
-  ){
+  /*
+    Projeções de borda.
+    Ajudam a reconhecer o formato
+    geral da peça mesmo quando há
+    pequenas diferenças de enquadramento.
+  */
 
-    const rr =
-      Math.max(
-        0,
-        Math.min(
-          3,
-          Math.floor(
-            r[i]*4
-          )
-        )
-      );
-
-    const gg =
-      Math.max(
-        0,
-        Math.min(
-          3,
-          Math.floor(
-            g[i]*4
-          )
-        )
-      );
-
-    const bb =
-      Math.max(
-        0,
-        Math.min(
-          1,
-          Math.floor(
-            b[i]*2
-          )
-        )
-      );
-
-
-    const indice =
-      (
-        rr*4 +
-        gg
-      ) % 24;
-
-
-    hist[indice]++;
-
-  }
-
-
-  let somaHist =
-    0;
-
-
-  for(
-    const v
-    of hist
-  ){
-
-    somaHist +=
-      v;
-
-  }
-
-
-  if(somaHist){
-
-    for(
-      let i=0;
-      i<hist.length;
-      i++
-    ){
-
-      hist[i] /=
-        somaHist;
-
-    }
-
-  }
-
-
-  /* =========================
-     PROPORÇÃO DE BORDAS
-  ========================= */
-
-  const zonas =
+  const projX =
     new Float32Array(
-      16
+      tamanho
     );
 
 
-  const bloco =
-    tamanho / 4;
+  const projY =
+    new Float32Array(
+      tamanho
+    );
 
 
   for(
@@ -3534,79 +2948,47 @@ function extrairDescritorCanvas(
       x++
     ){
 
-      const bx =
-        Math.min(
-          3,
-          Math.floor(
-            x/bloco
-          )
-        );
-
-      const by =
-        Math.min(
-          3,
-          Math.floor(
-            y/bloco
-          )
-        );
-
-
-      zonas[
-        by*4+bx
-      ] +=
+      const valor =
         Math.abs(
-          edge[
+          bordas[
             y*tamanho+x
           ]
         );
 
-    }
 
-  }
-
-
-  let somaZonas =
-    0;
+      projX[x] +=
+        valor;
 
 
-  for(
-    const v
-    of zonas
-  ){
-
-    somaZonas +=
-      v;
-
-  }
-
-
-  if(somaZonas){
-
-    for(
-      let i=0;
-      i<zonas.length;
-      i++
-    ){
-
-      zonas[i] /=
-        somaZonas;
+      projY[y] +=
+        valor;
 
     }
 
   }
+
+
+  normalizarVetor(
+    projX
+  );
+
+
+  normalizarVetor(
+    projY
+  );
 
 
   return {
 
-    gray,
+    cinza,
 
-    edge,
+    bordas,
 
-    hist,
+    cores,
 
-    zonas,
+    projX,
 
-    tamanho
+    projY
 
   };
 
@@ -3614,11 +2996,12 @@ function extrairDescritorCanvas(
 
 
 /* ==========================================================
-   DESCRITOR COMPLETO
+   CRIAR CONJUNTO DE VARIANTES
 ========================================================== */
 
-async function assinatura(
-  blob
+async function criarConjuntoVisual(
+  blob,
+  tamanho
 ){
 
   const img =
@@ -3627,57 +3010,64 @@ async function assinatura(
     );
 
 
-  /*
-    Quatro níveis de enquadramento.
-
-    Isso é importante porque a foto do usuário
-    pode ter muito fundo, papel, chão, caneta etc.
-  */
-
-  const crops =
-    [
-      1,
-      .88,
-      .76,
-      .64
-    ];
-
-
   const variantes = [];
 
 
+  /*
+    Para a análise rápida:
+    vários enquadramentos.
+  */
+
+  const modos = [
+    "contain",
+    "crop85",
+    "crop70"
+  ];
+
+
   for(
-    const crop
-    of crops
+    const modo
+    of modos
   ){
 
     const canvas =
-      criarCanvasAnalise(
+      renderizarVariante(
         img,
-        crop,
-        0,
-        64
+        tamanho,
+        modo,
+        0
       );
 
 
-    variantes.push(
-      extrairDescritorCanvas(
-        canvas
-      )
-    );
+    variantes.push({
+
+      modo,
+
+      rotacao:0,
+
+      descritor:
+        criarDescritor(
+          canvas
+        )
+
+    });
 
   }
 
 
   return {
 
-    variantes,
-
     largura:
       img.naturalWidth,
 
     altura:
-      img.naturalHeight
+      img.naturalHeight,
+
+    proporcao:
+      img.naturalWidth /
+      img.naturalHeight,
+
+    variantes
 
   };
 
@@ -3685,114 +3075,101 @@ async function assinatura(
 
 
 /* ==========================================================
-   CORRELAÇÃO
+   CONJUNTO DETALHADO
 ========================================================== */
 
-function correlacao(
-  a,
-  b
+async function criarConjuntoDetalhado(
+  blob,
+  tamanho
 ){
 
-  const n =
-    Math.min(
-      a.length,
-      b.length
+  const img =
+    await imagemDoBlob(
+      blob
     );
 
 
-  let soma =
-    0;
+  const variantes = [];
 
 
-  let aa =
-    0;
-
-  let bb =
-    0;
-
-
-  for(
-    let i=0;
-    i<n;
-    i++
-  ){
-
-    soma +=
-      a[i] *
-      b[i];
-
-    aa +=
-      a[i] *
-      a[i];
-
-    bb +=
-      b[i] *
-      b[i];
-
-  }
+  const modos = [
+    "contain",
+    "crop85",
+    "crop70"
+  ];
 
 
-  const denominador =
-    Math.sqrt(
-      aa*bb
-    );
-
-
-  if(
-    !denominador
-  )
-    return 0;
-
-
-  return (
-    soma /
-    denominador
-  );
-
-}
-
-
-/* ==========================================================
-   DISTÂNCIA DE HISTOGRAMA
-========================================================== */
-
-function semelhancaHistograma(
-  a,
-  b
-){
-
-  let soma =
-    0;
-
-
-  for(
-    let i=0;
-    i<a.length;
-    i++
-  ){
-
-    soma +=
-      Math.min(
-        a[i],
-        b[i]
-      );
-
-  }
-
-
-  return Math.max(
+  const rotacoes = [
     0,
-    Math.min(
-      1,
-      soma
-    )
-  );
+    90,
+    180,
+    270
+  ];
+
+
+  /*
+    Na segunda etapa são testados
+    todos os enquadramentos e rotações.
+  */
+
+  for(
+    const modo
+    of modos
+  ){
+
+    for(
+      const rotacao
+      of rotacoes
+    ){
+
+      const canvas =
+        renderizarVariante(
+          img,
+          tamanho,
+          modo,
+          rotacao
+        );
+
+
+      variantes.push({
+
+        modo,
+
+        rotacao,
+
+        descritor:
+          criarDescritor(
+            canvas
+          )
+
+      });
+
+    }
+
+  }
+
+
+  return {
+
+    largura:
+      img.naturalWidth,
+
+    altura:
+      img.naturalHeight,
+
+    proporcao:
+      img.naturalWidth /
+      img.naturalHeight,
+
+    variantes
+
+  };
 
 }
 
 
 /* ==========================================================
-   COMPARAÇÃO DE DOIS DESCRITORES
+   COMPARAÇÃO DE DESCRITORES
 ========================================================== */
 
 function compararDescritores(
@@ -3800,61 +3177,128 @@ function compararDescritores(
   b
 ){
 
-  const gray =
-    (
-      correlacao(
-        a.gray,
-        b.gray
-      ) + 1
-    ) / 2;
+  if(!a || !b)
+    return 0;
 
 
-  const edge =
-    (
-      correlacao(
-        a.edge,
-        b.edge
-      ) + 1
-    ) / 2;
-
-
-  const hist =
-    semelhancaHistograma(
-      a.hist,
-      b.hist
+  const distanciaCinza =
+    distanciaNormalizada(
+      a.cinza,
+      b.cinza
     );
 
 
-  const zonas =
-    (
-      correlacao(
-        a.zonas,
-        b.zonas
-      ) + 1
-    ) / 2;
+  const distanciaBordas =
+    distanciaNormalizada(
+      a.bordas,
+      b.bordas
+    );
+
+
+  const distanciaProjX =
+    distanciaNormalizada(
+      a.projX,
+      b.projX
+    );
+
+
+  const distanciaProjY =
+    distanciaNormalizada(
+      a.projY,
+      b.projY
+    );
+
+
+  const distanciaCores =
+    distanciaHistograma(
+      a.cores,
+      b.cores
+    );
 
 
   /*
-    Peso maior para bordas e estrutura.
+    Converte as distâncias
+    em pontuações.
 
-    Isso reduz a influência do fundo.
+    O contorno recebe peso maior
+    porque é a característica mais
+    importante para reconhecer a peça.
+  */
+
+  const scoreEstrutura =
+    100 *
+    Math.exp(
+      -distanciaCinza /
+      0.82
+    );
+
+
+  const scoreBordas =
+    100 *
+    Math.exp(
+      -distanciaBordas /
+      0.88
+    );
+
+
+  const scoreProjecaoX =
+    100 *
+    Math.exp(
+      -distanciaProjX /
+      0.95
+    );
+
+
+  const scoreProjecaoY =
+    100 *
+    Math.exp(
+      -distanciaProjY /
+      0.95
+    );
+
+
+  const scoreProjecao =
+    (
+      scoreProjecaoX +
+      scoreProjecaoY
+    ) / 2;
+
+
+  const scoreCores =
+    Math.max(
+      0,
+      Math.min(
+        100,
+        100 *
+        (1-distanciaCores)
+      )
+    );
+
+
+  /*
+    Peso final:
+
+    30% estrutura
+    45% contornos
+    15% projeção/formato
+    10% cor
   */
 
   const resultado =
 
-    gray * 0.20 +
+    scoreEstrutura * 0.30 +
 
-    edge * 0.55 +
+    scoreBordas * 0.45 +
 
-    hist * 0.10 +
+    scoreProjecao * 0.15 +
 
-    zonas * 0.15;
+    scoreCores * 0.10;
 
 
   return Math.max(
     0,
     Math.min(
-      1,
+      100,
       resultado
     )
   );
@@ -3863,39 +3307,54 @@ function compararDescritores(
 
 
 /* ==========================================================
-   COMPARAÇÃO COARSE
+   COMPARAR CONJUNTOS
 ========================================================== */
 
-function compararAssinaturas(
+function compararConjuntos(
   referencia,
-  candidata
+  candidato
 ){
+
+  if(
+    !referencia ||
+    !candidato
+  ){
+
+    return 0;
+
+  }
+
 
   let melhor =
     0;
 
 
+  /*
+    A primeira etapa compara
+    vários enquadramentos.
+
+    Não depende de uma única
+    posição da imagem.
+  */
+
   for(
-    const a
+    const vr
     of referencia.variantes
   ){
 
     for(
-      const b
-      of candidata.variantes
+      const vc
+      of candidato.variantes
     ){
 
       const score =
         compararDescritores(
-          a,
-          b
+          vr.descritor,
+          vc.descritor
         );
 
 
-      if(
-        score >
-        melhor
-      ){
+      if(score > melhor){
 
         melhor =
           score;
@@ -3913,35 +3372,22 @@ function compararAssinaturas(
 
 
 /* ==========================================================
-   ANÁLISE DETALHADA COM ROTAÇÃO
+   COMPARAÇÃO DETALHADA
 ========================================================== */
 
-async function analiseDetalhada(
-  blob,
-  referencia
+function compararConjuntosDetalhados(
+  referencia,
+  candidato
 ){
 
-  const img =
-    await imagemDoBlob(
-      blob
-    );
+  if(
+    !referencia ||
+    !candidato
+  ){
 
+    return 0;
 
-  const rotacoes =
-    [
-      0,
-      90,
-      180,
-      270
-    ];
-
-
-  const crops =
-    [
-      1,
-      .88,
-      .76
-    ];
+  }
 
 
   let melhor =
@@ -3949,56 +3395,41 @@ async function analiseDetalhada(
 
 
   /*
-    A referência também é analisada
-    em múltiplos enquadramentos.
+    A comparação detalhada permite
+    rotação e recortes diferentes.
+
+    Para evitar custo excessivo,
+    comparamos primeiro as variantes
+    de mesmo tipo de enquadramento.
   */
 
   for(
-    const rotacao
-    of rotacoes
+    const vr
+    of referencia.variantes
   ){
 
     for(
-      const crop
-      of crops
+      const vc
+      of candidato.variantes
     ){
 
-      const canvas =
-        criarCanvasAnalise(
-          img,
-          crop,
-          rotacao,
-          64
+      /*
+        Preferência por recortes
+        semelhantes, mas ainda permite
+        comparar todos os tipos.
+      */
+
+      const score =
+        compararDescritores(
+          vr.descritor,
+          vc.descritor
         );
 
 
-      const candidato =
-        extrairDescritorCanvas(
-          canvas
-        );
+      if(score > melhor){
 
-
-      for(
-        const ref
-        of referencia.variantes
-      ){
-
-        const score =
-          compararDescritores(
-            ref,
-            candidato
-          );
-
-
-        if(
-          score >
-          melhor
-        ){
-
-          melhor =
-            score;
-
-        }
+        melhor =
+          score;
 
       }
 
@@ -4013,55 +3444,97 @@ async function analiseDetalhada(
 
 
 /* ==========================================================
-   PONTUAÇÃO
+   AJUSTE DE PROPORÇÃO
 ========================================================== */
 
-function converterScore(
-  score
+function aplicarAjusteProporcao(
+  score,
+  referencia,
+  candidato
 ){
 
-  /*
-    Transformação não linear.
-
-    Valores muito baixos continuam baixos.
-    Valores altos são valorizados.
-  */
-
-  let percentual =
-    Math.pow(
-      Math.max(
-        0,
-        Math.min(
-          1,
-          score
-        )
-      ),
-      0.72
-    ) * 100;
-
-
-  /*
-    Evita mostrar 99.9% quando não existe
-    uma correspondência realmente muito forte.
-  */
-
   if(
-    percentual > 97 &&
-    score < .93
+    !referencia ||
+    !candidato ||
+    !referencia.proporcao ||
+    !candidato.proporcao
   ){
 
-    percentual = 97;
+    return score;
 
   }
+
+
+  const diferenca =
+    Math.min(
+      1,
+      Math.abs(
+        Math.log(
+          referencia.proporcao /
+          candidato.proporcao
+        )
+      )
+    );
+
+
+  /*
+    Penalização pequena.
+
+    Não podemos dar peso alto para
+    proporção porque a mesma peça pode
+    estar fotografada na vertical,
+    horizontal ou com enquadramento
+    diferente.
+  */
+
+  const fator =
+    1 -
+    diferenca * 0.06;
 
 
   return Math.max(
     0,
     Math.min(
-      99.9,
-      percentual
+      100,
+      score * fator
     )
   );
+
+}
+
+
+/* ==========================================================
+   ASSINATURA COMPATÍVEL
+========================================================== */
+
+async function assinatura(blob){
+
+  const conjunto =
+    await criarConjuntoVisual(
+      blob,
+      32
+    );
+
+
+  return conjunto;
+
+}
+
+
+/* ==========================================================
+   ASSINATURA DETALHADA
+========================================================== */
+
+async function assinaturaDetalhada(blob){
+
+  const conjunto =
+    await criarConjuntoDetalhado(
+      blob,
+      32
+    );
+
+
+  return conjunto;
 
 }
 
@@ -4070,9 +3543,7 @@ function converterScore(
    ESCAPE HTML
 ========================================================== */
 
-function escapeHtml(
-  text
-){
+function escapeHtml(text){
 
   return String(text)
 
@@ -4105,6 +3576,23 @@ function escapeHtml(
 
 
 /* ==========================================================
+   PAUSA PARA O NAVEGADOR
+========================================================== */
+
+function esperarNavegador(){
+
+  return new Promise(
+    resolve =>
+      setTimeout(
+        resolve,
+        0
+      )
+  );
+
+}
+
+
+/* ==========================================================
    PROCURAR
 ========================================================== */
 
@@ -4113,38 +3601,30 @@ async function procurar(){
   const ppts =
     Array.from(
       document
-        .getElementById(
-          "ppt"
-        )
+        .getElementById("ppt")
         .files
     );
 
 
   const status =
     document
-      .getElementById(
-        "status"
-      );
+      .getElementById("status");
 
 
   const area =
     document
-      .getElementById(
-        "resultados"
-      );
+      .getElementById("resultados");
 
 
   const btn =
     document
-      .getElementById(
-        "btn"
-      );
+      .getElementById("btn");
 
 
-  if(!foto){
+  if(!fotos.length){
 
     alert(
-      "Escolha a foto primeiro."
+      "Escolha pelo menos uma foto."
     );
 
     return;
@@ -4163,40 +3643,68 @@ async function procurar(){
   }
 
 
-  btn.disabled =
-    true;
+  btn.disabled = true;
 
 
-  area.innerHTML =
-    "";
+  area.innerHTML = "";
 
 
   status.innerText =
-    "Preparando análise visual detalhada...";
+    "Preparando análise visual criteriosa...";
 
 
   try{
 
-    /*
-      PRIMEIRA FASE
+    /* ======================================================
+       ETAPA 1
+       ASSINATURAS DAS FOTOS DE PESQUISA
+    ====================================================== */
 
-      Criamos a assinatura da foto selecionada.
-    */
+    const referencias = [];
 
-    const ref =
-      await assinatura(
-        foto
-      );
+
+    for(
+      let f=0;
+      f<fotos.length;
+      f++
+    ){
+
+      status.innerText =
+        "Preparando foto de pesquisa " +
+        (f+1) +
+        " de " +
+        fotos.length +
+        "...";
+
+
+      const assinaturaFoto =
+        await assinatura(
+          fotos[f]
+        );
+
+
+      referencias.push({
+
+        arquivo:
+          fotos[f],
+
+        assinatura:
+          assinaturaFoto
+
+      });
+
+
+      await esperarNavegador();
+
+    }
 
 
     const todos = [];
 
 
-    /*
-      ======================================================
-      LEITURA DOS POWERPOINTS
-      ======================================================
-    */
+    /* ======================================================
+       LER TODOS OS POWERPOINTS
+    ====================================================== */
 
     for(
       let p=0;
@@ -4209,18 +3717,15 @@ async function procurar(){
 
 
       status.innerText =
-
         "Lendo PowerPoint " +
-
         (p+1) +
-
         " de " +
-
         ppts.length +
-
         ": " +
-
         ppt.name;
+
+
+      await esperarNavegador();
 
 
       const buffer =
@@ -4239,29 +3744,30 @@ async function procurar(){
         );
 
 
+      /*
+        Todas as imagens internas.
+      */
+
       const imagens =
         arquivos.filter(
           n =>
-
             n.startsWith(
               "ppt/media/"
-            )
-
-            &&
-
-            /\.(jpg|jpeg|png|webp|bmp|gif|tif|tiff)$/i
+            ) &&
+            /\.(jpg|jpeg|png|webp|bmp|gif|tif|tiff|svg)$/i
               .test(n)
         );
 
 
       const usos = {};
 
+
       const desenhos = {};
 
 
-      /*
-        SLIDES
-      */
+      /* ====================================================
+         LOCALIZAR SLIDES
+      ==================================================== */
 
       const slides =
         arquivos
@@ -4275,24 +3781,18 @@ async function procurar(){
           .sort(
             (a,b)=>{
 
-              const na =
-                +(
-                  a.match(
-                    /slide(\d+)\.xml/i
-                  )
-                  ||
-                  [,0]
-                )[1];
+              const na = +(
+                a.match(
+                  /slide(\d+)\.xml/i
+                ) || [,0]
+              )[1];
 
 
-              const nb =
-                +(
-                  b.match(
-                    /slide(\d+)\.xml/i
-                  )
-                  ||
-                  [,0]
-                )[1];
+              const nb = +(
+                b.match(
+                  /slide(\d+)\.xml/i
+                ) || [,0]
+              )[1];
 
 
               return na-nb;
@@ -4301,23 +3801,25 @@ async function procurar(){
           );
 
 
-      /*
-        RELACIONA IMAGENS A SLIDES
-      */
+      /* ====================================================
+         ANALISAR CADA SLIDE
+      ==================================================== */
 
       for(
-        const slide
-        of slides
+        let s=0;
+        s<slides.length;
+        s++
       ){
 
-        const num =
-          +(
-            slide.match(
-              /slide(\d+)\.xml/i
-            )
-            ||
-            [,0]
-          )[1];
+        const slide =
+          slides[s];
+
+
+        const num = +(
+          slide.match(
+            /slide(\d+)\.xml/i
+          ) || [,0]
+        )[1];
 
 
         const slideXml =
@@ -4372,8 +3874,7 @@ async function procurar(){
           const rid =
             blip.getAttribute(
               "r:embed"
-            )
-            ||
+            ) ||
             blip.getAttribute(
               "embed"
             );
@@ -4401,39 +3902,61 @@ async function procurar(){
             continue;
 
 
-          if(
-            !usos[target]
-          ){
-
-            usos[target] =
-              [];
-
-          }
+          if(!usos[target])
+            usos[target] = [];
 
 
           if(
             !usos[target]
-              .includes(
-                num
-              )
+              .includes(num)
           ){
 
-            usos[target].push(
-              num
-            );
+            usos[target]
+              .push(num);
 
           }
+
+        }
+
+
+        /*
+          Libera o navegador entre grupos
+          de slides para não travar a interface.
+        */
+
+        if(
+          s % 40 === 0
+        ){
+
+          status.innerText =
+            "Mapeando imagens e slides do PowerPoint " +
+            ppt.name +
+            " — slide " +
+            num +
+            " de " +
+            slides.length +
+            "...";
+
+
+          await esperarNavegador();
 
         }
 
       }
 
 
-      /*
-        ====================================================
-        PRIMEIRA ANÁLISE DAS IMAGENS
-        ====================================================
-      */
+      /* ====================================================
+         CACHE VISUAL DAS IMAGENS
+      ==================================================== */
+
+      const cacheImagens =
+        new Map();
+
+
+      /* ====================================================
+         PRIMEIRA PASSAGEM
+         BUSCA AMPLA
+      ==================================================== */
 
       for(
         let i=0;
@@ -4441,38 +3964,38 @@ async function procurar(){
         i++
       ){
 
+        const nome =
+          imagens[i];
+
+
         status.innerText =
-
-          "Analisando " +
-
+          "Busca visual ampla: " +
           ppt.name +
-
           " — imagem " +
-
           (i+1) +
-
           " de " +
+          imagens.length;
 
-          imagens.length +
 
-          "...";
+        if(
+          i % 4 === 0
+        ){
+
+          await esperarNavegador();
+
+        }
 
 
         try{
 
-          const nome =
-            imagens[i];
-
-
           const blob =
             await zip.files[nome]
-              .async(
-                "blob"
-              );
+              .async("blob");
 
 
           /*
-            Gera descritor.
+            Guarda o blob porque ele será
+            usado novamente na segunda etapa.
           */
 
           const sig =
@@ -4481,66 +4004,282 @@ async function procurar(){
             );
 
 
-          /*
-            Comparação inicial.
-          */
-
-          const scoreInicial =
-            compararAssinaturas(
-              ref,
-              sig
-            );
+          cacheImagens.set(
+            nome,
+            {
+              blob,
+              assinatura:sig
+            }
+          );
 
 
           const slidesDaImagem =
-            usos[nome] ||
-            [];
+            usos[nome] || [];
 
 
           const desenhosEncontrados =
             slidesDaImagem.map(
               slide =>
-                desenhos[slide]
-                ||
+                desenhos[slide] ||
                 "Desenho não identificado"
             );
 
 
-          todos.push({
+          /*
+            Compara com TODAS as fotos
+            selecionadas.
+          */
 
-            arquivo:
-              ppt.name,
+          for(
+            const referencia
+            of referencias
+          ){
 
-            nome:
-              nome
-                .split("/")
-                .pop(),
+            let score =
+              compararConjuntos(
+                referencia.assinatura,
+                sig
+              );
 
-            blob,
 
-            assinatura:
-              sig,
+            score =
+              aplicarAjusteProporcao(
+                score,
+                referencia.assinatura,
+                sig
+              );
 
-            scoreInicial,
 
-            score:
-              scoreInicial,
+            todos.push({
 
-            slides:
-              slidesDaImagem,
+              arquivo:
+                ppt.name,
 
-            desenhos:
-              desenhosEncontrados
+              nome:
+                nome.split("/")
+                  .pop(),
 
-          });
+              caminho:
+                nome,
+
+              blob,
+
+              score,
+
+              scoreAmplo:
+                score,
+
+              slides:
+                slidesDaImagem,
+
+              desenhos:
+                desenhosEncontrados,
+
+              fotoPesquisa:
+                referencia.arquivo.name,
+
+              referencia:
+
+                referencia
+
+            });
+
+          }
 
 
         }catch(e){
 
           console.warn(
             "Imagem ignorada",
+            nome,
             e
           );
+
+        }
+
+      }
+
+
+      /* ====================================================
+         SEGUNDA ETAPA
+         REFINAMENTO DOS CANDIDATOS
+      ==================================================== */
+
+      /*
+        Retira duplicações da mesma combinação
+        PowerPoint + imagem + foto de pesquisa.
+      */
+
+      todos.sort(
+        (a,b) =>
+          b.scoreAmplo -
+          a.scoreAmplo
+      );
+
+
+      /*
+        Para cada foto de pesquisa, os melhores
+        candidatos recebem uma análise muito
+        mais pesada.
+
+        Isso evita fazer rotação detalhada
+        em milhares de imagens desnecessariamente.
+      */
+
+      const candidatosPorFoto =
+        new Map();
+
+
+      for(
+        const referencia
+        of referencias
+      ){
+
+        const nomeFoto =
+          referencia.arquivo.name;
+
+
+        const candidatos =
+          todos
+            .filter(
+              r =>
+                r.fotoPesquisa ===
+                nomeFoto
+            )
+            .sort(
+              (a,b) =>
+                b.scoreAmplo -
+                a.scoreAmplo
+            )
+            .slice(
+              0,
+              150
+            );
+
+
+        candidatosPorFoto.set(
+          nomeFoto,
+          candidatos
+        );
+
+      }
+
+
+      let contadorDetalhado = 0;
+
+
+      for(
+        const referencia
+        of referencias
+      ){
+
+        const nomeFoto =
+          referencia.arquivo.name;
+
+
+        const candidatos =
+          candidatosPorFoto.get(
+            nomeFoto
+          ) || [];
+
+
+        for(
+          let c=0;
+          c<candidatos.length;
+          c++
+        ){
+
+          const candidato =
+            candidatos[c];
+
+
+          contadorDetalhado++;
+
+
+          status.innerText =
+            "Refinando correspondências: " +
+            contadorDetalhado +
+            " — " +
+            ppt.name +
+            " — " +
+            candidato.nome;
+
+
+          if(
+            contadorDetalhado % 2 === 0
+          ){
+
+            await esperarNavegador();
+
+          }
+
+
+          try{
+
+            const cache =
+              cacheImagens.get(
+                candidato.caminho
+              );
+
+
+            if(!cache)
+              continue;
+
+
+            /*
+              Agora usamos 12 variantes:
+
+              3 enquadramentos
+              x
+              4 rotações
+            */
+
+            const detalhada =
+              await assinaturaDetalhada(
+                cache.blob
+              );
+
+
+            let scoreDetalhado =
+              compararConjuntosDetalhados(
+                referencia.assinatura,
+                detalhada
+              );
+
+
+            /*
+              A análise detalhada recebe
+              prioridade sobre a análise ampla.
+            */
+
+            const scoreFinal =
+
+              scoreDetalhado * 0.78 +
+
+              candidato.scoreAmplo * 0.22;
+
+
+            candidato.score =
+              aplicarAjusteProporcao(
+                scoreFinal,
+                referencia.assinatura,
+                detalhada
+              );
+
+
+            candidato.scoreDetalhado =
+              scoreDetalhado;
+
+
+          }catch(e){
+
+            console.warn(
+              "Falha na análise detalhada",
+              candidato.nome,
+              e
+            );
+
+          }
 
         }
 
@@ -4549,110 +4288,9 @@ async function procurar(){
     }
 
 
-    /*
-      ======================================================
-      PRIMEIRA ORDENAÇÃO
-      ======================================================
-    */
-
-    todos.sort(
-      (a,b) =>
-        b.scoreInicial -
-        a.scoreInicial
-    );
-
-
-    /*
-      ======================================================
-      SEGUNDA FASE
-
-      Aqui está uma das principais melhorias.
-
-      Não fazemos a análise pesada em absolutamente
-      todas as imagens.
-
-      Primeiro selecionamos os melhores candidatos.
-
-      Depois esses candidatos passam por uma análise
-      muito mais rigorosa, incluindo rotações.
-      ======================================================
-    */
-
-    const quantidadeDetalhada =
-      Math.min(
-        150,
-        todos.length
-      );
-
-
-    status.innerText =
-      "Executando segunda análise visual nos " +
-      quantidadeDetalhada +
-      " candidatos mais próximos...";
-
-
-    for(
-      let i=0;
-      i<quantidadeDetalhada;
-      i++
-    ){
-
-      const candidato =
-        todos[i];
-
-
-      try{
-
-        const detalhado =
-          await analiseDetalhada(
-            candidato.blob,
-            ref
-          );
-
-
-        /*
-          Mistura a primeira análise
-          com a segunda análise.
-
-          A segunda tem mais peso.
-        */
-
-        candidato.score =
-
-          (
-            candidato.scoreInicial *
-            0.30
-          )
-
-          +
-
-          (
-            detalhado *
-            0.70
-          );
-
-
-        candidato.scoreDetalhado =
-          detalhado;
-
-
-      }catch(e){
-
-        console.warn(
-          "Falha na análise detalhada:",
-          e
-        );
-
-      }
-
-    }
-
-
-    /*
-      ======================================================
-      ORDENAÇÃO FINAL
-      ======================================================
-    */
+    /* ======================================================
+       ORDENAÇÃO FINAL
+    ====================================================== */
 
     todos.sort(
       (a,b) =>
@@ -4661,24 +4299,79 @@ async function procurar(){
     );
 
 
-    area.innerHTML =
-      "";
+    /*
+      Remove resultados duplicados do mesmo
+      arquivo de mídia para evitar que a mesma
+      imagem apareça várias vezes.
+    */
+
+    const unicos = [];
 
 
-    if(!todos.length){
+    const vistos =
+      new Set();
+
+
+    for(
+      const item
+      of todos
+    ){
+
+      const chave =
+
+        item.arquivo +
+        "|" +
+        item.caminho +
+        "|" +
+        item.fotoPesquisa;
+
+
+      if(
+        vistos.has(
+          chave
+        )
+      ){
+
+        continue;
+
+      }
+
+
+      vistos.add(
+        chave
+      );
+
+
+      unicos.push(
+        item
+      );
+
+    }
+
+
+    unicos.sort(
+      (a,b) =>
+        b.score -
+        a.score
+    );
+
+
+    area.innerHTML = "";
+
+
+    if(!unicos.length){
 
       area.innerHTML =
-
         "<p>Nenhuma imagem foi encontrada nos PowerPoints selecionados.</p>";
 
     }else{
 
       /*
-        MOSTRA OS 10 MELHORES
+        Mantém os 10 melhores.
       */
 
       const exibidos =
-        todos.slice(
+        unicos.slice(
           0,
           10
         );
@@ -4719,29 +4412,18 @@ async function procurar(){
                 x &&
                 x !==
                 "Desenho não identificado"
-            )
-            ||
+            ) ||
             r.desenhos[0];
 
         }
 
 
-        const percentual =
-          converterScore(
-            r.score
-          );
-
-
         div.innerHTML =
 
           '<div class="tag">' +
-
-          percentual.toFixed(1) +
-
+          r.score.toFixed(1) +
           '%' +
-
           '</div>' +
-
 
           '<div class="desenho">' +
 
@@ -4752,7 +4434,6 @@ async function procurar(){
           ) +
 
           '</div>' +
-
 
           '<div class="dados">' +
 
@@ -4766,19 +4447,13 @@ async function procurar(){
 
           (
             r.slides.length
-              ?
-              r.slides.join(
-                ", "
-              )
-              :
-              "não identificado"
+              ? r.slides.join(", ")
+              : "não identificado"
           ) +
 
           '<br><b>Semelhança visual:</b> ' +
 
-          percentual.toFixed(
-            1
-          ) +
+          r.score.toFixed(1) +
 
           '%' +
 
@@ -4820,14 +4495,13 @@ async function procurar(){
 
 
     status.innerText =
-
-      "Busca concluída. " +
-
-      todos.length +
-
-      " imagens analisadas. " +
-
-      "Os 10 resultados mais semelhantes foram exibidos.";
+      "Busca criteriosa concluída: " +
+      fotos.length +
+      " foto(s) analisada(s) contra " +
+      ppts.length +
+      " PowerPoint(s). " +
+      "Foram comparados enquadramentos, contornos, estrutura, cores e rotações. " +
+      "Os 10 melhores resultados foram exibidos.";
 
 
   }catch(erro){
@@ -4852,8 +4526,7 @@ async function procurar(){
 
   }finally{
 
-    btn.disabled =
-      false;
+    btn.disabled = false;
 
   }
 
@@ -4865,9 +4538,7 @@ async function procurar(){
 ========================================================== */
 
 document
-  .getElementById(
-    "btn"
-  )
+  .getElementById("btn")
   .addEventListener(
     "click",
     procurar
@@ -4875,7 +4546,7 @@ document
 
 
 /* ==========================================================
-   AO ABRIR
+   AO ABRIR O SISTEMA
 ========================================================== */
 
 carregarHistorico();
