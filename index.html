@@ -5,7 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Localizador de Fotos | IVECO</title>
 <link rel="icon" type="image/jpeg" href="caminhao.jpeg">
+
 <style>
+
 *{
   box-sizing:border-box;
 }
@@ -1063,6 +1065,7 @@ body{
   }
 
 }
+
 </style>
 </head>
 
@@ -1201,7 +1204,7 @@ body{
 
               <div class="drop-text">
 
-                Clique para selecionar uma imagem<br>
+                Clique para selecionar uma ou várias imagens<br>
                 ou arraste aqui
 
               </div>
@@ -1211,6 +1214,7 @@ body{
                 type="file"
                 id="foto"
                 accept="image/*"
+                multiple
               >
 
             </div>
@@ -1538,7 +1542,7 @@ body{
    VARIÁVEIS
 ========================================================== */
 
-let foto = null;
+let fotos = [];
 
 
 /* ==========================================================
@@ -1937,24 +1941,59 @@ document
 
 
 /* ==========================================================
-   SELEÇÃO DA FOTO
+   SELEÇÃO DE VÁRIAS FOTOS
 ========================================================== */
 
 document
   .getElementById("foto")
   .onchange = function(){
 
-    foto = this.files[0];
+    const novosArquivos =
+      Array.from(this.files);
 
 
-    if(foto){
+    if(!novosArquivos.length)
+      return;
+
+
+    /*
+      Adiciona as novas fotos
+      às fotos que já estavam selecionadas.
+    */
+
+    fotos =
+      fotos.concat(
+        novosArquivos
+      );
+
+
+    /*
+      Mantém somente imagens.
+    */
+
+    fotos =
+      fotos.filter(
+        arquivo =>
+          arquivo &&
+          arquivo.type.startsWith("image/")
+      );
+
+
+    /*
+      Mostra a primeira foto
+      no preview principal.
+    */
+
+    if(fotos.length){
 
       const img =
         document.getElementById("preview");
 
 
       img.src =
-        URL.createObjectURL(foto);
+        URL.createObjectURL(
+          fotos[0]
+        );
 
 
       img.style.display =
@@ -1966,10 +2005,32 @@ document
         .style.display =
         "flex";
 
+    }
 
-      adicionarFotoAoHistorico(foto);
+
+    /*
+      Adiciona cada nova foto
+      ao histórico.
+    */
+
+    for(
+      const arquivo
+      of novosArquivos
+    ){
+
+      adicionarFotoAoHistorico(
+        arquivo
+      );
 
     }
+
+
+    /*
+      Permite selecionar novamente
+      as mesmas fotos depois.
+    */
+
+    this.value = "";
 
   };
 
@@ -1987,7 +2048,7 @@ document
       .value = "";
 
 
-    foto = null;
+    fotos = [];
 
 
     document
@@ -2259,6 +2320,21 @@ function encontrarDesenho(xml){
             ""
           )
           .trim();
+
+
+      /*
+        Acrescenta L antes do &
+        quando o código começar com &.
+      */
+
+      if(
+        conteudo.startsWith("&")
+      ){
+
+        conteudo =
+          "L" + conteudo;
+
+      }
 
 
       const partes =
@@ -2596,10 +2672,10 @@ async function procurar(){
       .getElementById("btn");
 
 
-  if(!foto){
+  if(!fotos.length){
 
     alert(
-      "Escolha a foto primeiro."
+      "Escolha pelo menos uma foto."
     );
 
     return;
@@ -2625,13 +2701,46 @@ async function procurar(){
 
 
   status.innerText =
-    "Iniciando busca...";
+    "Preparando fotos para pesquisa...";
 
 
   try{
 
-    const ref =
-      await assinatura(foto);
+    /*
+      Cria as assinaturas de todas
+      as fotos selecionadas.
+    */
+
+    const referencias = [];
+
+
+    for(
+      let f=0;
+      f<fotos.length;
+      f++
+    ){
+
+      status.innerText =
+        "Preparando foto " +
+        (f+1) +
+        " de " +
+        fotos.length +
+        "...";
+
+
+      referencias.push({
+
+        arquivo:
+          fotos[f],
+
+        assinatura:
+          await assinatura(
+            fotos[f]
+          )
+
+      });
+
+    }
 
 
     const todos = [];
@@ -2862,47 +2971,62 @@ async function procurar(){
             );
 
 
-          const score =
-            similaridade(
-              distancia(
-                ref,
-                sig
-              )
-            );
+          /*
+            Compara a imagem do PowerPoint
+            com TODAS as fotos selecionadas.
+          */
+
+          for(
+            const referencia
+            of referencias
+          ){
+
+            const score =
+              similaridade(
+                distancia(
+                  referencia.assinatura,
+                  sig
+                )
+              );
 
 
-          const slidesDaImagem =
-            usos[nome] || [];
+            const slidesDaImagem =
+              usos[nome] || [];
 
 
-          const desenhosEncontrados =
-            slidesDaImagem.map(
-              slide =>
-                desenhos[slide] ||
-                "Desenho não identificado"
-            );
+            const desenhosEncontrados =
+              slidesDaImagem.map(
+                slide =>
+                  desenhos[slide] ||
+                  "Desenho não identificado"
+              );
 
 
-          todos.push({
+            todos.push({
 
-            arquivo:
-              ppt.name,
+              arquivo:
+                ppt.name,
 
-            nome:
-              nome.split("/")
-                .pop(),
+              nome:
+                nome.split("/")
+                  .pop(),
 
-            blob,
+              blob,
 
-            score,
+              score,
 
-            slides:
-              slidesDaImagem,
+              slides:
+                slidesDaImagem,
 
-            desenhos:
-              desenhosEncontrados
+              desenhos:
+                desenhosEncontrados,
 
-          });
+              fotoPesquisa:
+                referencia.arquivo.name
+
+            });
+
+          }
 
 
         }catch(e){
@@ -2918,6 +3042,11 @@ async function procurar(){
 
     }
 
+
+    /*
+      Ordena todos os resultados
+      pela maior semelhança.
+    */
 
     todos.sort(
       (a,b) =>
@@ -3067,6 +3196,8 @@ async function procurar(){
 
     status.innerText =
       "Busca concluída em " +
+      fotos.length +
+      " foto(s) contra " +
       ppts.length +
       " PowerPoint(s). Foram mostrados os 10 melhores resultados.";
 
